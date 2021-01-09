@@ -27,3 +27,6 @@ Route::get('/events/event_details/event_detial', function(){
 Route::get('/events/guests/all_guest_list', function(){
     return view('events/guests/all_guest_list');
 });
+Route::get('/events/guests/guest_list', function(){
+    return view('events/guests/guest_list');
+});
