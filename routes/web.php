@@ -16,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// event/event_detials route
+Route::get('/events/event_detail', function(){
+    return view('events/event_details/event_detail');
+});
