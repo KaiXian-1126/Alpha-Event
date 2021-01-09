@@ -18,6 +18,12 @@ Route::get('/', function () {
 });
 
 // event/event_detials route
-Route::get('/events/event_detail', function(){
+Route::get('/events/event_details/event_detial', function(){
     return view('events/event_details/event_detail');
+});
+
+
+// guests/al route
+Route::get('/events/guests/all_guest_list', function(){
+    return view('events/guests/all_guest_list');
 });
