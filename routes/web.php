@@ -37,4 +37,6 @@ Route::get('/events/guests/add_guest_list', function(){
 Route::get('/events/todo_list/todo_list', function(){
     return view('events/todo_list/todo_list');
 });
-
+Route::get('/events/todo_list/view_todo', function(){
+    return view('events/todo_list/view_todo');
+});
