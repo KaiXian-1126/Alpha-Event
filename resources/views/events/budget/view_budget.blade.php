@@ -25,7 +25,11 @@
                                 <td>Mark</td>
                                 <td>Otto</td>
                                 <td>Otto</td>
-                                <td><div class="d-flex justify-content-center"><button type="button" class="btn btn-primary">Edit</button></div></td>    
+                                <td>
+                                    <div class="d-flex justify-content-center">
+                                        <button type="button" class="btn btn-primary"><a href="/events/budget/edit_budget" class="my-btn-link">Edit</a></button>
+                                    </div>
+                                </td>    
                                 </tr>
                             </tbody>
                         </table>
@@ -34,7 +38,9 @@
                         <p>Total Amount: RM XXXX</p>
                     </div>
                     <div class="d-flex justify-content-end">
-                        <button type="button" class="btn btn-primary">Back</button>
+                        <button type="button" class="btn btn-primary">
+                            <a href="/events/budget/budget_list" class="my-btn-link">Back</a>
+                        </button>
                     </div>
                 </div>
                 <!-- col end -->

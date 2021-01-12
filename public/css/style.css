@@ -1,0 +1,13 @@
+a.my-btn-link{
+    color: white;
+}
+a.my-btn-link:hover{
+    text-decoration: none;
+}
+.my-sidebar-toggle{
+    color: grey;
+}
+.my-sidebar-toggle:link, .my-sidebar-toggle:visited, .my-sidebar-toggle:hover, .my-sidebar-toggle:active, .my-sidebar-toggle:focus{
+    text-decoration: none;
+    color: grey;
+}

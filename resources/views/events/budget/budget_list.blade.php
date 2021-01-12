@@ -17,7 +17,7 @@
                                 <th scope="col">Number of Item</th>
                                 <th scope="col">Budget Amount</th>
                                 <th scope="col">Under Budget</th>
-                                <th scope="col" colspan="3"><div class="text-center">Action</div></th>
+                                <th scope="col" colspan="2"><div class="text-center">Action</div></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -29,15 +29,24 @@
                                 <td>
                                    Yes
                                 </td>
-                                <td><div class="d-flex justify-content-center"><button type="button" class="btn btn-info">View</button></div></td> 
-                                <td><div class="d-flex justify-content-center"><button type="button" class="btn btn-primary">Edit</button></div></td> 
-                                <td><div class="d-flex justify-content-center"><button type="button" class="btn btn-danger">Delete</button></div></td>   
+                                <td>
+                                    <div class="d-flex justify-content-center">
+                                        <button type="button" class="btn btn-info"><a href="/events/budget/view_budget" class="my-btn-link">View</a></button>
+                                    </div>
+                                </td>  
+                                <td>
+                                    <div class="d-flex justify-content-center">
+                                        <button type="button" class="btn btn-danger"><a href="" class="my-btn-link">Delete</a></button>
+                                    </div>
+                                </td>   
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                     <div class="d-flex justify-content-end">
-                        <button type="button" class="btn btn-success rounded-circle">+</button>
+                        <button type="button" class="btn btn-success rounded-circle">
+                            <a href="/events/budget/add_budget" class="my-btn-link">+</a>
+                        </button>
                     </div>
                     <div class="d-flex justify-content-center">
                         <p>Total Amount: RM XXXX</p>

@@ -10,7 +10,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     
     <!-- public css -->
-
+    <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}" />
   </head>
   <body>
     @if (Route::has('login'))
@@ -68,7 +68,8 @@
                             <li class="list-group-item">
                                 <div id="accordion-1">       
                                 <h5 class="mb-0">
-                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <!-- Side bar toggle-->
+                                    <button class="btn btn-link my-sidebar-toggle" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                     Guests
                                     </button>
                                 </h5>
@@ -76,13 +77,17 @@
                                     <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                         <a href="/events/guests/all_guest_list">All Guests</a>
                                     </button>
+                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        <a href="/events/guests/guest_list">Guest List</a>
+                                    </button>
                                 </div>
                                 </div>
                             </li>
                             <li class="list-group-item">
                                 <div id="accordion-2">       
                                 <h5 class="mb-0">
-                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                    <!-- Side bar toggle-->
+                                    <button class="btn btn-link my-sidebar-toggle" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                                     To-do List
                                     </button>
                                 </h5>
@@ -93,7 +98,7 @@
                                 </div>
                                 </div>
                             </li>
-                            <li class="list-group-item"><a href="#">Budget</a></li>
+                            <li class="list-group-item"><a href="/events/budget/budget_list">Budget</a></li>
                             <li class="list-group-item"><a href="#">Invitation</a></li>
                             <li class="list-group-item"><a href="#">Publish</a></li>
                         </ul>

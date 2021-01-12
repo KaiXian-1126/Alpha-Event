@@ -12,9 +12,9 @@
                             <input class="form-control mr-sm-2" type="search" placeholder="Search Guest List" aria-label="Search">
                             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                         </form>
-                        <div class="row">
+                        <div class="row mt-2 mb-2">
                             <div class="col d-flex justify-content-end">
-                                <button type="button" class="btn btn-info">Add Guest List</button>
+                                <button type="button" class="btn btn-info"><a class="my-btn-link" href="/events/guests/add_guest_list">Add Guest List</a></button>
                             </div>
                         </div>
                     
@@ -33,7 +33,9 @@
                                 <th scope="row">1</th>
                                 <td>Mark</td>
                                 <td>Otto</td>
-                                <td  colspan="2"><button type="button" class="btn btn-primary">Edit</button> <button type="button" class="btn btn-danger">Delete</button></td>   
+                                <td  colspan="2">
+                                    <button type="button" class="btn btn-primary"><a href="#" class="my-btn-link">Edit</a></button>
+                                    <button type="button" class="btn btn-danger"><a href="#" class="my-btn-link">Delete</a></button></td>   
                                 </tr>
                             </tbody>
                         </table>

@@ -7,7 +7,7 @@
                 <!-- col start -->
                 <div class="col">
                 <form method="post" action="#">
-                    <h1 class="mt-5 mb-5" style="font-size: 16px">Edit Budget - Department - Item</h1>
+                    <h1 class="mt-5 mb-5" style="font-size: 16px">Add Budget - Department</h1>
                         <div class="row mb-3 mx-0 pd-0">
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend col-md-3 mx-0 px-0">
@@ -34,10 +34,10 @@
                         </div>
                         <div class="d-flex justify-content-end">
                             <button type="button" class="btn btn-success mr-2">
-                                <a href="" class="my-btn-link">Update</a>
+                                <a href="#" class="my-btn-link">Submit</a>
                             </button>
                             <button type="button" class="btn btn-secondary mr-2">
-                                <a href="/events/budget/view_budget" class="my-btn-link">Cancel</a>
+                                <a href="/events/budget/budget_list" class="my-btn-link">Cancel</a>
                             </button>
                         </div>
                     </form>

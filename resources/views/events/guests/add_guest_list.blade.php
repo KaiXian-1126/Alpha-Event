@@ -41,7 +41,7 @@
                         </table>
                     </div>
                     <div class="d-flex justify-content-end">
-                        <button type="button" class="btn btn-primary mr-2">Create List</button><button type="button" class="btn btn-danger">Cancel</button>
+                        <button type="button" class="btn btn-primary mr-2">Create List</button><button type="button" class="btn btn-danger"><a href="/events/guests/guest_list" class="my-btn-link">Cancel</a></button>
                     </div>
                 </div>
                 <!-- col end -->
