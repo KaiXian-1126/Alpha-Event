@@ -2,36 +2,8 @@
 <html lang="en">
   <head>
     <title>All Guests</title>
-    @extends("layouts.navigation_bar")
+    @extends("layouts.navigationbar_sidebar")
     @section("content")
-    <!-- Main Content -->
-    <main>
-        <div class="container-fluid">
-            <div class="row">
-                <!-- side bar start -->
-                <div class="col-md-3">
-                    <div class="card" style="width: 14rem;">
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Cras justo odio</li>
-                            <li class="list-group-item">
-                                <div id="accordion">       
-                                <h5 class="mb-0">
-                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    Guests
-                                    </button>
-                                </h5>
-                                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        All Guests
-                                    </button>
-                                </div>
-                                </div>
-                            </li>
-                            <li class="list-group-item">Vestibulum at eros</li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- side bar end -->
                 <!-- col start -->
                 <div class="col">
                     <h1 class="mb-4 mt-3" style="font-size: 16px">Program Name | Guest Information</h1>

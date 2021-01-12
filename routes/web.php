@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 // events/event_detials route
-Route::get('/events/event_details/event_detial', function(){
+Route::get('/events/event_details/event_detail', function(){
     return view('events/event_details/event_detail');
 });
 
