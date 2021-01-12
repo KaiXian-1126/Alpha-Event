@@ -50,3 +50,6 @@ Route::get('/events/budget/view_budget', function(){
 Route::get('/events/budget/edit_budget', function(){
     return view('events/budget/edit_budget');
 });
+Route::get('/events/budget/add_budget', function(){
+    return view('events/budget/add_budget');
+});
