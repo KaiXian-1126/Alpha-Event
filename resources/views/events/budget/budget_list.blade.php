@@ -7,17 +7,7 @@
                 <!-- col start -->
                 <div class="col ">
                     <h1 class="mb-4 mt-3" style="font-size: 16px">Program Name | Budget</h1>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">Guest List Name</span>
-                            </div>
-                            <input type="text" class="form-control" placeholder="Guest List Name" aria-label="Listname" aria-describedby="basic-addon1">
-                        </div>
                     <p>Budget List</p>
-                    <form class="form-inline d-flex mb-4">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search Guest" aria-label="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                    </form>
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
