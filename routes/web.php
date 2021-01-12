@@ -40,3 +40,7 @@ Route::get('/events/todo_list/todo_list', function(){
 Route::get('/events/todo_list/view_todo', function(){
     return view('events/todo_list/view_todo');
 });
+//events/budget route
+Route::get('/events/budget/budget_list', function(){
+    return view('events/budget/budget_list');
+});
