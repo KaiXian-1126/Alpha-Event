@@ -28,7 +28,7 @@
                         <br>
                         <div class="row">
                             <div class="col-4 " style="text-align: right">Role:</div>
-                            <div class="col-7"><select class="form-control" id="role" name="role">
+                            <div class="col-7"><select class="form-select" id="role" name="role">
                                 <option>Select role</option>
                                 <option>Top Management</option>
                                 <option>Executive</option>
@@ -38,7 +38,7 @@
                         
                         <div class="row">
                             <div class="col-4 " style="text-align: right">Department:</div>
-                            <div class="col-7"><select class="form-control" id="department" name="department">
+                            <div class="col-7"><select class="form-select" id="department" name="department">
                                 <option>Select department</option>
                                 <option>Transportation</option>
                                 <option>Refreshment</option>

@@ -34,7 +34,8 @@
                         <td>Otto</td>
                         <td>Mark</td>
                         <td>Otto</td>
-                        <td  colspan="2"><button type="button" class="btn btn-primary mybutton">Edit</button> <button type="button" class="btn btn-danger">Delete</button></td>   
+                        <td><button type="button" class="btn btn-primary mybutton">Edit</button></td>
+                        <td> <button type="button" class="btn btn-danger">Delete</button></td>   
                         </tr>
                     </tbody>
                 </table>

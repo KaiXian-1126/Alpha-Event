@@ -15,7 +15,7 @@
 
     <title>Alpha Event</title>
   </head>
-  <body>
+  <body style="background-color: #d2d2f3">
       <nav class="navbar navbar-expand-md bg-dark navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="{{url('/')}}">{{ config('app.name', 'Alpha Event') }}</a>

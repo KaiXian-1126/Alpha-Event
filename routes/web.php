@@ -63,3 +63,7 @@ Route::get('/MyEvents/create_event', function(){
 Route::get('/MyEvents/add_member', function(){
     return view('Myevents.add_member');
 });
+
+Route::get('/registeredevent', function(){
+    return view('registeredevent');
+});

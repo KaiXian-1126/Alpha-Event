@@ -15,10 +15,12 @@
 
   <!-- -external css -->
   <link href="css/style_sw.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <title>Alpha Event</title>
   </head>
-  <body>
+  <body style="background-color: #d2d2f3">
       <nav class="navbar navbar-expand-md bg-dark navbar-dark">
         <div class="container">
 
