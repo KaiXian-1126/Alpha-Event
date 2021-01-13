@@ -53,3 +53,13 @@ Route::get('/events/budget/edit_budget', function(){
 Route::get('/events/budget/add_budget', function(){
     return view('events/budget/add_budget');
 });
+// MyEvents/route
+Route::get('/MyEvents/view_team', function(){
+    return view('Myevents.view_team');
+});
+Route::get('/MyEvents/create_event', function(){
+    return view('Myevents.create_event');
+});
+Route::get('/MyEvents/add_member', function(){
+    return view('Myevents.add_member');
+});
