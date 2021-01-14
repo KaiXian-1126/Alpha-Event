@@ -57,3 +57,7 @@
     <div class="mt-2 mb-2" style="height:50px"></div>
     <!-- end Nav -->
     @yield('content')
+    <script src="//cdn.ckeditor.com/4.15.1/basic/ckeditor.js"></script>
+                <script>
+                CKEDITOR.replace( 'summary-ckeditor' );
+                </script>

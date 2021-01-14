@@ -105,4 +105,9 @@
                     </div>
                 </div>
                 <!-- side bar end -->
+                <script src="//cdn.ckeditor.com/4.15.1/basic/ckeditor.js"></script>
+                <script>
+                CKEDITOR.replace( 'summary-ckeditor' );
+                </script>
     @yield('content')
+  

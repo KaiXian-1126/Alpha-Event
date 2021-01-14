@@ -22,6 +22,34 @@ Route::get('/events/event_details/event_detail', function(){
     return view('events/event_details/event_detail');
 });
 
+Route::get('/events/event_details/edit_detail', function(){
+    return view('events/event_details/edit_detail');
+});
+
+Route::get('/events/event_details/edit_anouncement', function(){
+    return view('events/event_details/edit_anouncement');
+});
+
+Route::get('/events/invitation/edit_invitation', function(){
+    return view('events/invitation/edit_invitation');
+});
+
+Route::get('/events/invitation/send_invitation', function(){
+    return view('events/invitation/send_invitation');
+});
+
+Route::get('/PublicEvents/publiceventdetail', function(){
+    return view('PublicEvents/publiceventdetail');
+});
+
+
+Route::get('/PublicEvents/publicevent', function(){
+    return view('PublicEvents/publicevent');
+});
+
+Route::get('/MyEvents/myevent', function(){
+    return view('/MyEvents/myevent');
+});
 
 // events/guests route
 Route::get('/events/guests/all_guest_list', function(){

@@ -169,6 +169,12 @@
                                      <p>tentative.pdf</p>
                                     </div>
                                  </div>
+
+                                 <br>
+                                    <div style="text-align: center;">
+                                    <button type="submit" class="btn btn-primary mt-3" style="width:30%;">Edit</button>
+                                    </div>
+                                <br>
                         
                                  </div>
                             </div>
@@ -182,6 +188,12 @@
                                     <br>
                                     <textarea style="width:100%; height:50%; margin-bottom:5%;" readonly></textarea>
                                     <textarea style="width:100%; height:20%; margin-bottom:2%;" readonly></textarea>
+                                    
+                                    <br>
+                                    <div style="text-align: center;">
+                                        <button type="submit" class="btn btn-primary mt-3" style="width:30%;">Edit</button>
+                                    </div>
+                                    <br>
                                 </div>
                             </div>
                             
