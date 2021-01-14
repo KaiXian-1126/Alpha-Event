@@ -78,7 +78,7 @@
                 </div>
                 
             </div>
-            <div class="col-sm-3" >
+            <div class="col-sm-3" style="margin-bottom:10%;">
                 <div class="container" style="margin-top:30%;border:1px solid black;padding-top:10%;padding-bottom:10%;text-align:center;">
                 <h1 style="font-size: 16px;text-decoration:underline;">Send invitation</h1>
                 <br><br>
