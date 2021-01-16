@@ -100,3 +100,6 @@ Route::get('/registeredevent', function(){
 Route::get('/gamification/gamification_profile', function(){
     return view('gamification/gamification_profile');
 });
+Route::get('/gamification/ranking_dashboard', function(){
+    return view('gamification/ranking_dashboard');
+});
