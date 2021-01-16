@@ -103,3 +103,9 @@ Route::get('/gamification/gamification_profile', function(){
 Route::get('/gamification/ranking_dashboard', function(){
     return view('gamification/ranking_dashboard');
 });
+Route::get('/gamification/ranking_dashboard', function(){
+    return view('gamification/ranking_dashboard');
+});
+Route::get('/gamification/user_profile', function(){
+    return view('gamification/user_profile');
+});
