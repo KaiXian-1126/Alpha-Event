@@ -14,7 +14,8 @@ class CreateRegisteredEventsTable extends Migration
     public function up()
     {
         Schema::create('registered_events', function (Blueprint $table) {
-            $table->id();
+            $table->integer('Guest_id');
+            $table->integer('Event_id');
             $table->timestamps();
         });
     }

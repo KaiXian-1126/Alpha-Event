@@ -14,7 +14,12 @@ class CreateTodosTable extends Migration
     public function up()
     {
         Schema::create('todos', function (Blueprint $table) {
-            $table->id();
+            $table->increments('Task_id');
+            $table->integer('Event_id');
+            $table->string('Department');
+            $table->string('Task_name');
+            $table->string('status');
+            $table->timestamps();
             $table->timestamps();
             
         });

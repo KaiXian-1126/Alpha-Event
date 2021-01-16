@@ -14,7 +14,8 @@ class CreatePublicEventsTable extends Migration
     public function up()
     {
         Schema::create('public_events', function (Blueprint $table) {
-            $table->id();
+            $table->increments('Public_event_id');
+            $table->integer('Event_id');
             $table->timestamps();
         });
     }
