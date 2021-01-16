@@ -95,3 +95,8 @@ Route::get('/MyEvents/add_member', function(){
 Route::get('/registeredevent', function(){
     return view('registeredevent');
 });
+
+//Gamification route
+Route::get('/gamification/gamification_profile', function(){
+    return view('gamification/gamification_profile');
+});
