@@ -112,3 +112,10 @@ Route::get('/gamification/user_profile', function(){
 Route::get('/gamification/top_up', function(){
     return view('gamification/top_up');
 });
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
