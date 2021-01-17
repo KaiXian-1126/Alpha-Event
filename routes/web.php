@@ -18,9 +18,7 @@ Route::get('/', function () {
 });
 
 // events/event_detials route
-Route::get('/events/event_details/event_detail', function(){
-    return view('events/event_details/event_detail');
-});
+Route::get('/events/event_details/event_detail/{id}', "App\Http\Controllers\EventController@show");
 
 Route::get('/events/event_details/edit_detail', function(){
     return view('events/event_details/edit_detail');
@@ -123,8 +121,9 @@ Route::get('/gamification/top_up', function(){
     return view('gamification/top_up');
 });
 Auth::routes();
+Route::get('/home', "App\Http\Controllers\EventController@getAllEvents");
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/MyEvents/manage_team', function(){
     return view('MyEvents.manage_team');
@@ -135,4 +134,4 @@ Route::get('/a', function(){
 });
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+

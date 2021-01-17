@@ -8,6 +8,15 @@ use Illuminate\Support\Facades\DB;
 
 class EventController extends Controller
 {
+    public function getAllEvents(){
+        $nowDate = date("Y-m-d");
+        $nowTime = date("H:i:s");
+        $upcomingEvents = Event::where("Event_EndDate", ">", $nowDate)
+        ->orWhere([["Event_EndDate", $nowDate],["Event_EndTime", ">", $nowTime]])->get();
+        $pastEvents = Event::where("Event_endDate", "<", $nowDate,)
+        ->orWhere([["Event_EndDate", $nowDate],["Event_EndTime", "<", $nowTime]])->get();
+        return view('/home', ["upcomingEvents"=>$upcomingEvents, "pastEvents"=>$pastEvents]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -35,7 +44,8 @@ class EventController extends Controller
         $event->Announcement = "This is an announcement";
         $event->Description = "This is a description";
         $event->save();
-        return view('/home');
+        
+        return redirect("/home");
     }
 
     /**
@@ -57,7 +67,7 @@ class EventController extends Controller
      */
     public function show($id)
     {
-        //
+        return view("events/event_details/event_detail");
     }
 
     /**
