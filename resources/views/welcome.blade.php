@@ -1,14 +1,13 @@
 @extends('layouts.dashboard')
 
 @section('content')
-    <div class="container">
 
       <div class="row justify-self-center mt-5 mb-5">
           <p class="welcomeScreenText" >Events Management Software<br>For all kind of events</p>
-          <button class="btn btn-warning col-md-4 welcomeScreenButton" >GET START</button>
+          <a href="{{ url('/register') }}"><button class="btn btn-warning col-md-4 welcomeScreenButton" >GET START</button></a>
       </div>
 
-      <!-- visible only on mobile start -->
+      <!--  start -->
       <div class="text-center">
         <div class="row ">
             <div class="col-md-4 align-self-center">
@@ -62,9 +61,8 @@
             </div>
         </div>
       </div>
-        <!-- visible only on mobile end -->
+        <!--  end -->
 
         
-    </div>
     </div>
 @endsection

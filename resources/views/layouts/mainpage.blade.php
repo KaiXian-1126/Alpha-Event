@@ -32,13 +32,13 @@
             <div class="navbar-collapse collapse justify-content-center" id="middleNavbar">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                      <a class="nav-link " href="#">My Event</a>
+                      <a class="nav-link " href="/home">My Event</a>
                     </li>
                     <li class="nav-item" style="margin: auto 10px;">
-                      <a class="nav-link" href="#">Public Events</a>
+                      <a class="nav-link" href="/PublicEvents/publicevent">Public Events</a>
                     </li>
                       <li class="nav-item">
-                      <a class="nav-link" href="#">Registered</a>
+                      <a class="nav-link" href="/registeredevent">Registered</a>
                     </li>
                   </ul>
                 </div>
