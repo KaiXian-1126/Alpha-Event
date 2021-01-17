@@ -36,7 +36,7 @@
                         <p class="card-text">1. + 365 active days.</p>
                         <p class="card-text">2. Extra 10 daily tasks.</p>
                         <p class="card-text">3. Extra 1 weekly task.</p>
-                        <p class="card-text">3. Bonus point 30%.</p>
+                        <p class="card-text">4. Bonus point 30%.</p>
                     </div>
                     <div class="card-footer bg-transparent border-info">RM 100.00</div>
                 </div>

@@ -11,7 +11,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 d-flex justify-content-center mt-2 mb-2">
-                    <div class="card" style="width: 10rem; height: 10rem;">
+                    <div class="card" style="width: 16rem; height: 16rem;">
                         <img class="card-img-top" src="{{ URL::asset('assets/img/profile.png') }}" alt="Card image cap">
                     </div>
                 </div>
@@ -25,7 +25,7 @@
                         <h2>Current Medal</h2>
                     </div>
                     <div class="row d-flex justify-content-center">
-                        <img class="card-img-top" style="width: 100px; height: 100px;" src="{{ URL::asset('assets/img/profile.png') }}" alt="Card image cap">
+                        <img class="card-img-top" style="width: 100px; height: 200px;" src="{{ URL::asset('assets/img/gold.png') }}" alt="Card image cap">
                     </div>
                     <div class="row d-flex justify-content-center">
                         <p>Point: 3000</p>
