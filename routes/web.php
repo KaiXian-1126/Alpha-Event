@@ -95,3 +95,6 @@ Route::get('/MyEvents/add_member', function(){
 Route::get('/registeredevent', function(){
     return view('registeredevent');
 });
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
