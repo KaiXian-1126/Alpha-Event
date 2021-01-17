@@ -20,8 +20,6 @@ class CreateTodosTable extends Migration
             $table->string('Task_name');
             $table->string('status');
             $table->timestamps();
-            $table->timestamps();
-            
         });
     }
 
