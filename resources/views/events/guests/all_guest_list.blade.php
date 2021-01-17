@@ -14,7 +14,7 @@
                         </form>
                         <div class="row">
                             <div class="col d-flex justify-content-end">
-                                <button type="button" class="btn btn-info">Add Guest</button>
+                                <button type="button" class="btn btn-info"><a class="my-btn-link" href="/events/guests/add_guest">Add Guest</a></button>
                             </div>
                         </div>
                     <p class="mb-4">Number of Guests: </p>
@@ -26,17 +26,25 @@
                                 <th scope="col">Name</th>
                                 <th scope="col">Email</th>
                                 <th scope="col">Phone No</th>
-                                <th scope="col" colspan="2">Action</th>
+                                <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
+                            @php
+                                $counter = 1;
+                            @endphp
+                            @foreach($guests as $guest)
                                 <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td  colspan="2"><button type="button" class="btn btn-primary">Edit</button> <button type="button" class="btn btn-danger">Delete</button></td>   
+                                <th scope="row">@php echo $counter @endphp</th>
+                                <td>{{ $guest->name}}</td>
+                                <td>{{ $guest->email}}</td>
+                                <td>{{ $guest->phone}}</td>
+                                <td><button type="button" class="btn btn-danger">
+                                        <a class="my-btn-link" href="/events/guests/delete_guest/1/{{$guest->id}}">Delete</a>
+                                    </button>
+                                </td>   
                                 </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </div>

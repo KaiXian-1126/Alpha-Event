@@ -18,30 +18,43 @@
                         <input class="form-control mr-sm-2" type="search" placeholder="Search Guest" aria-label="Search">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                     </form>
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                <th scope="col">No</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Phone No</th>
-                                <th scope="col"><div class="text-center">Add</div></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>Otto</td>
-                                <td><div class="d-flex justify-content-center"><input type="checkbox" aria-label="Checkbox for following text input"></div></td>   
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="d-flex justify-content-end">
-                        <button type="button" class="btn btn-primary mr-2">Create List</button><button type="button" class="btn btn-danger"><a href="/events/guests/guest_list" class="my-btn-link">Cancel</a></button>
+                    <form action="" method="post">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                    <th scope="col">No</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Phone No</th>
+                                    <th scope="col"><div class="text-center">Add</div></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                @php
+                                    $counter = 1;
+                                @endphp
+                                @foreach($guests as $guest)
+                                    <tr>
+                                    <th scope="row">@php echo $counter @endphp</th>
+                                    <td>{{$guest->name}}</td>
+                                    <td>{{$guest->email}}</td>
+                                    <td>{{$guest->phone}}</td>
+                                    <td><div class="d-flex justify-content-center">
+                                            <input type="checkbox" aria-label="Checkbox for following text input" name="id" value="{{$guest->id}}">
+                                        </div>
+                                    </td>   
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="d-flex justify-content-end">
+                            <button type="button" class="btn btn-primary mr-2">Create List</button>
+                            <button type="button" class="btn btn-danger">
+                                <a href="/events/guests/guest_list" class="my-btn-link">Cancel</a>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <!-- col end -->

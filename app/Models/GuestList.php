@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Guest extends Model
+class GuestList extends Model
 {
     use HasFactory;
-    protected $table = "guests";
+    protected $table = "guest_list";
     public $timestamps = false;
 }

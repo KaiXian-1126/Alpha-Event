@@ -24,19 +24,22 @@
                                 <tr>
                                 <th scope="col">No</th>
                                 <th scope="col">Guest List</th>
-                                <th scope="col">Number of Guests</th>
                                 <th scope="col" colspan="2">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
+                            @php
+                                $counter = 1;
+                            @endphp
+                            @foreach($guestList as $list)
                                 <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td  colspan="2">
+                                <th scope="row">@php echo $counter @endphp</th>
+                                <td>{{$list->Guest_list}}</td>
+                                <td colspan="2">
                                     <button type="button" class="btn btn-primary"><a href="#" class="my-btn-link">Edit</a></button>
                                     <button type="button" class="btn btn-danger"><a href="#" class="my-btn-link">Delete</a></button></td>   
                                 </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </div>

@@ -3,11 +3,64 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Models\Guest;
+use App\Models\Guest;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
-
 class GuestController extends Controller
 {
+    public function addGuest(){
+        $guest = new Guest();
+        $user = User::all()->where("email", request("email"));
+        if(sizeof($user) == 1){
+            $guest->Guest_id =  $user[0]->id;
+            $guest->Event_id = request("event-id");
+            $guest->Guest_list = "-";
+            $guest->save();
+            return view("/events/guests/add_guest");
+        }else{
+            return redirect("/events/guests/add_guest")->with("message", "User is not available.");
+        }
+    }
+    public function deleteGuest($eventid, $guestid){
+        $guest = Guest::where([['Event_id', "=" , $eventid], ['Guest_id', "=", $guestid]])->delete();;
+       
+        return view("/events/guests/all_guest_list");
+        
+       
+    }
+    public function readAllGuest(){
+        $eventid = 1;
+        $guests = Guest::all()->where("Event_id", $eventid);
+        $users = array();
+        foreach($guests as $guest){
+            $user = User::where("id", $guest->Guest_id)->get()->first();
+            if($user != null){
+                array_push($users, $user);
+                $user = null;
+            }
+        }
+        
+        return view("/events/guests/all_guest_list", ["guests" => $users]);
+    }
+    public function readGuestList(){
+        $eventid = 1;
+        $guestList = Guest::where([["Event_id", $eventid], ["Guest_list", "!=", "-"]])->distinct()->get();
+        return view("/events/guests/guest_list", ["guestList" => $guestList]);
+    }
+    public function readUnassignedGuest(){
+        $eventid = 1;
+        $guests = Guest::where([["Event_id", $eventid],["Guest_list", "-"]])->get();
+        $users = array();
+        foreach($guests as $user){
+            $user = User::where("id", $user->Guest_id)->get()->first();
+            if($user != null){
+                array_push($users, $user);
+                $user = null;
+            }
+        }
+        
+        return view("/events/guests/add_guest_list", ["guests" => $users]);
+    }
     /**
      * Display a listing of the resource.
      *
