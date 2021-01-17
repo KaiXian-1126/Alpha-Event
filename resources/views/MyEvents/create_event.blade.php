@@ -65,7 +65,7 @@
                             <div class="col" style="text-align: right;">
                             <button type="submit" class="btn btn-primary" name="submit">Comfirm</button></div>
                             <div class="col" >
-                            <button type="button" class="btn btn-danger" style="width: 88px" name="cancel">Cancel</button></div></div>
+                            <a href="../home"><button type="button" class="btn btn-danger" style="width: 88px" name="cancel">Cancel</button></a></div></div>
                         </div>  
                
                     </div>

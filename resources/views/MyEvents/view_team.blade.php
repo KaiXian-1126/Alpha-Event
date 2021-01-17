@@ -17,13 +17,12 @@
                 <table class="table mt-4" style="text-align: center">
                     <thead>
                         <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Phone</th>
-                        <th scope="col">Role</th>
-                        <th scope="col">Department</th>
-                        <th scope="col" colspan="2">Action</th>
+                            <th scope="col">No</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Phone</th>
+                            <th scope="col">Role</th>
+                            <th scope="col">Department</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -34,20 +33,15 @@
                         <td>Otto</td>
                         <td>Mark</td>
                         <td>Otto</td>
-                        <td><button type="button" class="btn btn-primary mybutton">Edit</button></td>
-                        <td> <button type="button" class="btn btn-danger">Delete</button></td>   
                         </tr>
                     </tbody>
                 </table>
-            </div>
-            <div class="text-right">
-                <button class="btn btn-success mybutton">Add</button>
             </div>  
         </div>
         <!-- Table end -->
         <br>
         <div class="text-center mt-2">
-            <button class="btn btn-primary mybutton">Back</button>
+            <a href="../home"><button class="btn btn-primary mybutton">Back</button></a>
         </div>
     </div>
 @endsection

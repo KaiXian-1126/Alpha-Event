@@ -95,6 +95,13 @@ Route::get('/MyEvents/add_member', function(){
 Route::get('/registeredevent', function(){
     return view('registeredevent');
 });
+Route::get('/MyEvents/manage_team', function(){
+    return view('MyEvents.manage_team');
+});
+
+Route::get('/a', function(){
+    return view('layouts.eventsidebar');
+});
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
