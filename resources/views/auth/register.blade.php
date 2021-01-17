@@ -75,12 +75,7 @@
                             </div>
                         </div>
                         
-                        <div class="form-group row">
-
-                            <div class="col-md-6">
-                        <input id="image" class="form-control" name="image" type="hidden" value="avatar1_small.jpg">
-                    </div>
-                </div>
+                       
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
