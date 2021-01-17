@@ -17,12 +17,13 @@
                 <table class="table mt-4" style="text-align: center">
                     <thead>
                         <tr>
-                            <th scope="col">No</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Phone</th>
-                            <th scope="col">Role</th>
-                            <th scope="col">Department</th>
+                        <th scope="col">No</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Role</th>
+                        <th scope="col">Department</th>
+                        <th scope="col" colspan="2">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -33,9 +34,14 @@
                         <td>Otto</td>
                         <td>Mark</td>
                         <td>Otto</td>
+                        <td><button type="button" class="btn btn-primary mybutton">Edit</button>
+                         <button type="button" class="btn btn-danger">Delete</button></td>   
                         </tr>
                     </tbody>
                 </table>
+            </div>
+            <div class="text-right">
+                <a href="/MyEvents/add_member"><button class="btn btn-success mybutton">Add</button></a>
             </div>  
         </div>
         <!-- Table end -->

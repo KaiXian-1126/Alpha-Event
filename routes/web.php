@@ -26,6 +26,9 @@ Route::get('/events/event_details/edit_detail', function(){
     return view('events/event_details/edit_detail');
 });
 
+Route::get('/events/event_details/edit_event', function(){
+    return view('events/event_details/edit_event');
+});
 Route::get('/events/event_details/edit_anouncement', function(){
     return view('events/event_details/edit_anouncement');
 });
@@ -121,6 +124,13 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('/MyEvents/manage_team', function(){
+    return view('MyEvents.manage_team');
+});
+
+Route::get('/a', function(){
+    return view('layouts.eventsidebar');
+});
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

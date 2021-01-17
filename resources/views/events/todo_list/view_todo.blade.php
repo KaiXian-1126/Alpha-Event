@@ -2,10 +2,13 @@
 <html lang="en">
   <head>
     <title>Guest List</title>
-    @extends("layouts.navigationbar_sidebar")
+</head>
+    @extends("layouts.eventsidebar")
     @section("content")
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4"> 
                 <!-- col start -->
-                <div class="col">
+                <div class="row " >
+                <div class="col-md-12">
                     <h1 class="mb-4 mt-3" style="font-size: 16px">Program Name | To-do List</h1>
                     <h2 class="mb-4 mt-3" style="font-size: 14px">Department Name | To-do</h2>
                     <div class="row mb-3 mr-2">         
@@ -46,10 +49,9 @@
                         </div>
                     </div>
                 </div>
-                <!-- col end -->
             </div>
         </div>
-    </main>
-  </body>
+                <!-- col end -->
+    </main> 
+   @endsection  
 </html>
-@endsection

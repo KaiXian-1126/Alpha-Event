@@ -118,7 +118,7 @@
                      <div class="row">
                          <div class="col">
                         <div style="text-align: center;">
-                            <button type="submit" class="btn btn-primary mt-3">Back</button>
+                            <a href="/PublicEvents/publicevent"><button type="button" class="btn btn-primary mt-3">Back</button></a>
                             </div>
                         </div>
                             

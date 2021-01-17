@@ -2,9 +2,12 @@
 <html lang="en">
   <head>
     <title>Guest List</title>
-    @extends("layouts.navigationbar_sidebar")
+  </head>
+    @extends("layouts.eventsidebar")
     @section("content")
-                <!-- col start -->
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4"> 
+        <div class="row">        
+        <!-- col start -->
                 <div class="col">
                     <h1 class="mb-4 mt-3" style="font-size: 16px">Program Name | Guest List</h1>
                     
@@ -27,6 +30,7 @@
                                 <th scope="col" colspan="2">Action</th>
                                 </tr>
                             </thead>
+                          
                             <tbody>
                             @php
                                 $counter = 1;
@@ -46,8 +50,8 @@
                 </div>
                 <!-- col end -->
             </div>
-        </div>
+      
     </main>
   </body>
-</html>
-@endsection
+  @endsection
+  </html>
