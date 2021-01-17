@@ -10,15 +10,16 @@ class GuestController extends Controller
 {
     public function addGuest(){
         $guest = new Guest();
-        $user = User::all()->where("email", request("email"));
+        $user = User::where("email", request("email"))->get();
+        $eventid = request("id");
         if(sizeof($user) == 1){
             $guest->Guest_id =  $user[0]->id;
-            $guest->Event_id = request("event-id");
+            $guest->Event_id = request("id");
             $guest->Guest_list = "-";
             $guest->save();
-            return view("/events/guests/add_guest");
+            return redirect("/events/guests/all_guest_list/$eventid");
         }else{
-            return redirect("/events/guests/add_guest")->with("message", "User is not available.");
+            return redirect("/events/guests/add_guest/$eventid")->with("message", "User is not available.");
         }
     }
     public function deleteGuest($eventid, $guestid){
@@ -28,19 +29,11 @@ class GuestController extends Controller
         
        
     }
-    public function readAllGuest(){
-        $eventid = 1;
-        $guests = Guest::all()->where("Event_id", $eventid);
-        $users = array();
-        foreach($guests as $guest){
-            $user = User::where("id", $guest->Guest_id)->get()->first();
-            if($user != null){
-                array_push($users, $user);
-                $user = null;
-            }
-        }
-        
-        return view("/events/guests/all_guest_list", ["guests" => $users]);
+    public function readAllGuest($eventid){
+        $guests = DB::table('guests')
+            ->join('users', 'users.id', '=', 'guests.Guest_id')
+            ->get();
+        return view("/events/guests/all_guest_list", ["guests" => $guests, "id" => $eventid]);
     }
     public function readGuestList(){
         $eventid = 1;
@@ -59,7 +52,10 @@ class GuestController extends Controller
             }
         }
         
-        return view("/events/guests/add_guest_list", ["guests" => $users]);
+        return view("/events/guests/add_guest_list", ["guests" => $users, "id" => $id]);
+    }
+    public function accessAddGuestForm($id){
+        return view('events/guests/add_guest', ['id' => $id] );
     }
     /**
      * Display a listing of the resource.

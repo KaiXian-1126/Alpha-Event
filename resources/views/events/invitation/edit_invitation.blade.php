@@ -4,7 +4,7 @@
 <head>
     <title>Edit event</title>
 </head>
-@extends("layouts.eventsidebar")
+@extends("layouts.eventsidebar", , ["id"=>$id])
 @section("content")
 
 <!-- Main Content -->

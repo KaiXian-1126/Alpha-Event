@@ -20,13 +20,13 @@
                 @endif
                 <form action="/events/guests/add-guest" method="post">
                 @csrf
-                    <input type="hidden" value="1" name="event-id">
+                    <input type="hidden" value="{{$id}}" name="id">
                     <div class="row mt-5 mb-2">
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1">Email</span>
                             </div>
-                            <input type="text" name="email" class="form-control" placeholder="Enter email" aria-label="Email" aria-describedby="basic-addon1">
+                            <input type="email" name="email" class="form-control" placeholder="Enter email" aria-label="Email" aria-describedby="basic-addon1">
                         </div>
                     </div>
                     <div class="row d-flex justify-content-end">

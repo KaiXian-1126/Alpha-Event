@@ -78,7 +78,7 @@
           <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
             <div class="card" style="width: 12.5rem;">
               <ul class="list-group list-group-flush" >
-                  <li class="list-group-item list-group-item-action"><a href="/events/event_details/event_detail">Event</a></li>
+                  <li class="list-group-item list-group-item-action"><a href="/events/event_details/event_detail/{{$id}}">Event</a></li>
                   <li class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#collapseOne" 
                       aria-expanded="true" aria-controls="collapseOne">  <a href="#">Guests</a>
                   </li>
@@ -86,10 +86,10 @@
                         <div class="givestyle" style="padding-left: 30px;">
                           <div id="collapseOne" class="collapse" aria-labelledby="headingOne">
                             <li class="list-group-item list-group-item-action border-0" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                <a href="/events/guests/all_guest_list">All Guests</a>
+                                <a href="/events/guests/all_guest_list/{{$id}}">All Guests</a>
                             </li>
                             <li class="list-group-item list-group-item-action border-0" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                <a href="/events/guests/guest_list">Guest List</a>
+                                <a href="/events/guests/guest_list/{{$id}}">Guest List</a>
                             </li>
                           </div>
                         </div>
@@ -101,16 +101,15 @@
                           <div class="givestyle" style="padding-left: 30px;">
                             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" >
                               <li class="list-group-item list-group-item-action border-0" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                                  <a href="/events/todo_list/todo_list">Department</a>
+                                  <a href="/events/todo_list/todo_list/{{$id}}">Department</a>
                               </li>
                               <li class="list-group-item list-group-item-action border-0" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                                   <a href="#">Transportation</a>
                               </li>
                             </div> 
                           </div> 
-                  <li class="list-group-item list-group-item-action"><a href="/events/budget/budget_list">Budget</a></li>
+                  <li class="list-group-item list-group-item-action"><a href="/events/budget/budget_list/{{$id}}">Budget</a></li>
                   <li class="list-group-item list-group-item-action"><a href="/events/invitation/edit_invitation">Invitation</a></li>
-                  <li class="list-group-item list-group-item-action"><a href="">Publish</a></li>
               </ul>
             </div>
       

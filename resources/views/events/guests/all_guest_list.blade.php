@@ -3,7 +3,7 @@
   <head>
     <title>All Guests</title>
   </head>
-    @extends("layouts.eventsidebar")
+    @extends("layouts.eventsidebar", ["id"=>$id])
     @section("content")
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4"> 
                 <!-- col start -->
@@ -17,10 +17,9 @@
                         </form>
                         <div class="row">
                             <div class="col d-flex justify-content-end">
-                                <button type="button" class="btn btn-info"><a class="my-btn-link" href="/events/guests/add_guest">Add Guest</a></button>
+                                <button type="button" class="btn btn-info"><a class="my-btn-link" href="/events/guests/add_guest/{{$id}}">Add Guest</a></button>
                             </div>
                         </div>
-                    <p class="mb-4">Number of Guests: </p>
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
@@ -38,7 +37,7 @@
                             @endphp
                             @foreach($guests as $guest)
                                 <tr>
-                                <th scope="row">@php echo $counter @endphp</th>
+                                <th scope="row">@php echo $counter++ @endphp</th>
                                 <td>{{ $guest->name}}</td>
                                 <td>{{ $guest->email}}</td>
                                 <td>{{ $guest->phone}}</td>

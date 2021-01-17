@@ -67,7 +67,7 @@ class EventController extends Controller
      */
     public function show($id)
     {
-        return view("events/event_details/event_detail");
+        return view("events/event_details/event_detail", ["id"=>$id]);
     }
 
     /**

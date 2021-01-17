@@ -56,14 +56,12 @@ Route::get('/MyEvents/myevent', function(){
 //Route::get('/events/guests/all_guest_list', function(){
 //    return view('events/guests/all_guest_list');
 //});
-Route::get('/events/guests/add_guest', function(){
-    return view('events/guests/add_guest');
-});
+Route::get('/events/guests/add_guest/{id}', "App\Http\Controllers\GuestController@accessAddGuestForm")->middleware('auth');
 
 Route::get('/events/guests/add_guest_list', "App\Http\Controllers\GuestController@readUnassignedGuest")->middleware('auth');;
 //database access - guest
 Route::post('/events/guests/add-guest', "App\Http\Controllers\GuestController@addGuest")->middleware('auth');
-Route::get('/events/guests/all_guest_list', "App\Http\Controllers\GuestController@readAllGuest")->middleware('auth');
+Route::get('/events/guests/all_guest_list/{id}', "App\Http\Controllers\GuestController@readAllGuest")->middleware('auth');
 Route::get('/events/guests/delete_guest/{eventid}/{guestid}', "App\Http\Controllers\GuestController@deleteGuest")->middleware('auth');
 Route::get('/events/guests/guest_list', "App\Http\Controllers\GuestController@readGuestList")->middleware('auth');
 
