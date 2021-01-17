@@ -2,10 +2,13 @@
 <html lang="en">
   <head>
     <title>Add New Guest List</title>
-    @extends("layouts.navigationbar_sidebar")
+    </title>
+    @extends("layouts.eventsidebar")
     @section("content")
-                <!-- col start -->
-                <div class="col ">
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4"> 
+        <div class="row " >
+                    <!-- col start -->
+                <div class="col md-12">
                     <h1 class="mb-4 mt-3" style="font-size: 16px">Program Name | Create New Guest List</h1>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
@@ -48,6 +51,5 @@
             </div>
         </div>
     </main>
-  </body>
+    @endsection  
 </html>
-@endsection

@@ -1,11 +1,15 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Add New Guest List</title>
-    @extends("layouts.navigationbar_sidebar")
+    <title>Guest List</title>
+    </head>
+    @extends("layouts.eventsidebar")
     @section("content")
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4"> 
                 <!-- col start -->
-                <div class="col">
+                <div class="container">
+                <div class="row " >
+                <div class="col-md-12">
                 <form method="post" action="#">
                     <h1 class="mt-5 mb-5" style="font-size: 16px">Add Budget - Department</h1>
                         <div class="row mb-3 mx-0 pd-0">
@@ -46,6 +50,5 @@
             </div>
         </div>
     </main>
-  </body>
+    @endsection  
 </html>
-@endsection

@@ -26,6 +26,9 @@ Route::get('/events/event_details/edit_detail', function(){
     return view('events/event_details/edit_detail');
 });
 
+Route::get('/events/event_details/edit_event', function(){
+    return view('events/event_details/edit_event');
+});
 Route::get('/events/event_details/edit_anouncement', function(){
     return view('events/event_details/edit_anouncement');
 });
