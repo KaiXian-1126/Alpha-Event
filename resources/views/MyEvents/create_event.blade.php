@@ -9,7 +9,8 @@
                 <h3>Create Event</h3>
             </div>
         </div>
-            <form action="">
+            <form action="/MyEvents/create-event" method="post">
+            @csrf
                 <div class="addmemberform">
                     <div style="border:1px solid black; border-radius: 10px;">
                         <div class="row mt-4" >
@@ -48,6 +49,7 @@
                             <div class="col-7"><input type="text" class="form-control" id="location" placeholder="Enter location" name="location" ></div>
                         </div>
                         <br>
+                        <!--
                         <div class="row">
                             <div class="col-4 " style="text-align: right">Tentative</div>
                             <div class="col-7 form-group">
@@ -58,6 +60,7 @@
                                   </div>
                               </div></div>
                         </div>
+                        -->
 
                         
                         <div class="mt-4 mb-3">

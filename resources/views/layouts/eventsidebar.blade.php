@@ -89,7 +89,7 @@
                                 <a href="/events/guests/all_guest_list">All Guests</a>
                             </li>
                             <li class="list-group-item list-group-item-action border-0" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                <a href="/events/guests/guest_list">VIP</a>
+                                <a href="/events/guests/guest_list">Guest List</a>
                             </li>
                           </div>
                         </div>

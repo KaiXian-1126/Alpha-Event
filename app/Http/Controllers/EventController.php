@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Models\Event;
+use App\Models\Event;
 use Illuminate\Support\Facades\DB;
 
 class EventController extends Controller
@@ -25,7 +25,17 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
+        $event = new Event();
+        $event->Event_name = request("name");
+        $event->Event_startDate = request("start_date");
+        $event->Event_endDate = request("end_date");
+        $event->Event_StartTime = request("start_time");
+        $event->Event_EndTime = request("end_time");
+        $event->Location = request("location");
+        $event->Announcement = "This is an announcement";
+        $event->Description = "This is a description";
+        $event->save();
+        return view('/home');
     }
 
     /**

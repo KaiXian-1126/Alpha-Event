@@ -103,6 +103,8 @@ Route::get('/MyEvents/add_member', function(){
 Route::get('/registeredevent', function(){
     return view('registeredevent');
 });
+//Access to database to create event
+Route::post('/MyEvents/create-event', "App\Http\Controllers\EventController@create");
 
 //Gamification route
 Route::get('/gamification/gamification_profile', function(){
