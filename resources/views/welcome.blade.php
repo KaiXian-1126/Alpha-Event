@@ -8,7 +8,7 @@
           <button class="btn btn-warning col-md-4 welcomeScreenButton" >GET START</button>
       </div>
 
-      <!-- visible only on mobile start -->
+      <!-- start -->
       <div class="text-center">
         <div class="row ">
             <div class="col-md-4 align-self-center">
@@ -62,7 +62,7 @@
             </div>
         </div>
       </div>
-        <!-- visible only on mobile end -->
+        <!-- end -->
 
         
     </div>
