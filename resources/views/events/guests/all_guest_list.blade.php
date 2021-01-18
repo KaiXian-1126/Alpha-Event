@@ -42,7 +42,7 @@
                                 <td>{{ $guest->email}}</td>
                                 <td>{{ $guest->phone}}</td>
                                 <td><button type="button" class="btn btn-danger">
-                                        <a class="my-btn-link" href="/events/guests/delete_guest/1/{{$guest->id}}">Delete</a>
+                                        <a class="my-btn-link" href="/events/guests/delete_guest/{{$id}}/{{$guest->id}}">Delete</a>
                                     </button>
                                 </td>   
                                 </tr>

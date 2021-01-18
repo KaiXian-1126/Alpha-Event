@@ -12,7 +12,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Auth::routes();
 Route::get('/', function () {
     return view('welcome');
 });
@@ -58,12 +59,17 @@ Route::get('/MyEvents/myevent', function(){
 //});
 Route::get('/events/guests/add_guest/{id}', "App\Http\Controllers\GuestController@accessAddGuestForm")->middleware('auth');
 
-Route::get('/events/guests/add_guest_list', "App\Http\Controllers\GuestController@readUnassignedGuest")->middleware('auth');;
+Route::get('/events/guests/add_guest_list/{id}', "App\Http\Controllers\GuestController@readUnassignedGuest")->middleware('auth');;
 //database access - guest
 Route::post('/events/guests/add-guest', "App\Http\Controllers\GuestController@addGuest")->middleware('auth');
+Route::post('/events/guests/create-guest-list', "App\Http\Controllers\GuestController@createGuestList")->middleware('auth');
+Route::post('/events/guests/update-guest-list', "App\Http\Controllers\GuestController@updateGuestList")->middleware('auth');
 Route::get('/events/guests/all_guest_list/{id}', "App\Http\Controllers\GuestController@readAllGuest")->middleware('auth');
 Route::get('/events/guests/delete_guest/{eventid}/{guestid}', "App\Http\Controllers\GuestController@deleteGuest")->middleware('auth');
-Route::get('/events/guests/guest_list', "App\Http\Controllers\GuestController@readGuestList")->middleware('auth');
+Route::get('/events/guests/guest_list/{id}', "App\Http\Controllers\GuestController@readGuestList")->middleware('auth');
+Route::get('/events/budget/view_budget', 'BudgetController@index');
+Route::get('/events/guests/delete-guest-list/{eventid}/{guestlistname}', "App\Http\Controllers\GuestController@deleteGuestList");
+Route::get('/events/guests/edit_guest_list/{eventid}/{guestlistname}', "App\Http\Controllers\GuestController@readGuestListDetails");
 
 // events/todo_list route
 Route::get('/events/todo_list/todo_list', function(){
@@ -73,19 +79,23 @@ Route::get('/events/todo_list/view_todo', function(){
     return view('events/todo_list/view_todo');
 });
 //events/budget route
-Route::get('/events/budget/budget_list', function(){
-    return view('events/budget/budget_list');
-});
-Route::get('/events/budget/view_budget', function(){
-    return view('events/budget/view_budget');
-});
-Route::get('/events/budget/edit_budget', function(){
-    return view('events/budget/edit_budget');
-});
-Route::get('/events/budget/add_budget', function(){
-    return view('events/budget/add_budget');
-});
+Route::get('/events/budget/budget_list/{id1}','BudgetController@index');
 
+Route::get('/events/budget/view_budget/{id}/{id2}/{id3}', 'BudgetController@show');
+
+Route::get('/events/budget/edit_budget/{id}/{id1}','BudgetController@update');
+
+Route::get('/events/budget/add_budget/{id}', 'BudgetController@create');
+
+Route::post('/create_budget/{id1}/{id2}/{id3}', 'BudgetController@store');
+
+Route::get('/update_budget/{id}/{id1}', 'BudgetController@store_update');
+
+Route::get('/delete_budget/{id}/{id1}', 'BudgetController@destroy');
+// MyEvents/route
+Route::get('/MyEvents/view_team', function(){
+    return view('Myevents.view_team');
+});
 Route::get('/MyEvents/create_event', function(){
     return view('Myevents.create_event');
 });
@@ -127,5 +137,8 @@ Route::get('/MyEvents/edit_member/{id}',"App\Http\Controllers\MemberController@e
 Route::post('/MyEvents/update-member',"App\Http\Controllers\MemberController@update");
 
 Route::get('/a', function(){
-    return view('/a');
+    return view('layouts.eventsidebar');
 });
+
+
+

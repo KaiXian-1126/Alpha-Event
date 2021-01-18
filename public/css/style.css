@@ -11,3 +11,14 @@ a.my-btn-link:hover{
     text-decoration: none;
     color: grey;
 }
+.my-gamification-btn{
+    background-color: transparent;
+    border: 0px;
+    color:blue;
+}
+.my-gamification-btn:hover{
+    text-decoration: underline;
+}
+.my-gamification-btn:focus{
+    outline: none;
+}
