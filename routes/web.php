@@ -85,7 +85,7 @@ Route::get('/events/budget/view_budget/{id}/{id2}/{id3}', 'App\Http\Controllers\
 
 Route::get('/events/budget/edit_budget/{id}/{id1}','App\Http\Controllers\BudgetController@update');
 
-Route::get('/events/budget/add_budget/{id}', 'App\Http\Controllers\BudgetController@create');
+Route::get('/events/budget/add_budget/{id}/{id1}', 'App\Http\Controllers\BudgetController@create');
 
 Route::post('/create_budget/{id1}/{id2}/{id3}', 'App\Http\Controllers\BudgetController@store');
 

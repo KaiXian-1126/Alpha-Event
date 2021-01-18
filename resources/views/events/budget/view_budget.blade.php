@@ -26,11 +26,12 @@
                             <tbody>
                                  <?php $sum = 0; $index=0; ?>
                                 @foreach($data['department'] as $key =>$value)
+                                    @if($value->Event_id==$data['user']->Event_id)
                                 <tr>
                                 <th scope="row">{{$index+1}}</th>
                                 <td>{{$value->Budget_name}}</td>
-                                <td>{{$value->Budget_name}}</td>
-                                <td>{{$value->Cost}}</td>
+                                <td>{{$value->Description}}</td>
+                                <td>RM{{$value->Cost}}</td>
                                 <td>
                                     <div class="d-flex justify-content-center">
                                         <button type="submit" class="btn btn-primary"><a href="/events/budget/edit_budget/{{$value->Budget_id}}/{{$data['userid']->Member_id}}" class="my-btn-link">Edit</a></button>
@@ -44,6 +45,7 @@
                                 </td>  
                                 </tr>
                                 <?php $sum+= $value->Cost; $index++; ?>
+                                    @endif
                                 @endforeach
 
                                 
