@@ -85,15 +85,9 @@ Route::get('/events/budget/edit_budget', function(){
 Route::get('/events/budget/add_budget', function(){
     return view('events/budget/add_budget');
 });
-// MyEvents/route
-Route::get('/MyEvents/view_team', function(){
-    return view('Myevents.view_team');
-});
+
 Route::get('/MyEvents/create_event', function(){
     return view('Myevents.create_event');
-});
-Route::get('/MyEvents/add_member', function(){
-    return view('Myevents.add_member');
 });
 
 Route::get('/registeredevent', function(){
@@ -123,13 +117,15 @@ Route::get('/home', "App\Http\Controllers\EventController@getAllEvents");
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/MyEvents/manage_team', function(){
-    return view('MyEvents.manage_team');
-});
+// MyEvents/route
+Route::get('/MyEvents/manage_team/{id}','App\Http\Controllers\MemberController@manageteam');
+Route::get('/MyEvents/delete_team/{id}','App\Http\Controllers\MemberController@destroy');
+Route::get('/MyEvents/view_team/{id}',"App\Http\Controllers\MemberController@viewteam");
+Route::get('/MyEvents/add_member/{id}',"App\Http\Controllers\MemberController@create");
+Route::post('/MyEvents/add-new-member',"App\Http\Controllers\MemberController@addMember");
+Route::get('/MyEvents/edit_member/{id}',"App\Http\Controllers\MemberController@edit");
+Route::post('/MyEvents/update-member',"App\Http\Controllers\MemberController@update");
 
 Route::get('/a', function(){
-    return view('layouts.eventsidebar');
+    return view('/a');
 });
-Auth::routes();
-
-
