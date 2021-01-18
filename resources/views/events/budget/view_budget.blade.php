@@ -10,7 +10,7 @@
                     <h1 class="mb-4 mt-3" style="font-size: 16px">Program Name | Budget</h1>
                     
                    
-                    <p>Budget List - {{$data['user']->Department}} </p>
+                    <p>Budget List - {{$data['department'][0]->Department}} </p>
                     
                     <div class="table-responsive">
                         <table class="table">
