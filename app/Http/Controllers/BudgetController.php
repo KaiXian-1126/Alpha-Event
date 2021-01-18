@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 // use Illuminate\Http\Request;
 use App\Models\budget;
-use App\Models\user;
+// use App\Models\user;
 use App\Models\member;
+use App\Models\event;
 use Illuminate\Support\Facades\DB;
 use Auth;
 use Request;
@@ -21,9 +22,10 @@ class BudgetController extends Controller
     {
         $data['budget']=budget::where('Event_id', $id)->get();
 
+        $data['event']=event::where('Event_id',$id)->first();
+
         $user = Auth::user();
 
-        
         $data['userid']=member::where('Member_id',$user->id)->first();
 
 
@@ -35,9 +37,15 @@ class BudgetController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id)
+    public function create($eid,$id)
     {
-        $data=member::where('Department',$id)->first();
+        
+        $data['userid']=member::where('Department',$id)->first();
+
+        $data['eventid']=$eid;
+
+        
+
         
         return view('/events/budget/add_budget')->with('member',$data);
     }
@@ -92,9 +100,9 @@ class BudgetController extends Controller
     {   
         // $data = budget::select('select * from budget where Department="$id"');
         $data['department'] =  budget::where('Department', $id)->get();
-
+        
         $data['user'] =member::where('Event_id',$eid)->first();
-
+        
         $data['userid']=member::where('Member_id',$uid)->first();
 
         
