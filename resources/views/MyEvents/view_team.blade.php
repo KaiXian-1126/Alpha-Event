@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="eventheader">
-            <h3 class="mt-4 mb-2">Festival Night
+            <h3 class="mt-4 mb-2">{{$eventName}}
             <span class="verticalline"></span>
             Event member</h3>
         </div>
@@ -26,14 +26,16 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($memberList as $indexKey=>$row)
                         <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>Otto</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
+                            <th scope="row">{{ $indexKey+1 }}</th>
+                            <td>{{$row->name}}</td>
+                            <td>{{$row->email}}</td>
+                            <td>{{$row->phone}}</td>
+                            <td>{{$row->Role}}</td>
+                            <td>{{$row->Department}}</td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>  
@@ -41,7 +43,7 @@
         <!-- Table end -->
         <br>
         <div class="text-center mt-2">
-            <a href="../home"><button class="btn btn-primary mybutton">Back</button></a>
+            <a href="/home"><button class="btn btn-primary mybutton">Back</button></a>
         </div>
     </div>
 @endsection
