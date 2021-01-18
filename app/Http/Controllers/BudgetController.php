@@ -64,6 +64,7 @@ class BudgetController extends Controller
         $data->Event_id = $eid;
         $data->Department  = $department;
         $data->Budget_name=$input['item'];
+        $data->Description=$input['description'];
         $data->Cost=$input['cost'];
         $data->save();
 
@@ -81,6 +82,7 @@ class BudgetController extends Controller
         
         $data=budget::where('Budget_id', $id)->first();
         $data->Budget_name=$input['item'];
+        $data->Description=$input['description'];
         $data->Cost=$input['cost'];
         $data->save();
 

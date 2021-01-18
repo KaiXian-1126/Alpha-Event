@@ -30,7 +30,7 @@
                                 <tr>
                                 <th scope="row">{{$index+1}}</th>
                                 <td>{{$value->Budget_name}}</td>
-                                <td>{{$value->Budget_name}}</td>
+                                <td>{{$value->Description}}</td>
                                 <td>RM{{$value->Cost}}</td>
                                 <td>
                                     <div class="d-flex justify-content-center">
