@@ -124,10 +124,11 @@ Route::get('/gamification/top_up', function(){
 });
 Auth::routes();
 Route::get('/home', "App\Http\Controllers\EventController@getAllEvents");
+Route::get('/home/delete_event/{id}', "App\Http\Controllers\EventController@destroy");
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-// MyEvents/route
+// MyEvents/member/route
 Route::get('/MyEvents/manage_team/{id}','App\Http\Controllers\MemberController@manageteam');
 Route::get('/MyEvents/delete_team/{id}','App\Http\Controllers\MemberController@destroy');
 Route::get('/MyEvents/view_team/{id}',"App\Http\Controllers\MemberController@viewteam");
@@ -137,7 +138,7 @@ Route::get('/MyEvents/edit_member/{id}',"App\Http\Controllers\MemberController@e
 Route::post('/MyEvents/update-member',"App\Http\Controllers\MemberController@update");
 
 Route::get('/a', function(){
-    return view('layouts.eventsidebar');
+    return view('a');
 });
 
 
