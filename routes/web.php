@@ -12,7 +12,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Auth::routes();
 Route::get('/', function () {
     return view('welcome');
 });
@@ -135,6 +136,6 @@ Route::get('/MyEvents/manage_team', function(){
 Route::get('/a', function(){
     return view('layouts.eventsidebar');
 });
-Auth::routes();
+
 
 

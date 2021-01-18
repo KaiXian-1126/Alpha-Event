@@ -1,11 +1,5 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <title>Gamification Profile</title>
-    @extends("layouts.navigation_bar")
-    @section("content")
-            </div>
-        </div>
+@extends('layouts.dashboard')
+@section('content')
     <main>
         <!-- Container start -->
         <div class="container">
@@ -70,6 +64,4 @@
         </div>
         <!-- Container end -->
     </main>
-  </body>
-</html>
 @endsection
