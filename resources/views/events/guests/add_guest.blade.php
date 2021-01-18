@@ -26,12 +26,15 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1">Email</span>
                             </div>
-                            <input type="email" name="email" class="form-control" placeholder="Enter email" aria-label="Email" aria-describedby="basic-addon1">
+                            <input type="email" name="email" class="form-control" placeholder="Enter email" aria-label="Email" aria-describedby="basic-addon1" required>
                         </div>
                     </div>
                     <div class="row d-flex justify-content-end">
                         <button type="submit" class="btn btn-primary mr-5 mt-3">
                             Add
+                        </button>
+                        <button type="button" class="btn btn-secondary mr-5 mt-3">
+                            <a href="/events/guests/all_guest_list/{{$id}}" class="my-btn-link">Cancel</a>
                         </button>
                     </div>
                 </form>

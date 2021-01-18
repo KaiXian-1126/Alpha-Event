@@ -5,15 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Guest;
 use App\Models\User;
+use App\Models\Event;
 use Illuminate\Support\Facades\DB;
 class GuestController extends Controller
 {
     public function addGuest(){
         $guest = new Guest();
-        $user = User::where("email", request("email"))->get();
+        $user = User::where("email", request("email"))->first();
         $eventid = request("id");
-        if(sizeof($user) == 1){
-            $guest->Guest_id =  $user[0]->id;
+        if($user != null){
+            $guest->Guest_id =  $user->id;
             $guest->Event_id = request("id");
             $guest->Guest_list = "-";
             $guest->save();
@@ -25,7 +26,7 @@ class GuestController extends Controller
     public function deleteGuest($eventid, $guestid){
         $guest = Guest::where([['Event_id', "=" , $eventid], ['Guest_id', "=", $guestid]])->delete();;
        
-        return view("/events/guests/all_guest_list");
+        return redirect("/events/guests/all_guest_list/{$eventid}");
         
        
     }
@@ -35,27 +36,79 @@ class GuestController extends Controller
             ->get();
         return view("/events/guests/all_guest_list", ["guests" => $guests, "id" => $eventid]);
     }
-    public function readGuestList(){
-        $eventid = 1;
+    public function readGuestList($eventid){
         $guestList = Guest::where([["Event_id", $eventid], ["Guest_list", "!=", "-"]])->distinct()->get();
-        return view("/events/guests/guest_list", ["guestList" => $guestList]);
+        $event = Event::where("Event_id", $eventid)->get()->first();
+        return view("/events/guests/guest_list", ["guestList" => $guestList, "event" => $event]);
     }
-    public function readUnassignedGuest(){
-        $eventid = 1;
-        $guests = Guest::where([["Event_id", $eventid],["Guest_list", "-"]])->get();
-        $users = array();
-        foreach($guests as $user){
-            $user = User::where("id", $user->Guest_id)->get()->first();
-            if($user != null){
-                array_push($users, $user);
-                $user = null;
-            }
-        }
-        
-        return view("/events/guests/add_guest_list", ["guests" => $users, "id" => $id]);
+    public function readUnassignedGuest($eventid){
+        $guests = Guest::join('users', 'guests.Guest_id', '=', 'users.id')
+        ->where([["guests.Event_id", $eventid],["guests.Guest_list", "-"]])
+        ->get();
+        return view("/events/guests/add_guest_list", ["guests" => $guests, "id" => $eventid]);
     }
     public function accessAddGuestForm($id){
         return view('events/guests/add_guest', ['id' => $id] );
+    }
+    public function createGuestList(){
+        $guestListName = request('guest-list-name');
+        $eventid = request('event-id');
+        $guestidList = request('id');
+        if($guestidList == null){
+            return redirect("events/guests/add_guest_list/$eventid")->with("message", "No guest is selected.");;
+        }else{
+            foreach($guestidList as $guestid){
+                $guest = Guest::where([["Event_id", $eventid], ["Guest_id", $guestid]])->first();
+                $guest->Guest_list = $guestListName;
+                $guest->save();
+                return redirect("events/guests/add_guest_list/$eventid");
+            }
+        }
+    }
+    public function deleteGuestList($eventid, $guestlistname){
+        $guestList = Guest::where([["Event_id", $eventid],["Guest_list", $guestlistname]])->get();
+        foreach($guestList as $guest){
+            $guest->Guest_list = "-";
+            $guest->save();
+        }
+        return redirect("events/guests/guest_list/$eventid");
+    }
+    public function readGuestListDetails($eventid, $guestlistname){
+        $guestListDetails = Guest::join("users", "guests.Guest_id", "users.id")
+        ->where([["Event_id", $eventid],["Guest_list", $guestlistname]])->get();
+        return view("events/guests/edit_guest_list", ["eventid"=> $eventid, "guests"=>$guestListDetails]);
+    }
+    public function updateGuestList(){
+        $guestListName = request('guest-list-name');
+        $eventid = request('event-id');
+        $guestidList = request('id');
+        $guestList = Guest::where([["Guest_list", $guestListName],["Event_id", $eventid]])->get();
+        $validate = true;
+        if($guestidList == null){
+            foreach($guestList as $guest){
+                $guest->Guest_list = "-";
+                $guest->save();
+            }
+            return redirect("events/guests/guest_list/$eventid");
+        }else{
+            $count = 0;
+            foreach($guestidList as $guestid){
+                foreach($guestList as $e){
+                    if($guestid == $e->Guest_id){
+                        $e->Guest_list = $guestListName;
+                        $e->save();
+                        $validate = false;
+                    }
+                    $count++;
+                    if(($count == sizeof($guestList)) && $validate ){
+                        $e->Guest_list = "-";
+                        $e->save();
+                    }
+                }
+                $validate = true;
+            }
+            return redirect("events/guests/guest_list/$eventid");
+        }
     }
     /**
      * Display a listing of the resource.

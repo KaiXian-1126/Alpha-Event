@@ -58,12 +58,17 @@ Route::get('/MyEvents/myevent', function(){
 //});
 Route::get('/events/guests/add_guest/{id}', "App\Http\Controllers\GuestController@accessAddGuestForm")->middleware('auth');
 
-Route::get('/events/guests/add_guest_list', "App\Http\Controllers\GuestController@readUnassignedGuest")->middleware('auth');;
+Route::get('/events/guests/add_guest_list/{id}', "App\Http\Controllers\GuestController@readUnassignedGuest")->middleware('auth');;
 //database access - guest
 Route::post('/events/guests/add-guest', "App\Http\Controllers\GuestController@addGuest")->middleware('auth');
+Route::post('/events/guests/create-guest-list', "App\Http\Controllers\GuestController@createGuestList")->middleware('auth');
+Route::post('/events/guests/update-guest-list', "App\Http\Controllers\GuestController@updateGuestList")->middleware('auth');
 Route::get('/events/guests/all_guest_list/{id}', "App\Http\Controllers\GuestController@readAllGuest")->middleware('auth');
 Route::get('/events/guests/delete_guest/{eventid}/{guestid}', "App\Http\Controllers\GuestController@deleteGuest")->middleware('auth');
-Route::get('/events/guests/guest_list', "App\Http\Controllers\GuestController@readGuestList")->middleware('auth');
+Route::get('/events/guests/guest_list/{id}', "App\Http\Controllers\GuestController@readGuestList")->middleware('auth');
+Route::get('/events/budget/view_budget', 'BudgetController@index');
+Route::get('/events/guests/delete-guest-list/{eventid}/{guestlistname}', "App\Http\Controllers\GuestController@deleteGuestList");
+Route::get('/events/guests/edit_guest_list/{eventid}/{guestlistname}', "App\Http\Controllers\GuestController@readGuestListDetails");
 
 // events/todo_list route
 Route::get('/events/todo_list/todo_list', function(){

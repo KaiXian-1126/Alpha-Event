@@ -10,4 +10,6 @@ class Guest extends Model
     use HasFactory;
     protected $table = "guests";
     public $timestamps = false;
+    protected $primaryKey = null;
+    public $incrementing = false;
 }
