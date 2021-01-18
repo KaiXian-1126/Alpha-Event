@@ -1,5 +1,11 @@
-@extends('layouts.dashboard')
-@section('content')
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Gamification Profile</title>
+    @extends("layouts.navigation_bar")
+    @section("content")
+            </div>
+        </div>
     <main>
         <!-- Container start -->
         <div class="container">
@@ -9,20 +15,26 @@
                         <img class="card-img-top" src="{{ URL::asset('assets/img/profile.png') }}" alt="Card image cap">
                     </div>
                 </div>
-                <div class="col-md-4 text-center mt-2 mb-2">
-                <h2>Name</h2>
-                <p>email@gmail.com</p>
-                <p>0123456789</p>
+                <div class="col-md-4 d-flex align-items-center mt-2 mb-2">
+                    <div class="col text-center">
+                        <h2>{{$user->name}}</h2>
+                        <p>{{$user->email}}</p>
+                        <p>{{$user->phone}}</p>
+                        <button type="button" class="btn btn-secondary mt-3">
+                            <a href="/gamification/user_profile" class="my-btn-link">Edit</a>
+                        </button>
+                    </div>
+                    
                 </div>
                 <div class="col-md-4 mt-2 mb-2">
                     <div class="row d-flex justify-content-center">
                         <h2>Current Medal</h2>
                     </div>
                     <div class="row d-flex justify-content-center">
-                        <img class="card-img-top" style="width: 100px; height: 200px;" src="{{ URL::asset('assets/img/gold.png') }}" alt="Card image cap">
+                        <div id="badge-img"></div>
                     </div>
                     <div class="row d-flex justify-content-center">
-                        <p>Point: 3000</p>
+                        <p id="badge-point">Point: </p>
                     </div>
                     </div>
                 </div>
@@ -43,7 +55,7 @@
                     </div>
                     <div class="row d-flex justify-content-center mt-2 mb-2">
                         <button type="button" class="btn btn-primary">
-                            <a class="my-btn-link" href="#">Top Up</a>
+                            <a class="my-btn-link" href="/gamification/top_up">Top Up</a>
                         </button>
                     </div>
                 </div>
@@ -52,11 +64,11 @@
                         <h3>Available points</h3>
                     </div>
                     <div class="row d-flex justify-content-center mt-2 mb-2">
-                        <p>5000</p>
+                        <p id="reward-point"></p>
                     </div>
                     <div class="row d-flex justify-content-center mt-2 mb-2">
                         <button type="button" class="btn btn-primary">
-                            <a class="my-btn-link" href="#">Reward</a>
+                            <a class="my-btn-link" href="/gamification/reward">Reward</a>
                         </button>
                     </div>
                 </div>
@@ -64,4 +76,31 @@
         </div>
         <!-- Container end -->
     </main>
+  </body>
+  <script>
+    $(document).ready(function(){
+        // get player
+        var topPlayerList = Array();
+        $.ajax({url: "http://127.0.0.1:8000/gamification/mockdatascore1",
+            type: "get",
+            data: { get_param: 'value' }, 
+            dataType: 'json',
+            success: function(data){
+                //badge point
+                    $('#badge-point').text("Points:" + data.message.score[1].value);
+                //reward point
+                    $('#reward-point').text(data.message.score[2].value);
+                if(parseInt(data.message.score[1].value) >= 3000){
+                    $('#badge-img').html('<img id="badge-img" class="card-img-top" style="width: 100px; height: 200px;" src="{{ URL::asset('assets/img/gold.png') }}" alt="Card image cap">');
+                }
+                else if(parseInt(data.message.score[1].value) >= 2000){
+                    $('#badge-img').html('<img id="badge-img" class="card-img-top" style="width: 100px; height: 200px;" src="{{ URL::asset('assets/img/silver.png') }}" alt="Card image cap">');
+                }else{
+                    $('#badge-img').html('<img id="badge-img" class="card-img-top" style="width: 100px; height: 200px;" src="{{ URL::asset('assets/img/bronze.png') }}" alt="Card image cap">');
+                }
+                }
+            });
+        });
+    </script>
+</html>
 @endsection
