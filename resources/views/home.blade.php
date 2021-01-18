@@ -54,7 +54,7 @@
                 <td>{{$e->Event_startDate}}</td>
                 <td>{{$e->Event_EndDate}}</td>
                 <td>{{$e->Location}}</td>
-                <td  scope="row"><a href="/MyEvents/manage_team"><button type="submit" class="btn btn-primary">Manage Team</button></a></td>
+                <td  scope="row"><a href="/MyEvents/manage_team/{{$e->Event_id}}"><button type="submit" class="btn btn-primary">Manage Team</button></a></td>
                 <td><a href="/events/event_details/event_detail/{{$e->Event_id}}"><button type="button" class="btn btn-primary">View</button></a></td>   
                 <td> <button type="button" class="btn btn-danger">Delete</button></td> 
             
@@ -80,8 +80,8 @@
                 <th scope="col">Event Start Date</th>
                 <th scope="col">Event End Date</th>
                 <th scope="col">Location</th>
-                <th scope="col">Attended</th>
-                <th scope="col" colspan="3">View Team</th>
+                <th scope="col" >Event Team</th>
+                <th scope="col" >View</th>
                 <th scope="col" >Delete</th>
                 </tr>
             </thead>
@@ -98,8 +98,8 @@
                 <td>{{$e->Event_startDate}}</td>
                 <td>{{$e->Event_EndDate}}</td>
                 <td>{{$e->Location}}</td>
-                <td  scope="row"><a href="/MyEvents/manage_team"><button type="submit" class="btn btn-primary">Manage Team</button></a></td>
-                <td><a href="/events/event_details/event_detail"><button type="button" class="btn btn-primary">View</button> </a></td>   
+                <td  scope="row"><a href="/MyEvents/view_team/{{$e->Event_id}}"><button type="submit" class="btn btn-primary">Manage Team</button></a></td>
+                <td><a href="/MyEvents/myevent"><button type="button" class="btn btn-primary">View</button> </a></td>   
                 <td> <button type="button" class="btn btn-danger">Delete</button></td> 
             
             </tr>

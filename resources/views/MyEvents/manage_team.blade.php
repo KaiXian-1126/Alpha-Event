@@ -3,11 +3,11 @@
 @section('content')
     <div class="container">
         <div class="eventheader">
-            <h3 class="mt-4 mb-2">Festival Night
+            <h3 class="mt-4 mb-2">{{$eventName}}
             <span class="verticalline"></span>
             Event member</h3>
         </div>
-
+        
         <!-- table start -->
         <div class="col"> 
             <div class="row mt-5">
@@ -27,27 +27,33 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($memberList as $indexKey=>$row)
                         <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>Otto</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td><button type="button" class="btn btn-primary mybutton">Edit</button>
-                         <button type="button" class="btn btn-danger">Delete</button></td>   
+                            <th scope="row">{{ $indexKey+1 }}</th>
+                            <td>{{$row->name}}</td>
+                            <td>{{$row->email}}</td>
+                            <td>{{$row->phone}}</td>
+                            <td>{{$row->Role}}</td>
+                            <td>{{$row->Department}}</td>
+                            @if ($row->Department!='Host')
+                            <td><a href="/MyEvents/edit_member/{{$row->memberid}}"><button type="button" class="btn btn-primary mybutton">Edit</button></a>
+                                <a href="/MyEvents/delete_team/{{$row->memberid}}"><button class="btn btn-danger">Delete</button></a>
+                                </form> 
+                            @endif
+                             
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
             <div class="text-right">
-                <a href="/MyEvents/add_member"><button class="btn btn-success mybutton">Add</button></a>
+                <a href="/MyEvents/add_member/{{$id}}"><button class="btn btn-success mybutton">Add</button></a>
             </div>  
         </div>
         <!-- Table end -->
         <br>
         <div class="text-center mt-2">
-            <a href="../home"><button class="btn btn-primary mybutton">Back</button></a>
+            <a href="/home"><button class="btn btn-primary mybutton">Back</button></a>
         </div>
     </div>
 @endsection

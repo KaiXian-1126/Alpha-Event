@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Event;
+use App\Models\Member;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
 class EventController extends Controller
@@ -44,7 +46,18 @@ class EventController extends Controller
         $event->Announcement = "This is an announcement";
         $event->Description = "This is a description";
         $event->save();
-        
+
+        //get newly added event id
+        $id = Event::orderBy('Event_id', 'desc')->value('Event_id');
+        // add user to member while create event
+        $uid = User::where('id',auth()->user()->id)->value('id');
+         $addmember = new Member();
+         $addmember->Event_id = $id;
+         $addmember->Member_id = $uid;
+         $addmember->Role = 'Top Management';
+         $addmember->Department = "Host";
+         $addmember->save();
+
         return redirect("/home");
     }
 

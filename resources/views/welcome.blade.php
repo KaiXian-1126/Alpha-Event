@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('content')
-
+    <div class="container">
       <div class="row justify-self-center mt-5 mb-5">
           <p class="welcomeScreenText" >Events Management Software<br>For all kind of events</p>
           <a href="{{ url('/register') }}"><button class="btn btn-warning col-md-4 welcomeScreenButton" >GET START</button></a>
@@ -63,6 +63,6 @@
       </div>
         <!--  end -->
 
-        
+      </div>  
     </div>
 @endsection
