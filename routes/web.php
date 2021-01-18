@@ -79,19 +79,19 @@ Route::get('/events/todo_list/view_todo', function(){
     return view('events/todo_list/view_todo');
 });
 //events/budget route
-Route::get('/events/budget/budget_list/{id1}','BudgetController@index');
+Route::get('/events/budget/budget_list/{id1}','App\Http\Controllers\BudgetController@index');
 
-Route::get('/events/budget/view_budget/{id}/{id2}/{id3}', 'BudgetController@show');
+Route::get('/events/budget/view_budget/{id}/{id2}/{id3}', 'App\Http\Controllers\BudgetController@show');
 
-Route::get('/events/budget/edit_budget/{id}/{id1}','BudgetController@update');
+Route::get('/events/budget/edit_budget/{id}/{id1}','App\Http\Controllers\BudgetController@update');
 
-Route::get('/events/budget/add_budget/{id}', 'BudgetController@create');
+Route::get('/events/budget/add_budget/{id}', 'App\Http\Controllers\BudgetController@create');
 
-Route::post('/create_budget/{id1}/{id2}/{id3}', 'BudgetController@store');
+Route::post('/create_budget/{id1}/{id2}/{id3}', 'App\Http\Controllers\BudgetController@store');
 
-Route::get('/update_budget/{id}/{id1}', 'BudgetController@store_update');
+Route::get('/update_budget/{id}/{id1}', 'App\Http\Controllers\BudgetController@store_update');
 
-Route::get('/delete_budget/{id}/{id1}', 'BudgetController@destroy');
+Route::get('/delete_budget/{id}/{id1}', 'App\Http\Controllers\BudgetController@destroy');
 // MyEvents/route
 Route::get('/MyEvents/view_team', function(){
     return view('Myevents.view_team');
