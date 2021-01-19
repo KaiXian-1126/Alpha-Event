@@ -4,8 +4,72 @@
     <title>Reward</title>
     @extends("layouts.navigation_bar")
     @section("content")
+    <div class="container">
+        <div class="row mt-3 mb-3">
+            <h1 style="font-size:20px;">Reward</h1>
+        </div>
+        <div class="jumbotron" style="background-color: light-gray;">
+            <div class="row d-flex justify-content-end mr-5 mb-3">
+                <p>Available point : 3000</p>
+            </div>
+            <div class="card border-info mb-3" style="width: 100%;">
+                <div class="card-header">Invitation Card 1</div>
+                <div class="card-body text-dark">
+                    <div class="row">
+                        <div class="col-md-2 d-flex justify-content-center align-items-center">
+                            <img style="width: 50px; height: 100px;" src="{{ URL::asset('assets/img/invitation_card/invitation-card-1.jpg') }}" alt="Invitation card">
+                        </div>
+                        <div class="col-md-8">
+                            <p class="card-text">Required reward points: 3000points</p>
+                            <p class="card-text">This is invitation card 1</p>
+                        </div>
+                        <div class="col-md-2 d-flex justify-content-center align-items-center">
+                            <p class="card-text"><button type="button" class="btn btn-outline-success">Exchange</button></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card border-info mb-3" style="width: 100%;">
+                <div class="card-header">Invitation Card 2</div>
+                <div class="card-body text-dark">
+                    <div class="row">
+                        <div class="col-md-2 d-flex justify-content-center align-items-center">
+                            <img style="width: 50px; height: 100px;" src="{{ URL::asset('assets/img/invitation_card/invitation-card-1.jpg') }}" alt="Invitation card">
+                        </div>
+                        <div class="col-md-8">
+                            <p class="card-text">Required reward points: 1500points</p>
+                            <p class="card-text">This is invitation card 2</p>
+                        </div>
+                        <div class="col-md-2 d-flex justify-content-center align-items-center">
+                            <p class="card-text"><button type="button" class="btn btn-outline-success">Exchange</button></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card border-info mb-3" style="width: 100%;">
+                <div class="card-header">Invitation Card 3</div>
+                <div class="card-body text-dark">
+                    <div class="row">
+                        <div class="col-md-2 d-flex justify-content-center align-items-center">
+                            <img style="width: 50px; height: 100px;" src="{{ URL::asset('assets/img/invitation_card/invitation-card-1.jpg') }}" alt="Invitation card">
+                        </div>
+                        <div class="col-md-8">
+                            <p class="card-text">Required reward points: 1000points</p>
+                            <p class="card-text">This is invitation card 3</p>
+                        </div>
+                        <div class="col-md-2 d-flex justify-content-center align-items-center">
+                            <p class="card-text"><button type="button" class="btn btn-outline-success">Exchange</button></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-end" >
+                <button type="button" class="btn btn-primary"><a href="/gamification/gamification_profile" class="my-btn-link" style="font-size:20px;">Back</a></button>
+            </div>
+        </div>
+    </div>
     
-    <h1>Reward</h1>
+    <!--<h1>Reward</h1>
     <br><br>
     <div class="container-fluid">
         <div class="row" style="text-align:center;margin-bottom:80px;">
@@ -23,7 +87,7 @@
                 </div>
                 <br>
                 <div class="container" style="padding-right:20%;padding-left:20%;">
-                    <button type="button" class="btn btn-primary"><a href="#" class="my-btn-link" style="font-size:20px;">Back</a></button>
+                    <button type="button" class="btn btn-primary"><a href="/gamification/gamification_profile" class="my-btn-link" style="font-size:20px;">Back</a></button>
                 </div>
 
             </div>
@@ -58,6 +122,6 @@
            
     </div>
     
-    
+    -->
 
     @endsection
