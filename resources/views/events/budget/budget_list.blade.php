@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <title>Add New Guest List</title>
-    <?php  $id=$data['userid']->Event_id; ?>
+    <?php  $id=$data['event']->Event_id; ?>
     
     @extends("layouts.eventsidebar")
     @section("content")
@@ -18,7 +18,7 @@
                                 <th scope="col">Department</th>
                                 <th scope="col">Number of Item</th>
                                 <th scope="col">Budget Amount</th>
-                                <th scope="col">Under Budget</th>
+                                
                                 <th scope="col" colspan="2"><div class="text-center">Action</div></th>
                                 </tr>
                             </thead>
@@ -62,8 +62,8 @@
                                 <td>{{$count+1}}</td>
                                 <td>{{$department[$count]}}</td>
                                 <td>{{$number[$count]}}</td>
-                                <td>{{$amount[$count]}}</td>
-                                <td>Yes </td>
+                                <td>RM{{$amount[$count]}}</td>
+                                
                                    
                                 <td>
                                     <div class="d-flex justify-content-center">
@@ -79,7 +79,7 @@
                     </div>
                     <div class="d-flex justify-content-end">
                         <button type="button" class="btn btn-success rounded-circle">
-                            <a href="/events/budget/add_budget/{{$data['userid']->Department}}" class="my-btn-link">+</a>
+                            <a href="/events/budget/add_budget/{{$data['event']->Event_id}}/{{$data['userid']->Department}}" class="my-btn-link">+</a>
                         </button>
                     </div>
                     <div class="d-flex justify-content-center">

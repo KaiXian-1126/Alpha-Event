@@ -13,10 +13,24 @@ class EventController extends Controller
     public function getAllEvents(){
         $nowDate = date("Y-m-d");
         $nowTime = date("H:i:s");
-        $upcomingEvents = Event::where("Event_EndDate", ">", $nowDate)
-        ->orWhere([["Event_EndDate", $nowDate],["Event_EndTime", ">", $nowTime]])->get();
-        $pastEvents = Event::where("Event_endDate", "<", $nowDate,)
-        ->orWhere([["Event_EndDate", $nowDate],["Event_EndTime", "<", $nowTime]])->get();
+      //  $upcomingEvents = Event::where("Event_EndDate", ">", $nowDate)
+      //  ->orWhere([["Event_EndDate", $nowDate],["Event_EndTime", ">", $nowTime]])->get();
+      //  $pastEvents = Event::where("Event_endDate", "<", $nowDate,)
+      //  ->orWhere([["Event_EndDate", $nowDate],["Event_EndTime", "<", $nowTime]])->get();
+      //  return view('/home', ["upcomingEvents"=>$upcomingEvents, "pastEvents"=>$pastEvents]);
+   
+        $upcomingEvents = Member::join('events', 'events.Event_id', '=', 'members.Event_id')
+                        ->select('members.*', 'events.*')
+                        ->where('members.Member_id',auth()->user()->id)
+                        ->where("Event_EndDate", ">", $nowDate)
+                        ->orWhere([["events.Event_EndDate", $nowDate],["events.Event_EndTime", ">", $nowTime]])
+                        ->get();
+        $pastEvents =  Member::join('events', 'events.Event_id', '=', 'members.Event_id')
+                        ->select('members.*', 'events.*')
+                        ->where('members.Member_id',auth()->user()->id)
+                        ->where("Event_EndDate", "<", $nowDate)
+                        ->orWhere([["events.Event_EndDate", $nowDate],["events.Event_EndTime", "<", $nowTime]])
+                        ->get();
         return view('/home', ["upcomingEvents"=>$upcomingEvents, "pastEvents"=>$pastEvents]);
     }
     /**
@@ -114,6 +128,9 @@ class EventController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $eventid = Member::where('Event_id',$id)->value('memberid');
+        $text = Member::where('memberid',$eventid)->delete();
+        return redirect("/home");
+       //return view('a', compact('eventid'));
     }
 }

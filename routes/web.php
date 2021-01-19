@@ -85,7 +85,7 @@ Route::get('/events/budget/view_budget/{id}/{id2}/{id3}', 'App\Http\Controllers\
 
 Route::get('/events/budget/edit_budget/{id}/{id1}','App\Http\Controllers\BudgetController@update');
 
-Route::get('/events/budget/add_budget/{id}', 'App\Http\Controllers\BudgetController@create');
+Route::get('/events/budget/add_budget/{id}/{id1}', 'App\Http\Controllers\BudgetController@create');
 
 Route::post('/create_budget/{id1}/{id2}/{id3}', 'App\Http\Controllers\BudgetController@store');
 
@@ -138,9 +138,10 @@ Route::get('/gamification/mockdatascore2', function(){
 
 Auth::routes();
 Route::get('/home', "App\Http\Controllers\EventController@getAllEvents");
+Route::get('/home/delete_event/{id}', "App\Http\Controllers\EventController@destroy");
 
 
-// MyEvents/route
+// MyEvents/member/route
 Route::get('/MyEvents/manage_team/{id}','App\Http\Controllers\MemberController@manageteam');
 Route::get('/MyEvents/delete_team/{id}','App\Http\Controllers\MemberController@destroy');
 Route::get('/MyEvents/view_team/{id}',"App\Http\Controllers\MemberController@viewteam");
@@ -150,7 +151,7 @@ Route::get('/MyEvents/edit_member/{id}',"App\Http\Controllers\MemberController@e
 Route::post('/MyEvents/update-member',"App\Http\Controllers\MemberController@update");
 
 Route::get('/a', function(){
-    return view('layouts.eventsidebar');
+    return view('a');
 });
 
 
