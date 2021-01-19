@@ -25,9 +25,9 @@
     </header>
     
    
-    <main class="d-flex justify-content-center mt-5">
+    <main class="d-flex justify-content-center mt-5 mb-5">
       <div class="container">
-        <div class="row">
+        <div class="row mt-5 mb-5">
           <div class="col-md-4 mt-3">
             <div class="row d-flex justify-content-center align-items-center">
               <i class="fa fa-envelope fa-3x"></i>
@@ -70,14 +70,15 @@
         </div>
       </div>
     </main>
+    <hr>
     <footer class="text-center">
       <div class="container">
-        <div class="row mt-5 mb-5 d-flex justify-content-around">
-          <a href="mailto:kaixianp@gmail.com"><i class="fa fa-envelope-o fa-3x" aria-hidden="true"></i></a>
-          <a href="https://www.facebook.com/kaixian9811/"><i class="fa fa-facebook fa-3x" aria-hidden="true"></i></a>
-          <a href="https://www.instagram.com/kaixian_1126/"><i class="fa fa-instagram fa-3x" aria-hidden="true"></i></a>
+        <div class="row mt-2 mb-2 d-flex justify-content-around">
+          <a href="mailto:kaixianp@gmail.com"><i class="fa fa-envelope-o fa-2x" aria-hidden="true"></i></a>
+          <a href="https://www.facebook.com/kaixian9811/"><i class="fa fa-facebook fa-2x" aria-hidden="true"></i></a>
+          <a href="https://www.instagram.com/kaixian_1126/"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a>
         </div>
-        <div class="col pb-2">
+        <div class="col pt-2 pb-2">
           <p>Copyright &copy Alpha Event 2020</p>
         </div>
       </div>
