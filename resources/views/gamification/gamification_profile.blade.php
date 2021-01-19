@@ -17,9 +17,9 @@
                 </div>
                 <div class="col-md-4 d-flex align-items-center mt-2 mb-2">
                     <div class="col text-center">
-                        <h2>{{$user->name}}</h2>
-                        <p>{{$user->email}}</p>
-                        <p>{{$user->phone}}</p>
+                        <h2 id="user-name">{{$user->name}}</h2>
+                        <p id="user-email">{{$user->email}}</p>
+                        <p id="user-phone">{{$user->phone}}</p>
                         <button type="button" class="btn btn-secondary mt-3">
                             <a href="/gamification/user_profile" class="my-btn-link">Edit</a>
                         </button>
@@ -81,6 +81,12 @@
     $(document).ready(function(){
         // get player
         var topPlayerList = Array();
+        var userName = $('#user-name').text();
+        var userEmail = $('#user-email').text();
+        var userPhone = $('#user-phone').text();
+        $.ajax({url: "http://api.tenenet.net/createPlayer?token=333eb0526f782a6de74735d9f97cb50c&alias="+userName+"&id=3&fname="+userEmail+"&lname=",
+            type: "get",
+        });
         $.ajax({url: "http://127.0.0.1:8000/gamification/mockdatascore1",
             type: "get",
             data: { get_param: 'value' }, 

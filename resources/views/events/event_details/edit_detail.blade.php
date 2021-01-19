@@ -37,13 +37,6 @@
             h1{
                 text-align: center;
             }
-
-        
-            .container{
-                border:1px solid black;
-
-            }       
-
             h2{
                 text-decoration:underline;
                 text-align:center;
@@ -68,7 +61,7 @@
                 <!-- col start -->
                 <br><br>
                 <div class="col-md-8" style="margin-top:5%;margin-bottom:8%;">
-                    <div class="container" style="margin-bottom:5%;">
+                    <div class="container" style="margin-bottom:5%; border:1px solid black;">
                         <h1>Cultural Event</h1>
                         <p id="demo" style="text-align: center;font-size: 30px;"></p>
                         </div>
@@ -76,7 +69,7 @@
                         <div class="row ">
                                 
                             <div class="col-sm-5" style="margin-bottom:5%;">
-                              <div class="container">
+                              <div class="container" style="margin-bottom:5%;">
                                 <h2>Event Detail</h2>
                                 <br>
                                 <br>
@@ -149,7 +142,7 @@
                             </div>
                           
                             <div class="col-sm-6" style="margin-bottom:30%;">
-                                <div class="container" style="margin-bottom:10%;">
+                                <div class="container" style="border:1px solid black;margin-bottom:10%;">
                                     <h2>Anouncement</h2>
                                     <br>
                                     <textarea style="width:100%; height:50%; margin-bottom:5%;" readonly></textarea>
