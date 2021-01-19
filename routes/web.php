@@ -32,9 +32,7 @@ Route::get('/events/event_details/edit_anouncement', function(){
     return view('events/event_details/edit_anouncement');
 });
 
-Route::get('/events/invitation/edit_invitation', function(){
-    return view('events/invitation/edit_invitation');
-});
+Route::get('/events/invitation/edit_invitation/{id}', 'App\Http\Controllers\InvitationController@index');
 
 Route::get('/events/invitation/send_invitation', function(){
     return view('events/invitation/send_invitation');

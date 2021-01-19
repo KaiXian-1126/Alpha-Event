@@ -13,9 +13,9 @@ class InvitationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        //
+        return view('events/invitation/edit_invitation')->with('id',$id);
     }
 
     /**

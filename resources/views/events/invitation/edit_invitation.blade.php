@@ -1,10 +1,10 @@
-!doctype html>
+<!doctype html>
 <html lang="en">
 
 <head>
     <title>Edit event</title>
 </head>
-@extends("layouts.eventsidebar", , ["id"=>$id])
+@extends("layouts.eventsidebar",  ["id"=>$id])
 @section("content")
 
 <!-- Main Content -->
@@ -16,16 +16,18 @@
             <div class="col-sm-9" >
                 
                 <br><br>
-                
-                <div class="container" style= "padding-right:10%; ">
+                <form action="" method="">
+                <div class="container" style= "height:100%; ">
                 <h1 style="font-size: 16px">Program Name | Department</h1>
                 <br><br>
-                <div class="container" style="border:1px solid black;margin-bottom:10%;" >
+                <div class="container" style="border:1px solid black;margin-bottom:10%;height:80%;" >
                     <br><br>
                     <h2 style="text-decoration:underline; text-align:center;">Uploaded Image</h2>
                     <br>
                     <div class="container" style="border:1px solid black; width:95%;height:300px;padding:0%;">
-                        <p><img id="output" style="width: 100%;height:100%" /></p>
+                      
+                        <img id="output" style="width:100%;height:300px;" />
+                      
                     </div>
                     <br>
                     <div style="text-align: center;">
@@ -46,6 +48,7 @@
                     <br>
                     <br>
                 </div>
+                </form>
                 
             </div>
 
