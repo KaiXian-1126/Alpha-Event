@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Event detail</title>
+    
     <script>
         // Set the date we're counting down to
         var countDownDate = new Date("Jan 13, 2021 15:37:25").getTime();

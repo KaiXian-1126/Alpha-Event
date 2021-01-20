@@ -1,9 +1,5 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <title>Gamification Profile</title>
-    @extends("layouts.navigation_bar")
-    @section("content")
+@extends("layouts.navigation_bar")
+@section("content")
             </div>
         </div>
     <main>

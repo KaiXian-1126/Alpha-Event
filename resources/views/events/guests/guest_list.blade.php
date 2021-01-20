@@ -1,9 +1,4 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <title>Guest List</title>
-  </head>
-    @extends("layouts.eventsidebar", ["id" => $event->Event_id])
+@extends("layouts.eventsidebar", ["id" => $event->Event_id])
     @section("content")
     <div class="col-md-9">
         <div class="row">        

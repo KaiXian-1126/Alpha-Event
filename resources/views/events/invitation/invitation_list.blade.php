@@ -1,15 +1,9 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-    <title>Edit event</title>
-</head>
 @extends("layouts.eventsidebar",  ["id"=>$data['event']->Event_id])
 @section("content")
 
 <!-- Main Content -->
     
-
+<div class="col-md-9"> 
     <div class="container" style="text-align:center;">
         <div class="row">
             <!-- col start -->
@@ -25,7 +19,7 @@
                 <br><br>
 
                 @else
-                <div class="table-responsive" style="margin-top:20%;">
+                <div class="table-responsive mt-3">
                     <h2>{{$data['event']->Event_name}}</h2>
                     <br><br>
                

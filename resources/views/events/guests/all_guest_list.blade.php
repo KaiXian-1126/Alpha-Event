@@ -1,10 +1,5 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <title>All Guests</title>
-  </head>
-    @extends("layouts.eventsidebar", ["id"=>$id])
-    @section("content")
+@extends("layouts.eventsidebar", ["id"=>$id])
+@section("content")
     <div class="col-md-9">
                 <!-- col start -->
                 <div class="row " >

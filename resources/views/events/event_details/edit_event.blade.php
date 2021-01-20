@@ -1,9 +1,4 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <title>Edit event</title>
-  </head>
-  @extends("layouts.eventsidebar", ["id"=>$id])
+@extends("layouts.eventsidebar", ["id"=>$id])
   @section("content")
   <!-- Main Content -->
   <div class="col-md-9"> 

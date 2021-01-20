@@ -25,17 +25,13 @@ Route::get('/events/event_details/edit_event/{id}', "App\Http\Controllers\EventC
 Route::post('/events/event_details/event-update/{id}', "App\Http\Controllers\EventController@updateEvent");
 Route::get('/events/event_details/edit_anouncement/{id}', "App\Http\Controllers\EventController@editanouncement");
 Route::post('/events/event_details/event-anouncement/{id}', "App\Http\Controllers\EventController@updateAnouncement");
-
 Route::get('/events/invitation/edit_invitation/{id}', 'App\Http\Controllers\InvitationController@index');
 
+//event/invitation route
 Route::post('/save-invitation-record/{id}', 'App\Http\Controllers\InvitationController@store');
-
 Route::get('/view-invitation-card/{id}', 'App\Http\Controllers\InvitationController@view');
-
 Route::get('/go-to-card-send/{id}', 'App\Http\Controllers\InvitationController@show');
-
 Route::post('/send-invitation/{id}/{id1}', 'App\Http\Controllers\InvitationController@send');
-
 Route::get('/events/invitation/send_invitation/{id}', 'App\Http\Controllers\InvitationController@edit');
 
 
@@ -92,14 +88,10 @@ Route::post('/create_budget/{id1}/{id2}/{id3}', 'App\Http\Controllers\BudgetCont
 Route::get('/update_budget/{id}/{id1}', 'App\Http\Controllers\BudgetController@store_update')->middleware('auth');
 
 Route::get('/delete_budget/{id}/{id1}', 'App\Http\Controllers\BudgetController@destroy')->middleware('auth');
-// MyEvents/route
-Route::get('/MyEvents/view_team', function(){
-    return view('Myevents.view_team');
-})->middleware('auth');
-Route::get('/MyEvents/create_event', function(){
-    return view('Myevents.create_event');
-})->middleware('auth');
 
+// MyEvents/route
+Route::get('/MyEvents/view_team', function(){return view('Myevents.view_team');})->middleware('auth');
+Route::get('/MyEvents/create_event', function(){return view('Myevents/create_event');})->middleware('auth');
 Route::get('/registeredevent', function(){
     return view('registeredevent');
 })->middleware('auth');

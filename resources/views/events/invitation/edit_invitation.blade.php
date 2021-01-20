@@ -1,9 +1,6 @@
 <!doctype html>
 <html lang="en">
 
-<head>
-    <title>Edit event</title>
-</head>
 @extends("layouts.eventsidebar",  ["id"=>$id->Event_id])
 @section("content")
 

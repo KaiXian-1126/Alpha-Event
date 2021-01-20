@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Event detail</title>
     <script>
         
         // Set the date we're counting down to
