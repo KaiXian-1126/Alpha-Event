@@ -3,9 +3,10 @@
   <head>
     <title>Event detail</title>
     <script>
-        // Set the date we're counting down to
-        var countDownDate = new Date("Jan 31, 2021 15:37:25").getTime();
         
+        // Set the date we're counting down to
+        var countDownDate = new Date("Jan 31, 2021 15:37:25");
+        var countDownDate = 
         // Update the count down every 1 second
         var x = setInterval(function() {
         
