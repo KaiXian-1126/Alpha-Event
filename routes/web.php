@@ -106,26 +106,13 @@ Route::post('/gamification/update-user-profile', "App\Http\Controllers\UserContr
 Route::get('/gamification/top_up', function(){
     return view('gamification/top_up');
 })->middleware('auth');
-Route::get('/gamification/reward', function(){
-    return view('gamification/reward');
-})->middleware('auth');
+Route::get('/gamification/reward', "App\Http\Controllers\GamificationController@rewardInfo");
 Route::get('/gamification/achievement', function(){
     return view('gamification/achievement');
 })->middleware('auth');
 Route::get('/gamification/challenge', function(){
     return view('gamification/challenge');
 })->middleware('auth');
-
-//This is a mock data
-Route::get('/gamification/mockdatadashboard', function(){
-    return view('gamification/mockdatadashboard');
-});
-Route::get('/gamification/mockdatascore1', function(){
-    return view('gamification/mockdatascore1');
-});
-Route::get('/gamification/mockdatascore2', function(){
-    return view('gamification/mockdatascore2');
-});
 /////////////////////////////////////////////////////////////
 
 Route::get('/home', "App\Http\Controllers\EventController@getAllEvents")->middleware('auth');

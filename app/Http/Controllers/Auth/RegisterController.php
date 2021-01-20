@@ -8,7 +8,7 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-
+use Illuminate\Support\Facades\Http;
 class RegisterController extends Controller
 {
     /*
@@ -64,6 +64,9 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        Http::post('http://api.tenenet.net/createPlayer?token=333eb0526f782a6de74735d9f97cb50c&alias='.$data['name'].'&id=&fname='.$data['email'].'&lname=');
+        Http::post('api.tenenet.net/insertPlayerActivity?token=333eb0526f782a6de74735d9f97cb50c&alias='.$data['name'].'&id=alpha_badges_point&operator=add&value=0');
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
