@@ -16,7 +16,8 @@
             <div class="col-sm-9" >
                 
                 <br><br>
-                <form action="" method="">
+                <form action="/save-invitation-record/{{$id}}" method="post" enctype="multipart/form-data">
+                    {{ csrf_field() }}
                 <div class="container" style= "height:100%; ">
                 <h1 style="font-size: 16px">Program Name | Department</h1>
                 <br><br>
@@ -35,20 +36,24 @@
                         <p><label for="file" class="btn btn-primary">Upload Image</label></p>
                     </div>
                     <br><br>
-                    <textarea id='summary-ckeditor' class="form-control" placeholder='Body'
+                    <textarea name="text" id='summary-ckeditor' class="form-control" placeholder='Body'
                           name="editor" > </textarea>
                     <br>
                     <br>
                     <div class="col" style="text-align:center;">
-                        <button type="submit" class="btn btn-primary">Next</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     <br>
                     <br>
                     </div>
                     <br>
                     <br>
+                    
                 </div>
                 </form>
+                <div style="text-align:center;">
+                    <button type="button" class="btn btn-primary"><a href="/view-invitation-card/{{$id}}" style="color:white;">View Invitation card</a></button>
+                    </div>
                 
             </div>
 

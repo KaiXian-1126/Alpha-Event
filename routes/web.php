@@ -34,9 +34,16 @@ Route::get('/events/event_details/edit_anouncement', function(){
 
 Route::get('/events/invitation/edit_invitation/{id}', 'App\Http\Controllers\InvitationController@index');
 
-Route::get('/events/invitation/send_invitation', function(){
-    return view('events/invitation/send_invitation');
-});
+Route::post('/save-invitation-record/{id}', 'App\Http\Controllers\InvitationController@store');
+
+Route::get('/view-invitation-card/{id}', 'App\Http\Controllers\InvitationController@view');
+
+Route::get('/go-to-card-send/{id}', 'App\Http\Controllers\InvitationController@show');
+
+Route::post('/send-invitation/{id}/{id1}', 'App\Http\Controllers\InvitationController@send');
+
+Route::get('/events/invitation/send_invitation/{id}', 'App\Http\Controllers\InvitationController@edit');
+
 
 Route::get('/PublicEvents/publiceventdetail', function(){
     return view('PublicEvents/publiceventdetail');

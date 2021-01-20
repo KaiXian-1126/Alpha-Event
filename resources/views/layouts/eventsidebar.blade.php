@@ -119,7 +119,10 @@
                             </div> 
                           </div> 
                   <li class="list-group-item list-group-item-action"><a href="/events/budget/budget_list/{{$id}}">Budget</a></li>
-                  <li class="list-group-item list-group-item-action"><a href="/events/invitation/edit_invitation/{{$id}}">Invitation</a></li>
+                  <li class="list-group-item list-group-item-action"><a href="/events/invitation/edit_invitation/{{$id}}">Create invitation card</a></li>
+    
+                 
+                
               </ul>
             </div>
       

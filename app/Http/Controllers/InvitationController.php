@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Models\Invitation;
+use App\Models\Invitation;
+use App\Models\Guest;
+use App\Models\User;
+use App\Models\Send_invitation;
 use Illuminate\Support\Facades\DB;
+
 
 class InvitationController extends Controller
 {
@@ -15,6 +19,7 @@ class InvitationController extends Controller
      */
     public function index($id)
     {
+        
         return view('events/invitation/edit_invitation')->with('id',$id);
     }
 
@@ -34,9 +39,23 @@ class InvitationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,$id)
     {
-        //
+        $text=$request->input('text');
+        $image=$request->file('image');
+        
+        $imageName=time().'.'.$image->extension();
+        $image->move(public_path('image'),$imageName);
+
+        $invitation=new Invitation();
+        $invitation->image=$imageName;
+        $invitation->Event_id=$id;
+        $invitation->Text=$text;
+        $invitation->save();
+
+        
+
+        return redirect("events/invitation/edit_invitation/{$id}")->with('id',$id);
     }
 
     /**
@@ -47,7 +66,44 @@ class InvitationController extends Controller
      */
     public function show($id)
     {
-        //
+        $data['id']=invitation::where('Invitation_id',$id)->first();
+        $eid=$data['id']->Event_id;
+        $data['guest_id']=guest::where('Event_id',$eid)->get();
+
+        $data['user']=user::all();
+        
+
+        
+        
+        
+        return view("events/invitation/send_invitation")->with(compact('data',$data));
+    }
+
+    public function send(Request $request,$id,$iid)
+    {
+        
+        $selection=$request->input('guest');
+        $selection1=$request->input('guestList');
+
+        
+         $invitation=new send_invitation();
+         $invitation->Event_id=$id;
+         $invitation->invitation_id=$iid;
+         $invitation->Guest_id=$selection;
+         $invitation->Guest_list=$selection1;
+
+         $invitation->save();
+        
+        return redirect("events/invitation/edit_invitation/{$id}")->with('id',$id);
+    }
+
+    public function view($id)
+    {
+        
+        $iid=invitation::where('Event_id',$id)->get();
+        
+
+        return view("events/invitation/invitation_list")->with('iid',$iid);
     }
 
     /**
@@ -58,7 +114,8 @@ class InvitationController extends Controller
      */
     public function edit($id)
     {
-        //
+        
+        return view('/events/invitation/send_invitation')->with('id',$id);
     }
 
     /**

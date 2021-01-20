@@ -18,8 +18,6 @@ class CreateInvitationsTable extends Migration
             $table->integer('Event_id');
             $table->string('Image');
             $table->longText('Text');
-            $table->integer('Guest_id');
-            $table->string('Guest_list');
             $table->timestamps();
         });
     }
