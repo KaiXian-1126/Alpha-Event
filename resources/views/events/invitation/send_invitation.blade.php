@@ -12,7 +12,8 @@
             
             <div class="col-sm-8" >
                 <div class="container" style= "padding-right:10%; ">
-                <h1 style="font-size: 16px">Program Name | Department</h1>
+                    <br><br>
+                <h1 style="font-size: 30px">{{$data['event']->Event_name}}</h1>
                 <br><br>
                 <div class="container" style="border:1px solid black;margin-bottom:10%;" >
                     <br><br>
@@ -72,7 +73,7 @@
                 <div class="row">
                 
                 <div class="col">
-                <button type="submit" class="btn btn-primary">Back</button>
+                <button type="button" class="btn btn-primary"><a href="/events/invitation/edit_invitation/{{$data['event']->Event_id}}" style="color:white;">Back</a></button>
                 </div>
 
                 <div class="col">
