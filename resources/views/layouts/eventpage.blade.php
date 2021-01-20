@@ -41,22 +41,29 @@
             <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
                 <div class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                        <span class="profile-ava">
-                            <img alt="" src="image/avatar1_small.jpg">
-                        </span>
                         {{ Auth::user()->name }} <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-wide" role="menu">
-                        <li>                            
-                            <a href="#">My Profile</a>                  
+                        <li class="dropdown-item">                            
+                            <a href="/gamification/gamification_profile" >My Profile</a>                  
                         </li>
-                        <li>
+                        <div class="dropdown-divider"></div>
+                        <li class="dropdown-item">                            
+                            <a href="/gamification/challenge">Challenge</a>                  
+                        </li>
+                        <li class="dropdown-item">                            
+                            <a href="/gamification/achievement" >Achievement</a>                  
+                        </li>
+                        <li class="dropdown-item">                   
+                            <a href="/gamification/ranking_dashboard" >Ranking</a>                  
+                        </li>
+                        <div class="dropdown-divider"></div>
+                        <li class="dropdown-item">
                             <a href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
                                 Logout
                             </a>
-
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 {{ csrf_field() }}
                             </form>

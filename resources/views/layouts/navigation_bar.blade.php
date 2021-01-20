@@ -15,7 +15,7 @@
   <body style="background-color: #d2d2f3">
   <nav class="navbar navbar-expand-md bg-dark navbar-dark">
         <div class="container">
-            <a class="navbar-brand" href="{{url('/')}}">{{ config('app.name', 'Alpha Event') }}</a>
+            <a class="navbar-brand" href="{{url('/home')}}">{{ config('app.name', 'Alpha Event') }}</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>

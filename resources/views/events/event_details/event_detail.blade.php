@@ -50,99 +50,99 @@
     @extends("layouts.eventsidebar", ["id"=>$id])
     @section("content")
     <!-- Main Content -->
-    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4"> 
-        
-            <div class="row text-center" >
-                <!-- col start -->
-                <br><br>
-                <div class="col-md-10" style="margin-top:5%;margin-bottom:8%;">
-                    <div class="container" style="border:1px solid black;margin-bottom:5%;">
-                        <h1>Cultural Event</h1>
-                        <p id="demo" style="text-align: center;font-size: 30px;"></p>
-                    </div>
-                        
-                        <div class="row ">
-                                
-                            <div class="col-sm-5" style="margin-bottom:5%;">
-                              <div class="container" style="border:1px solid black;">
-                                <h2>Event Detail</h2>
-                                <br>
-                                <br>
-                                <div class="row">
-                                   <div class="col-5">
-                                       <p>Event name</p>
-                                   </div>
-                        
-                                   <div class="col-1">
-                                    <p>:</p>
-                                   </div>
-                        
-                                   <div class="col-5">
-                                    <p>Event 1</p>
-                                   </div>
-                                </div>
-                        
-                                <div class="row">
-                                    <div class="col-5">
-                                        <p>Time</p>
-                                    </div>
-                         
-                                    <div class="col-1">
-                                     <p>:</p>
-                                    </div>
-                         
-                                    <div class="col-5">
-                                     <p>08:00 p.m.</p>
-                                    </div>
-                                 </div>
-                        
-                                 <div class="row">
-                                    <div class="col-5">
-                                        <p>Venue</p>
-                                    </div>
-                         
-                                    <div class="col-1">
-                                     <p>:</p>
-                                    </div>
-                         
-                                    <div class="col-5">
-                                     <p>Dewan Sultan Iskandar, UTM Johor</p>
-                                    </div>
-                                 </div>
-                        
-                                 <div class="row">
-                                    <div class="col-5">
-                                        <p>Tentative</p>
-                                    </div>
-                         
-                                    <div class="col-1">
-                                     <p>:</p>
-                                    </div>
-                         
-                                    <div class="col-5">
-                                     <p>tentative.pdf</p>
-                                    </div>
-                                 </div>
-                        
-                                 </div>
-                            </div>
-
-                            <div class="col-sm-1">
-                            </div>
-                          
-                            <div class="col-sm-6" style="margin-bottom:30%;">
-                                <div class="container" style="border:1px solid black;margin-bottom:10%;">
-                                    <h2>Anouncement</h2>
-                                    <br>
-                                    <textarea style="width:100%; height:50%; margin-bottom:5%;" readonly></textarea>
-                                    <textarea style="width:100%; height:20%; margin-bottom:2%;" readonly></textarea>
-                                </div>
-                            </div>
+    <div class="col-md-9">
+        <div class="row text-center" >
+            <!-- col start -->
+            <br><br>
+            <div class="col-md-10" style="margin-top:5%;margin-bottom:8%;">
+                <div class="container" style="border:1px solid black;margin-bottom:5%;">
+                    <h1>Cultural Event</h1>
+                    <p id="demo" style="text-align: center;font-size: 30px;"></p>
+                </div>
+                    
+                    <div class="row ">
                             
+                        <div class="col-sm-5" style="margin-bottom:5%;">
+                            <div class="container" style="border:1px solid black;">
+                            <h2>Event Detail</h2>
+                            <br>
+                            <br>
+                            <div class="row">
+                                <div class="col-5">
+                                    <p>Event name</p>
+                                </div>
+                    
+                                <div class="col-1">
+                                <p>:</p>
+                                </div>
+                    
+                                <div class="col-5">
+                                <p>Event 1</p>
+                                </div>
+                            </div>
+                    
+                            <div class="row">
+                                <div class="col-5">
+                                    <p>Time</p>
+                                </div>
+                        
+                                <div class="col-1">
+                                    <p>:</p>
+                                </div>
+                        
+                                <div class="col-5">
+                                    <p>08:00 p.m.</p>
+                                </div>
+                                </div>
+                    
+                                <div class="row">
+                                <div class="col-5">
+                                    <p>Venue</p>
+                                </div>
+                        
+                                <div class="col-1">
+                                    <p>:</p>
+                                </div>
+                        
+                                <div class="col-5">
+                                    <p>Dewan Sultan Iskandar, UTM Johor</p>
+                                </div>
+                                </div>
+                    
+                                <div class="row">
+                                <div class="col-5">
+                                    <p>Tentative</p>
+                                </div>
+                        
+                                <div class="col-1">
+                                    <p>:</p>
+                                </div>
+                        
+                                <div class="col-5">
+                                    <p>tentative.pdf</p>
+                                </div>
+                                </div>
+                    
+                                </div>
                         </div>
+
+                        <div class="col-sm-1">
+                        </div>
+                        
+                        <div class="col-sm-6" style="margin-bottom:30%;">
+                            <div class="container" style="border:1px solid black;margin-bottom:10%;">
+                                <h2>Anouncement</h2>
+                                <br>
+                                <textarea style="width:100%; height:50%; margin-bottom:5%;" readonly></textarea>
+                                <textarea style="width:100%; height:20%; margin-bottom:2%;" readonly></textarea>
+                            </div>
+                        </div>
+                        
                     </div>
+                </div>
             </div>
-    </main>
+        </div>
+    </div>
             
             
     @endsection
