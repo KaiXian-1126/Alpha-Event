@@ -16,7 +16,7 @@
     <div class="row">
         <div class="col-sm-10"></div>
         <div class="col-sm-1">
-             <a href="/MyEvents/create_event"><button type="submit" class="btn btn-primary">Create</button></a>
+             <a href='/MyEvents/create_event'><button type="submit" class="btn btn-primary">Create</button></a>
         </div>
     </div>
 </div>

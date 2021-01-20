@@ -91,7 +91,7 @@ Route::get('/delete_budget/{id}/{id1}', 'App\Http\Controllers\BudgetController@d
 
 // MyEvents/route
 Route::get('/MyEvents/view_team', function(){return view('Myevents.view_team');})->middleware('auth');
-Route::get('/MyEvents/create_event', function(){return view('Myevents/create_event');})->middleware('auth');
+Route::get('/MyEvents/create_event', "App\Http\Controllers\EventController@accessToCreateEventPage")->middleware('auth');
 Route::get('/registeredevent', function(){
     return view('registeredevent');
 })->middleware('auth');
