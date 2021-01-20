@@ -26,13 +26,18 @@ Route::post('/events/event_details/event-update/{id}', "App\Http\Controllers\Eve
 Route::get('/events/event_details/edit_anouncement/{id}', "App\Http\Controllers\EventController@editanouncement");
 Route::post('/events/event_details/event-anouncement/{id}', "App\Http\Controllers\EventController@updateAnouncement");
 
-Route::get('/events/invitation/edit_invitation', function(){
-    return view('events/invitation/edit_invitation');
-});
+Route::get('/events/invitation/edit_invitation/{id}', 'App\Http\Controllers\InvitationController@index');
 
-Route::get('/events/invitation/send_invitation', function(){
-    return view('events/invitation/send_invitation');
-});
+Route::post('/save-invitation-record/{id}', 'App\Http\Controllers\InvitationController@store');
+
+Route::get('/view-invitation-card/{id}', 'App\Http\Controllers\InvitationController@view');
+
+Route::get('/go-to-card-send/{id}', 'App\Http\Controllers\InvitationController@show');
+
+Route::post('/send-invitation/{id}/{id1}', 'App\Http\Controllers\InvitationController@send');
+
+Route::get('/events/invitation/send_invitation/{id}', 'App\Http\Controllers\InvitationController@edit');
+
 
 Route::get('/PublicEvents/publiceventdetail', function(){
     return view('PublicEvents/publiceventdetail');
@@ -104,26 +109,39 @@ Route::get('/registeredevent', function(){
 Route::post('/MyEvents/create-event', "App\Http\Controllers\EventController@create");
 
 //Gamification route
-Route::get('/gamification/gamification_profile', function(){
-    return view('gamification/gamification_profile');
-});
-Route::get('/gamification/ranking_dashboard', function(){
-    return view('gamification/ranking_dashboard');
-});
-Route::get('/gamification/ranking_dashboard', function(){
-    return view('gamification/ranking_dashboard');
-});
-Route::get('/gamification/user_profile', function(){
-    return view('gamification/user_profile');
-});
+Route::get('/gamification/gamification_profile', "App\Http\Controllers\UserController@getUserInfo");
+Route::get('/gamification/ranking_dashboard', "App\Http\Controllers\GamificationController@getLeaderboard");
+Route::get('/gamification/user_profile', "App\Http\Controllers\UserController@editUserInfo");
+Route::post('/gamification/update-user-profile', "App\Http\Controllers\UserController@updateUser");
 Route::get('/gamification/top_up', function(){
     return view('gamification/top_up');
 });
+Route::get('/gamification/reward', function(){
+    return view('gamification/reward');
+});
+Route::get('/gamification/achievement', function(){
+    return view('gamification/achievement');
+});
+Route::get('/gamification/challenge', function(){
+    return view('gamification/challenge');
+});
+
+//This is a mock data
+Route::get('/gamification/mockdatadashboard', function(){
+    return view('gamification/mockdatadashboard');
+});
+Route::get('/gamification/mockdatascore1', function(){
+    return view('gamification/mockdatascore1');
+});
+Route::get('/gamification/mockdatascore2', function(){
+    return view('gamification/mockdatascore2');
+});
+/////////////////////////////////////////////////////////////
+
 Auth::routes();
 Route::get('/home', "App\Http\Controllers\EventController@getAllEvents");
 Route::get('/home/delete_event/{id}', "App\Http\Controllers\EventController@destroy");
 
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // MyEvents/member/route
 Route::get('/MyEvents/manage_team/{id}','App\Http\Controllers\MemberController@manageteam');

@@ -44,7 +44,7 @@
         </div>
             <div class="row d-flex justify-content-end">
                 <button type="button" class="btn btn-secondary mr-5 mt-3">
-                    <a href="#" class="my-btn-link">Back</a>
+                    <a href="/gamification/gamification_profile" class="my-btn-link">Back</a>
                 </button>
             </div>
         </div>

@@ -38,21 +38,21 @@
                         {{ Auth::user()->name }} <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-wide" role="menu">
-                        <li>                            
+                        <li class="dropdown-item">                            
                             <a href="/gamification/gamification_profile" >My Profile</a>                  
                         </li>
                         <div class="dropdown-divider"></div>
-                        <li>                            
+                        <li class="dropdown-item">                            
                             <a href="/gamification/challenge">Challenge</a>                  
                         </li>
-                        <li>                            
+                        <li class="dropdown-item">                            
                             <a href="/gamification/achievement" >Achievement</a>                  
                         </li>
-                        <li>                   
+                        <li class="dropdown-item">                   
                             <a href="/gamification/ranking_dashboard" >Ranking</a>                  
                         </li>
                         <div class="dropdown-divider"></div>
-                        <li>
+                        <li class="dropdown-item">
                             <a href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">

@@ -5,7 +5,89 @@
     @extends("layouts.navigation_bar")
     @section("content")
     
-    {{-- <img class="card-img-top" src="{{ URL::asset('assets/img/achievement.png') }}" alt="Card image cap"> --}}
+    <div class="container">
+        <div class="accordion mt-5 mb-5" id="accordionExample1">
+            <div class="card">
+                <div class="card-header" id="headingOne" style="background-color:#ffffbb">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <h2 style="font-size: 20px">Achievement</h2>
+                    </button>
+                </h5>
+                </div>
+
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample1">
+                <div class="card-body">
+                    <div class="jumbotron jumbotron-fluid">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6 d-flex justify-content-center">
+                                    <div class="card text-black mb-3 text-center" style="width: 100%">
+                                        <div class="card-header" style="background-color:#bbffff"><b>Total Achievement Scores</b></div>
+                                        <div class="card-body" style="background-color:#ffd7dd;">
+                                            <h5 class="card-title">0</h5>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 d-flex justify-content-center">
+                                    <div class="card text-black mb-3 text-center" style="width: 100%">
+                                        <div class="card-header" style="background-color:#bbffff"><b>Monthly Achievement Scores</b></div>
+                                        <div class="card-body" style="background-color:#ffd7dd;">
+                                            <h5 class="card-title">0</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr class="table-primary">
+                    <th scope="col">#</th>
+                    <th scope="col">Achievement</th>
+                    <th scope="col">Progress</th>
+                    <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="table-info">
+                        <th scope="col">1</th>
+                        <td>Orginize and finish 100 events</td>
+                        <td>0 / 100</td>
+                        <td></td>
+                    </tr>
+                    <tr class="table-danger">
+                        <th scope="col">2</th>
+                        <td>Login 100 days continuously</td>
+                        <td>6 / 100</td>
+                        <td></td>
+                    </tr>
+                    <tr class="table-info">
+                        <th scope="col">3</th>
+                        <td>Attend 100 events</td>
+                        <td>6 / 100</td>
+                        <td></td>
+                    </tr>
+                    <tr class="table-danger">
+                        <th scope="col">4</th>
+                        <td>Sent the invitation to 1000 users</td>
+                        <td>8 / 1000</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    
+    
+    <!--
     <div class="container-fluid" style="margin:2%;background-color:lightgray ">
         <h1>Achievement</h1>
         <div class="row">
@@ -56,5 +138,7 @@
             </table>
         </div>
     </div>
-
+    -->
+    </body>
+</html>
     @endsection

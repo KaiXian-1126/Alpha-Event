@@ -1,10 +1,10 @@
-!doctype html>
+<!doctype html>
 <html lang="en">
 
 <head>
     <title>Edit event</title>
 </head>
-@extends("layouts.eventsidebar", , ["id"=>$id])
+@extends("layouts.eventsidebar",  ["id"=>$id])
 @section("content")
 
 <!-- Main Content -->
@@ -16,16 +16,19 @@
             <div class="col-sm-9" >
                 
                 <br><br>
-                
-                <div class="container" style= "padding-right:10%; ">
+                <form action="/save-invitation-record/{{$id}}" method="post" enctype="multipart/form-data">
+                    {{ csrf_field() }}
+                <div class="container" style= "height:100%; ">
                 <h1 style="font-size: 16px">Program Name | Department</h1>
                 <br><br>
-                <div class="container" style="border:1px solid black;margin-bottom:10%;" >
+                <div class="container" style="border:1px solid black;margin-bottom:10%;height:80%;" >
                     <br><br>
                     <h2 style="text-decoration:underline; text-align:center;">Uploaded Image</h2>
                     <br>
                     <div class="container" style="border:1px solid black; width:95%;height:300px;padding:0%;">
-                        <p><img id="output" style="width: 100%;height:100%" /></p>
+                      
+                        <img id="output" style="width:100%;height:300px;" />
+                      
                     </div>
                     <br>
                     <div style="text-align: center;">
@@ -33,19 +36,24 @@
                         <p><label for="file" class="btn btn-primary">Upload Image</label></p>
                     </div>
                     <br><br>
-                    <textarea id='summary-ckeditor' class="form-control" placeholder='Body'
+                    <textarea name="text" id='summary-ckeditor' class="form-control" placeholder='Body'
                           name="editor" > </textarea>
                     <br>
                     <br>
                     <div class="col" style="text-align:center;">
-                        <button type="submit" class="btn btn-primary">Next</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     <br>
                     <br>
                     </div>
                     <br>
                     <br>
+                    
                 </div>
+                </form>
+                <div style="text-align:center;">
+                    <button type="button" class="btn btn-primary"><a href="/view-invitation-card/{{$id}}" style="color:white;">View Invitation card</a></button>
+                    </div>
                 
             </div>
 

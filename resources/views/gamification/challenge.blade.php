@@ -4,44 +4,110 @@
     <title>Challenge</title>
     @extends("layouts.navigation_bar")
     @section("content")
-    <div class="container-fluid">
-        <h1>Challenge</h1>
-            <br><br>
-            <div class="container-fluid" style="background-color: lightgray;border-radius:100px;padding-bottom:15%;">
-                <div class="row" style="text-align:center;">
-                    <div class="col" style="padding:30px;">
-                        <h3 style="background-color: lightgreen;padding:10px;border-radius:100px;"><a href="">Daily Challenge</a></h3>
-                    </div>
-
-                    <div class="col" style="padding:30px;">
-                        <h3 style="background-color: lightblue;padding:10px;border-radius:100px;"><a href="">Weekly Challenge</a></h3>
-                    </div>
+    <main>
+    
+    <div class="container">
+        <div class="row mt-3 mb-3">
+            <h1>Daily Challenge</h1>
+        </div>
+        <div class="accordion mt-5 mb-5" id="accordionExample1">
+            <div class="card">
+                <div class="card-header" id="headingOne" style="background-color:#ffffbb">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <h2 style="font-size: 20px">Daily Challenge</h2>
+                    </button>
+                </h5>
                 </div>
 
-                <div class="table-responsive">
-                    <table class="table" style="text-align:center;background-color:lightyellow;border:1px solid black;">
-                        <thead>
-                            <tr>
-                                <th scope="col">Quest</th>
-                                <th scope="col">Points</th>
-                                <th scope="col">Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td style="padding-top:2%;">Daily Login</td>
-                                <td style="padding-top:2%;">10 points</td>
-                                <td style="padding-top:2%;background-color:lightgreen">Completed</td>
-                            </tr>
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample1">
+                <div class="card-body">
+                    <div class="jumbotron jumbotron-fluid">
+                        <div class="container">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr class="table-primary">
+                                        <th scope="col">Task</th>
+                                        <th scope="col">Points</th>
+                                        <th scope="col">Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="table-info">
+                                            <td>Daily Login</td>
+                                            <td>50 Points</td>
+                                            <td>Completed</td>
+                                        </tr>
+                                        <tr class="table-danger">
+                                            <td>Open Leaderboard</td>
+                                            <td>5 Points</td>
+                                            <td>In Progress</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                             
-                            <tr>
-                                <td style="padding-top:2%;">2</td>
-                                <td style="padding-top:2%;">Invite30 guest to join event</td>
-                                <td style="padding-top:2%;background-color:gray">In Progress</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                        </div>
+                    </div>
+                </div>
                 </div>
             </div>
-    </div>
+        </div>
+
+        <div class="accordion mt-5 mb-5" id="accordionExample2">
+            <div class="card">
+                <div class="card-header" id="headingTwo" style="background-color:#bbffff">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                        <h2 style="font-size: 20px">Weekly Challenge</h2>
+                    </button>
+                </h5>
+                </div>
+                <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionExample2">
+                <div class="card-body">
+                <div class="jumbotron jumbotron-fluid">
+                        <div class="container">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr class="table-primary">
+                                        <th scope="col">Task</th>
+                                        <th scope="col">Points</th>
+                                        <th scope="col">Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="table-info">
+                                            <td>Invite 30 guests to join event</td>
+                                            <td>50 Points</td>
+                                            <td>In Progress</td>
+                                        </tr>
+                                        <tr class="table-danger">
+                                            <td>Attend 3 events</td>
+                                            <td>50 Points</td>
+                                            <td>In Progress</td>
+                                        </tr>
+                                        <tr class="table-info">
+                                            <td>Create 3 events</td>
+                                            <td>50 Points</td>
+                                            <td>In Progress</td>
+                                        </tr>
+                                        <tr class="table-danger">
+                                            <td>Complete 3 orginzed events</td>
+                                            <td>50 Points</td>
+                                            <td>In Progress</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </main>
     @endsection
+    </body>
+    </html>
