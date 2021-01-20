@@ -112,11 +112,13 @@
     function Checking() {
         if (document.getElementById('guest_type').value=="guestList") {
             document.getElementById('guest').style.display = 'none';
+            document.getElementById('guest').value = null;
             document.getElementById('guestList').style.display = 'inline-block';
 
         } else if(document.getElementById('guest_type').value=="guest") {
             document.getElementById('guest').style.display = 'inline-block';
             document.getElementById('guestList').style.display = 'none';
+            document.getElementById('guestList').value = null;
         }
     }
     
