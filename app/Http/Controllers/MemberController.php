@@ -138,7 +138,6 @@ class MemberController extends Controller
         $field->save();
         
         return redirect("/MyEvents/manage_team/$eventid");
-        //  return view('a',compact('field'));
     }
 
     /**

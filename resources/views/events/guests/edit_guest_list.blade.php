@@ -21,6 +21,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1">Guest List Name</span>
                         </div>
+                        <input name="original-guest-list-name" type="hidden" class="form-control" value="{{$guests[0]->Guest_list}}">
                         <input name="guest-list-name" type="text" class="form-control" value="{{$guests[0]->Guest_list}}" aria-label="Listname" aria-describedby="basic-addon1" required>
                     </div>
                     <div class="table-responsive">
@@ -64,5 +65,14 @@
             </div>
         </div>
     </div>
-    @endsection  
-</html>
+    @endsection
+    <script>
+        $(document).ready(function(){
+          $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function() {
+              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+          });
+        });
+    </script>  

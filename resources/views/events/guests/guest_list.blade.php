@@ -7,13 +7,12 @@
     @section("content")
     <div class="col-md-9">
         <div class="row">        
-            <!-- col start -->
+        <!-- col start -->
             <div class="col">
                 <h1 class="mb-4 mt-3" style="font-size: 16px">{{$event->Event_name}} | Guest List</h1>
                 
                     <form class="form-inline d-flex mb-4">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search Guest List" aria-label="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        <div class="col-md-4 "><input class="form-control" id="myInput" type="text" placeholder="Search.."></div>
                     </form>
                     <div class="row mt-2 mb-2">
                         <div class="col d-flex justify-content-end">
@@ -21,6 +20,7 @@
                         </div>
                     </div>
                 
+            
                 <div class="table-responsive">
                     <table class="table">
                         <thead>
@@ -31,7 +31,7 @@
                             </tr>
                         </thead>
                         
-                        <tbody>
+                        <tbody id="myTable">
                         @php
                             $counter = 1;
                         @endphp
@@ -55,8 +55,15 @@
             </div>
         </div>
     </div>
-        
- 
-  
+    <script>
+        $(document).ready(function(){
+          $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function() {
+              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+          });
+        });
+    </script>
   @endsection
   

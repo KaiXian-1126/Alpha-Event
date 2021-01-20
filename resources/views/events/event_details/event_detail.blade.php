@@ -50,41 +50,16 @@
     @extends("layouts.eventsidebar", ["id"=>$id])
     @section("content")
     <!-- Main Content -->
-    <div class="col-md-9">
-        <div class="row text-center" >
-            <!-- col start -->
-            <br><br>
-            <div class="col-md-10" style="margin-top:5%;margin-bottom:8%;">
-                <div class="container" style="border:1px solid black;margin-bottom:5%;">
-                    <h1>Cultural Event</h1>
-                    <p id="demo" style="text-align: center;font-size: 30px;"></p>
-                </div>
-                    
-                    <div class="row ">
-                            
-                        <div class="col-sm-5" style="margin-bottom:5%;">
-                            <div class="container" style="border:1px solid black;">
-                            <h2>Event Detail</h2>
-                            <br>
-                            <br>
-                            <div class="row">
-                                <div class="col-5">
-                                    <p>Event name</p>
-                                </div>
-                    
-                                <div class="col-1">
-                                <p>:</p>
-                                </div>
-                    
-                                <div class="col-5">
-                                <p>Event 1</p>
-                                </div>
-                            </div>
-                    
-                            <div class="row">
-                                <div class="col-5">
-                                    <p>Time</p>
-                                </div>
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4"> 
+        
+            <div class="row text-center" >
+                <!-- col start -->
+                <br><br>
+                <div class="col-md-10" style="margin-top:5%;margin-bottom:8%;">
+                    <div class="container" style="border:1px solid black;margin-bottom:5%;">
+                        <h1>{{$event->Event_name}}</h1>
+                        <p id="demo" style="text-align: center;font-size: 30px;"></p>
+                    </div>
                         
                                 <div class="col-1">
                                     <p>:</p>
@@ -102,21 +77,53 @@
                         
                                 <div class="col-1">
                                     <p>:</p>
-                                </div>
+                                   </div>
                         
-                                <div class="col-5">
-                                    <p>Dewan Sultan Iskandar, UTM Johor</p>
+                                   <div class="col-5">
+                                    <p>{{$event->Event_name}}</p>
+                                   </div>
                                 </div>
-                                </div>
-                    
                                 <div class="row">
-                                <div class="col-5">
-                                    <p>Tentative</p>
-                                </div>
+                                    <div class="col-5">
+                                        <p>Date</p>
+                                    </div>
+                         
+                                    <div class="col-1">
+                                     <p>:</p>
+                                    </div>
+                         
+                                    <div class="col-5">
+                                     <p>{{$event->Event_startDate}}</p>
+                                    </div>
+                                 </div>
+                                 
+                                <div class="row">
+                                    <div class="col-5">
+                                        <p>Time</p>
+                                    </div>
+                         
+                                    <div class="col-1">
+                                     <p>:</p>
+                                    </div>
+                         
+                                    <div class="col-5">
+                                     <p>{{$event->Event_StartTime}}</p>
+                                    </div>
+                                 </div>
                         
-                                <div class="col-1">
-                                    <p>:</p>
-                                </div>
+                                 <div class="row">
+                                    <div class="col-5">
+                                        <p>Venue</p>
+                                    </div>
+                         
+                                    <div class="col-1">
+                                     <p>:</p>
+                                    </div>
+                         
+                                    <div class="col-5">
+                                     <p>{{$event->Location}}</p>
+                                    </div>
+                                 </div>
                         
                                 <div class="col-5">
                                     <p>tentative.pdf</p>
