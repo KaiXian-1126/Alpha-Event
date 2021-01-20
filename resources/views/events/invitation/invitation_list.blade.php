@@ -15,7 +15,7 @@
             <!-- col start -->
             
             <div class="col-sm-9" >
-                @if(empty($data['iid']))
+                @if(empty($data['iid'][0]))
                 <div class="container" style="text-align: center;margin-top:30%">
                     <h1>You haven't create the card yet</h1>
 
