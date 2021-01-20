@@ -52,7 +52,7 @@
     <!-- Main Content -->
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4"> 
         
-            <div class="row text-center" >
+            <div class="row " >
             <div class="row" >
                 <!-- side bar start -->
                 <div class="col-md-2">
@@ -70,7 +70,7 @@
                         <div class="row ">
                                 
                             <div class="col-sm-5" style="margin-bottom:5%;">
-                              <div class="container" style="margin-bottom:5%;">
+                              <div class="container" style="border:1px solid black; margin-bottom:5%;">
                                 <h2>Event Detail</h2>
                                 <br>
                                 <br>
@@ -148,7 +148,7 @@
                                 <div class="container" style="border:1px solid black;margin-bottom:10%;">
                                     <h2>Anouncement</h2>
                                     <br>
-                                    <textarea style="width:100%; height:100%; margin-bottom:5%;" readonly>{{$event->Announcement}}</textarea>
+                                    <p style="width:100%; height:100%; margin-bottom:5%;" readonly>{!!$event->Announcement!!}</p>
 
                                     <br>
                                     <div style="text-align: center;">
