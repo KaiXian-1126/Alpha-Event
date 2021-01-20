@@ -20,17 +20,11 @@ Route::get('/', function () {
 
 // events/event_detials route
 Route::get('/events/event_details/event_detail/{id}', "App\Http\Controllers\EventController@show");
-
-Route::get('/events/event_details/edit_detail', function(){
-    return view('events/event_details/edit_detail');
-});
-
-Route::get('/events/event_details/edit_event', function(){
-    return view('events/event_details/edit_event');
-});
-Route::get('/events/event_details/edit_anouncement', function(){
-    return view('events/event_details/edit_anouncement');
-});
+Route::get('/events/event_details/edit_detail/{id}', "App\Http\Controllers\EventController@showedit");
+Route::get('/events/event_details/edit_event/{id}', "App\Http\Controllers\EventController@editevent");
+Route::post('/events/event_details/event-update/{id}', "App\Http\Controllers\EventController@updateEvent");
+Route::get('/events/event_details/edit_anouncement/{id}', "App\Http\Controllers\EventController@editanouncement");
+Route::post('/events/event_details/event-anouncement/{id}', "App\Http\Controllers\EventController@updateAnouncement");
 
 Route::get('/events/invitation/edit_invitation', function(){
     return view('events/invitation/edit_invitation');
@@ -57,10 +51,10 @@ Route::get('/MyEvents/myevent', function(){
 //Route::get('/events/guests/all_guest_list', function(){
 //    return view('events/guests/all_guest_list');
 //});
-Route::get('/events/guests/add_guest/{id}', "App\Http\Controllers\GuestController@accessAddGuestForm")->middleware('auth');
 
-Route::get('/events/guests/add_guest_list/{id}', "App\Http\Controllers\GuestController@readUnassignedGuest")->middleware('auth');;
 //database access - guest
+Route::get('/events/guests/add_guest/{id}', "App\Http\Controllers\GuestController@accessAddGuestForm")->middleware('auth');
+Route::get('/events/guests/add_guest_list/{id}', "App\Http\Controllers\GuestController@readUnassignedGuest")->middleware('auth');;
 Route::post('/events/guests/add-guest', "App\Http\Controllers\GuestController@addGuest")->middleware('auth');
 Route::post('/events/guests/create-guest-list', "App\Http\Controllers\GuestController@createGuestList")->middleware('auth');
 Route::post('/events/guests/update-guest-list', "App\Http\Controllers\GuestController@updateGuestList")->middleware('auth');
@@ -72,12 +66,15 @@ Route::get('/events/guests/delete-guest-list/{eventid}/{guestlistname}', "App\Ht
 Route::get('/events/guests/edit_guest_list/{eventid}/{guestlistname}', "App\Http\Controllers\GuestController@readGuestListDetails");
 
 // events/todo_list route
-Route::get('/events/todo_list/todo_list', function(){
-    return view('events/todo_list/todo_list');
-});
-Route::get('/events/todo_list/view_todo', function(){
-    return view('events/todo_list/view_todo');
-});
+Route::get('/events/todo_list/todo_list/{id1}/{id2}', "App\Http\Controllers\TodoController@viewTask");
+Route::get('/events/todo_list/view_todo/{id1}/{id2}/{id3}', "App\Http\Controllers\TodoController@edit");
+Route::get('/events/todo_list/all_todo_list/{id}', "App\Http\Controllers\TodoController@show"); 
+Route::post('/events/todo_list/add-todo', "App\Http\Controllers\TodoController@addTodo"); 
+Route::post('/events/todo_list/add-InProgress', "App\Http\Controllers\TodoController@addInProgress"); 
+Route::post('/events/todo_list/add-Completed', "App\Http\Controllers\TodoController@addCompleted"); 
+Route::get('/events/todo_list/delete_todo/{id1}/{id2}/{id3}', "App\Http\Controllers\TodoController@destroy"); 
+Route::post('/events/todo_list/update_todo/{id1}/{id2}/{id3}', "App\Http\Controllers\TodoController@update"); 
+
 //events/budget route
 Route::get('/events/budget/budget_list/{id1}','App\Http\Controllers\BudgetController@index');
 

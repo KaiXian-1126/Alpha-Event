@@ -54,12 +54,19 @@
                 <td>{{$e->Event_startDate}}</td>
                 <td>{{$e->Event_EndDate}}</td>
                 <td>{{$e->Location}}</td>
+                
                 @if($e->Department=='Host')
                     <td  scope="row"><a href="/MyEvents/manage_team/{{$e->Event_id}}"><button type="submit" class="btn btn-primary">Manage Team</button></a></td>    
                 @else
                     <td  scope="row"><a href="/MyEvents/view_team/{{$e->Event_id}}"><button type="submit" class="btn btn-primary">View Team</button></a></td>
                 @endif
-                <td><a href="/events/event_details/event_detail/{{$e->Event_id}}"><button type="button" class="btn btn-success">View</button></a></td>   
+                
+                @if ($e->Department=='Host')
+                    <td><a href="/events/event_details/edit_detail/{{$e->Event_id}}"><button type="button" class="btn btn-success">View</button></a></td>
+                @else
+                    <td><a href="/events/event_details/event_detail/{{$e->Event_id}}"><button type="button" class="btn btn-success">View</button></a></td>
+                @endif   
+                
                 <td><a href="/home/delete_event/{{$e->Event_id}}"><button type="button" class="btn btn-danger">Delete</button></a></td> 
             
             </tr>
@@ -103,7 +110,7 @@
                 <td>{{$e->Event_EndDate}}</td>
                 <td>{{$e->Location}}</td>
                 <td  scope="row"><a href="/MyEvents/view_team/{{$e->Event_id}}"><button type="submit" class="btn btn-primary">Manage Team</button></a></td>
-                <td><a href="/MyEvents/myevent"><button type="button" class="btn btn-success">View</button> </a></td>   
+                <td><a href="/events/event_details/event_detail/{{$e->Event_id}}"><button type="button" class="btn btn-success">View</button> </a></td>   
                 <td> <a href="/home/delete_event/{{$e->Event_id}}"><button type="button" class="btn btn-danger">Delete</button></a>
             
             </tr>

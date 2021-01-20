@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 class GuestController extends Controller
 {
     public function addGuest(){
+        
         $guest = new Guest();
         $user = User::where("email", request("email"))->first();
         $eventid = request("id");
@@ -34,7 +35,8 @@ class GuestController extends Controller
         $guests = DB::table('guests')
             ->join('users', 'users.id', '=', 'guests.Guest_id')
             ->get();
-        return view("/events/guests/all_guest_list", ["guests" => $guests, "id" => $eventid]);
+        $eventName = Event::where('Event_id',$eventid)->value('Event_name');
+        return view("/events/guests/all_guest_list", ["guests" => $guests, "id" => $eventid, "eventname" => $eventName]);
     }
     public function readGuestList($eventid){
         $guestList = Guest::where([["Event_id", $eventid], ["Guest_list", "!=", "-"]])->distinct()->get();
@@ -45,7 +47,8 @@ class GuestController extends Controller
         $guests = Guest::join('users', 'guests.Guest_id', '=', 'users.id')
         ->where([["guests.Event_id", $eventid],["guests.Guest_list", "-"]])
         ->get();
-        return view("/events/guests/add_guest_list", ["guests" => $guests, "id" => $eventid]);
+        $eventName = Event::where('Event_id',$eventid)->value('Event_name');
+        return view("/events/guests/add_guest_list", ["guests" => $guests, "id" => $eventid, "eventname" => $eventName]);
     }
     public function accessAddGuestForm($id){
         return view('events/guests/add_guest', ['id' => $id] );
@@ -76,7 +79,8 @@ class GuestController extends Controller
     public function readGuestListDetails($eventid, $guestlistname){
         $guestListDetails = Guest::join("users", "guests.Guest_id", "users.id")
         ->where([["Event_id", $eventid],["Guest_list", $guestlistname]])->get();
-        return view("events/guests/edit_guest_list", ["eventid"=> $eventid, "guests"=>$guestListDetails]);
+        $eventName = Event::where('Event_id',$eventid)->value('Event_name');
+        return view("events/guests/edit_guest_list", ["eventid"=> $eventid, "guests"=>$guestListDetails,"eventname" => $eventName]);
     }
     public function updateGuestList(){
         $guestListName = request('guest-list-name');

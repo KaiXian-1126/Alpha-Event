@@ -4,7 +4,7 @@
     <title>Event detail</title>
     <script>
         // Set the date we're counting down to
-        var countDownDate = new Date("Jan 13, 2021 15:37:25").getTime();
+        var countDownDate = new Date("Jan 31, 2021 15:37:25").getTime();
         
         // Update the count down every 1 second
         var x = setInterval(function() {
@@ -69,7 +69,7 @@
                 <br><br>
                 <div class="col-md-8" style="margin-top:5%;margin-bottom:8%;">
                     <div class="container" style="margin-bottom:5%;">
-                        <h1>Cultural Event</h1>
+                        <h1>{{$event->Event_name}}</h1>
                         <p id="demo" style="text-align: center;font-size: 30px;"></p>
                         </div>
                         
@@ -90,10 +90,26 @@
                                    </div>
                         
                                    <div class="col-5">
-                                    <p>Event 1</p>
+                                    <p>{{$event->Event_name}}</p>
                                    </div>
                                 </div>
-                        
+                                <div class="row">
+                                    <div class="col-5">
+                                        <p>Date</p>
+                                    </div>
+                         
+                                    <div class="col-1">
+                                     <p>:</p>
+                                    </div>
+                         
+                                    <div class="col-5">
+                                        @if($event->Event_startDate==$event->Event_EndDate)
+                                            <p>{{$event->Event_startDate}}</p>
+                                        @else
+                                            <p>{{$event->Event_startDate}} - {{$event->Event_EndDate}}</p>
+                                        @endif
+                                    </div>
+                                 </div>
                                 <div class="row">
                                     <div class="col-5">
                                         <p>Time</p>
@@ -104,7 +120,7 @@
                                     </div>
                          
                                     <div class="col-5">
-                                     <p>08:00 p.m.</p>
+                                     <p>{{$event->Event_StartTime}} - {{$event->Event_EndTime}}</p>
                                     </div>
                                  </div>
                         
@@ -118,27 +134,13 @@
                                     </div>
                          
                                     <div class="col-5">
-                                     <p>Dewan Sultan Iskandar, UTM Johor</p>
-                                    </div>
-                                 </div>
-                        
-                                 <div class="row">
-                                    <div class="col-5">
-                                        <p>Tentative</p>
-                                    </div>
-                         
-                                    <div class="col-1">
-                                     <p>:</p>
-                                    </div>
-                         
-                                    <div class="col-5">
-                                     <p>tentative.pdf</p>
+                                     <p>{{$event->Location}}</p>
                                     </div>
                                  </div>
 
                                  <br>
                                     <div style="text-align: center;">
-                                    <button type="submit" class="btn btn-primary mt-3" style="width:30%;">Edit</button>
+                                    <a href="/events/event_details/edit_event/{{$event->Event_id}}"><button type="button" class="btn btn-primary mt-3" style="width:30%;">Edit</button></a>
                                     </div>
                                 <br>
                         
@@ -152,12 +154,11 @@
                                 <div class="container" style="margin-bottom:10%;">
                                     <h2>Anouncement</h2>
                                     <br>
-                                    <textarea style="width:100%; height:50%; margin-bottom:5%;" readonly></textarea>
-                                    <textarea style="width:100%; height:20%; margin-bottom:2%;" readonly></textarea>
-                                    
+                                    <textarea style="width:100%; height:100%; margin-bottom:5%;" readonly>{{$event->Announcement}}</textarea>
+
                                     <br>
                                     <div style="text-align: center;">
-                                        <button type="submit" class="btn btn-primary mt-3" style="width:30%;">Edit</button>
+                                        <a href="/events/event_details/edit_anouncement/{{$event->Event_id}}"><button type="button" class="btn btn-primary mt-3" style="width:30%;">Edit</button></a>
                                     </div>
                                     <br>
                                 </div>

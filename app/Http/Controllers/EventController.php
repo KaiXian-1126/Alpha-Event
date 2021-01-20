@@ -13,11 +13,6 @@ class EventController extends Controller
     public function getAllEvents(){
         $nowDate = date("Y-m-d");
         $nowTime = date("H:i:s");
-      //  $upcomingEvents = Event::where("Event_EndDate", ">", $nowDate)
-      //  ->orWhere([["Event_EndDate", $nowDate],["Event_EndTime", ">", $nowTime]])->get();
-      //  $pastEvents = Event::where("Event_endDate", "<", $nowDate,)
-      //  ->orWhere([["Event_EndDate", $nowDate],["Event_EndTime", "<", $nowTime]])->get();
-      //  return view('/home', ["upcomingEvents"=>$upcomingEvents, "pastEvents"=>$pastEvents]);
    
         $upcomingEvents = Member::join('events', 'events.Event_id', '=', 'members.Event_id')
                         ->select('members.*', 'events.*')
@@ -94,7 +89,19 @@ class EventController extends Controller
      */
     public function show($id)
     {
-        return view("events/event_details/event_detail", ["id"=>$id]);
+        $event = Event::where('Event_id',$id)->first();
+        $selection = Member::where('Event_id',$id)
+                        ->orwhere('Member_id',auth()->user()->id)->value('Department');
+
+        if($selection == 'Host')
+            return view("events/event_details/edit_detail", ["id"=>$id,"event"=>$event]);
+        else
+            return view("events/event_details/event_detail", ["id"=>$id,"event"=>$event]);
+    }
+    public function showedit($id)
+    {
+        $editdetail = Event::where('Event_id',$id)->first();
+        return view("events/event_details/edit_detail", ["id"=>$id,"event"=>$editdetail]);
     }
 
     /**
@@ -103,11 +110,16 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function editevent($id)
     {
-        //
+        $editdetail = Event::where('Event_id',$id)->first();
+        return view("events/event_details/edit_event", ["id"=>$id,"event"=>$editdetail]);
     }
-
+    public function editanouncement($id)
+    {
+        $editdetail = Event::where('Event_id',$id)->first();
+        return view("events/event_details/edit_anouncement", ["id"=>$id,"event"=>$editdetail]);
+    }
     /**
      * Update the specified resource in storage.
      *
@@ -115,9 +127,44 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function updateEvent(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'eventName' => 'required',
+            'startDate' => 'required',
+            'startTime' => 'required',
+            'endDate' => 'required',
+            'endTime' => 'required',
+            'location' => 'required'
+        ]);
+
+       // $id = $request->get('id');
+        $field = Event::where('Event_id','=',$id)->first();
+        $field->Event_name= $request->get('eventName');
+        $field->Event_startDate = $request->get('startDate');
+        $field->Event_StartTime = $request->get('startTime');
+        $field->Event_EndTime = $request->get('endTime');
+        $field->Event_EndDate = $request->get('endDate');
+        $field->Location = $request->get('location');
+        $field->save();
+
+        return redirect("events/event_details/edit_detail/$id");
+      
+    }
+
+    public function updateAnouncement(Request $request, $id)
+    {
+        $this->validate($request, [
+            'body' => 'required'
+        ]);
+
+       // $id = $request->get('id');
+        $field = Event::where('Event_id','=',$id)->first();
+        $field->Announcement= $request->get('body');
+        $field->save();
+
+        return redirect("events/event_details/edit_detail/$id");
+      
     }
 
     /**

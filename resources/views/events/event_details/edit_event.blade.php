@@ -16,16 +16,12 @@
 
                   <div class="container-md" style="padding:5%;">
                     <div style="margin:auto;">
-                    <form>
-                      
-                
-                    
+              <form action="/events/event_details/event-update/{{$event->Event_id}}" method="POST">    
+                @csrf     
                   <div>
                     <label for="eventName" class="form-label">Event name</label>
-                    <input type="text" class="form-control" id="eventName" placeholder="Enter event name" name="eventName" >
+                    <input type="text" class="form-control" id="eventName" value="{{$event->Event_name}}" name="eventName" >
                   </div>
-                  
-              
 
                 <br><br>
 
@@ -33,7 +29,7 @@
                     
                     <div class="col-sm-6" style="margin-bottom:5%;">
                       <label for="startDate" class="form-label">Start date</label>
-                      <input type="date" class="form-control" id="startDate" placeholder="Enter start date" name="startDate">
+                      <input type="date" class="form-control" id="startDate" value="{{$event->Event_startDate}}" name="startDate">
                       <div class="invalid-feedback">
                         Please provide a valid state.
                       </div>
@@ -41,7 +37,7 @@
                   
                     <div class="col-sm-6" >
                       <label for="startTime" class="form-label">Start time</label>
-                      <input type="time" class="form-control" id="startTime" placeholder="Enter start time" name="startDate">
+                      <input type="time" class="form-control" id="startTime" value="{{$event->Event_StartTime}}" name="startTime">
                     </div>
                 </div>
 
@@ -52,24 +48,19 @@
                     
                     <div class="col-sm-6" style="margin-bottom:5%;">
                       <label for="endDate" class="form-label">End date</label>
-                      <input type="date" class="form-control" id="endDate" placeholder="Enter end date" name="endDate">
+                      <input type="date" class="form-control" id="endDate" value="{{$event->Event_EndDate}}" name="endDate">
                     </div>
                     <div class="col-sm-6">
                       <label for="endTime" class="form-label">End time</label>
-                      <input type="time" class="form-control"id="endTime" placeholder="Enter end time" name="endTime">
+                      <input type="time" class="form-control"id="endTime" value="{{$event->Event_EndTime}}" name="endTime">
                     </div>
                 </div>
 
                 <br>
 
                 <label for="location" class="form-label">Location</label>
-                <input type="text" class="form-control" id="location" placeholder="Enter location" name="location" >
-
-                <br><br>
-
-                <label for="tentative" class="form-label">Tentative</label>
-                <input type="file" class="form-control" id="tentative"  name="tentative" >
-
+                <input type="text" class="form-control" id="location" value="{{$event->Location}}" name="location" >
+                <input type="hidden" name="id" id="id" value="{{$event->Event_id}}">
                 <br><br>
                 <div style="text-align: center;">
                 <button type="submit" class="btn btn-primary mt-3">Submit</button>

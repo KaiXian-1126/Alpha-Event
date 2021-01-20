@@ -8,7 +8,7 @@
         <div class="row " >
                     <!-- col start -->
                 <div class="col md-12">
-                    <h1 class="mb-4 mt-3" style="font-size: 16px">Program Name | Edit Guest List</h1>
+                    <h1 class="mb-4 mt-3" style="font-size: 16px">{{$eventname}} | Edit Guest List</h1>
                     @if(session('message'))    
                         <div class="alert alert-danger alert-dismissible fade-in text-center mt-3">
                             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>

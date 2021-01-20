@@ -19,6 +19,8 @@ class CreateTodosTable extends Migration
             $table->string('Department');
             $table->string('Task_name');
             $table->string('status');
+            $table->string('description');
+            $table->string('comment');
             $table->timestamps();
            
         });
