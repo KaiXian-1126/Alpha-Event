@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Invitation;
 use App\Models\Guest;
+use App\Models\Event;
 use App\Models\User;
 use App\Models\Send_invitation;
 use Illuminate\Support\Facades\DB;
@@ -19,8 +20,8 @@ class InvitationController extends Controller
      */
     public function index($id)
     {
-        
-        return view('events/invitation/edit_invitation')->with('id',$id);
+        $data=event::where('Event_id',$id)->first();
+        return view('events/invitation/edit_invitation')->with('id',$data);
     }
 
     /**
@@ -69,13 +70,12 @@ class InvitationController extends Controller
         $data['id']=invitation::where('Invitation_id',$id)->first();
         $eid=$data['id']->Event_id;
         $data['guest_id']=guest::where('Event_id',$eid)->get();
-
+        $data['event']=event::where('Event_id',$eid)->first();
         $data['user']=user::all();
-        
 
         
         
-        
+
         return view("events/invitation/send_invitation")->with(compact('data',$data));
     }
 
@@ -100,10 +100,11 @@ class InvitationController extends Controller
     public function view($id)
     {
         
-        $iid=invitation::where('Event_id',$id)->get();
+        $data['iid']=invitation::where('Event_id',$id)->get();
+        $data['event']=event::where('Event_id',$id)->first();
         
 
-        return view("events/invitation/invitation_list")->with('iid',$iid);
+        return view("events/invitation/invitation_list")->with('data',$data);
     }
 
     /**
