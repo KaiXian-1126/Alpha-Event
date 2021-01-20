@@ -4,7 +4,7 @@
 <head>
     <title>Edit event</title>
 </head>
-@extends("layouts.eventsidebar",  ["id"=>$id])
+@extends("layouts.eventsidebar",  ["id"=>$id->Event_id])
 @section("content")
 
 <!-- Main Content -->
@@ -14,18 +14,20 @@
             <!-- col start -->
             
             <div class="col-sm-9" >
-                
+                <div style="text-align:center;">
+                    <button type="button" class="btn btn-primary"><a href="/view-invitation-card/{{$id->Event_id}}" style="color:white;">View Invitation card</a></button>
+                    </div>
                 <br><br>
-                <form action="/save-invitation-record/{{$id}}" method="post" enctype="multipart/form-data">
+                <form action="/save-invitation-record/{{$id->Event_id}}" method="post" enctype="multipart/form-data">
                     {{ csrf_field() }}
                 <div class="container" style= "height:100%; ">
-                <h1 style="font-size: 16px">Program Name | Department</h1>
+                <h1 style="font-size: 30px">{{$id->Event_name}}</h1>
                 <br><br>
-                <div class="container" style="border:1px solid black;margin-bottom:10%;height:80%;" >
+                <div class="container" style="border:1px solid black;margin-bottom:10%;height:80%;background-color:rgb(214, 210, 210);" >
                     <br><br>
                     <h2 style="text-decoration:underline; text-align:center;">Uploaded Image</h2>
                     <br>
-                    <div class="container" style="border:1px solid black; width:95%;height:300px;padding:0%;">
+                    <div class="container" style="border:1px solid black; width:95%;height:300px;padding:0%;background-color:white;">
                       
                         <img id="output" style="width:100%;height:300px;" />
                       
@@ -36,8 +38,8 @@
                         <p><label for="file" class="btn btn-primary">Upload Image</label></p>
                     </div>
                     <br><br>
-                    <textarea name="text" id='summary-ckeditor' class="form-control" placeholder='Body'
-                          name="editor" > </textarea>
+                    <textarea name="text" id='summary-ckeditor' class="form-control" 
+                           > </textarea>
                     <br>
                     <br>
                     <div class="col" style="text-align:center;">
@@ -51,9 +53,7 @@
                     
                 </div>
                 </form>
-                <div style="text-align:center;">
-                    <button type="button" class="btn btn-primary"><a href="/view-invitation-card/{{$id}}" style="color:white;">View Invitation card</a></button>
-                    </div>
+                
                 
             </div>
         </div>
