@@ -1,63 +1,74 @@
 <!-- Required meta tags -->
 <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-     <!-- Bootstrap CSS -->
-     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+   
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     
     <!-- public css -->
-
+    <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}" />
   </head>
-  <body>
-    @if (Route::has('login'))
-        <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-            @auth
-                <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Home</a>
+  <body style="background-color: #d2d2f3">
+  <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="{{url('/home')}}">{{ config('app.name', 'Alpha Event') }}</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            @if (Auth::guest())
+            <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item" style="margin: auto 10px;">
+                    <a class="nav-link" href="{{ url('/login') }}" >Login</a>
+                    </li>
+                    <li class="nav-item" style="margin: auto 10px;">
+                    <a class="nav-link" href="{{ url('/register') }}">Register</a>
+                    </li>  
+                </ul>
+            </div>
             @else
-                <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
-
-                @if (Route::has('register'))
-                    <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
-                @endif
-            @endauth
-        </div>
-    @endif
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-info fixed-top">
-        <a class="navbar-brand" href="#">AlphaEvent</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
+            <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
                 <div class="dropdown">
-                    <!-- Default dropleft button -->
-                    <div class="btn-group pr-5">
-                    <button type="button" class="btn btn-secondary dropdown-toggle px-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Host
-                    </button>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
+                    <!-- user profile -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        {{ Auth::user()->name }} <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-wide" role="menu">
+                        <li class="dropdown-item">                            
+                            <a href="/gamification/gamification_profile" >My Profile</a>                  
+                        </li>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Separated link</a>
-                    </div>
-                    </div>
+                        <li class="dropdown-item">                            
+                            <a href="/gamification/challenge">Challenge</a>                  
+                        </li>
+                        <li class="dropdown-item">                            
+                            <a href="/gamification/achievement" >Achievement</a>                  
+                        </li>
+                        <li class="dropdown-item">                   
+                            <a href="/gamification/ranking_dashboard" >Ranking</a>                  
+                        </li>
+                        <div class="dropdown-divider"></div>
+                        <li class="dropdown-item">
+                            <a href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                                Logout
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+                        </li>
+                    </ul>
                 </div>
-            </form>
+            </div>
+            @endif
         </div>
-    </nav>
+      </nav>
     <div class="mt-2 mb-2" style="height:50px"></div>
     <!-- end Nav -->
     @yield('content')
-    <script src="//cdn.ckeditor.com/4.15.1/basic/ckeditor.js"></script>
-                <script>
-                CKEDITOR.replace( 'summary-ckeditor' );
-                </script>
+    

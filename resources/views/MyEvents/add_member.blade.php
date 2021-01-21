@@ -4,7 +4,7 @@
     <div class="container">
         <!-- header start-->
         <div class="eventheader">
-            <h3 class=" mb-2">Cultural Night
+            <h3 class=" mb-2">{{$eventName}}
             <span class="verticalline"></span>
             Event member
             <span class="verticalline"></span>
@@ -18,7 +18,8 @@
                 <h3>Add New Member</h3>
             </div>
         </div>
-            <form action="">
+            <form action="/MyEvents/add-new-member" method="post">
+                @csrf
                 <div class="addmemberform">
                     <div style="border:1px solid black; border-radius: 10px;">
                         <div class="row mt-4" >
@@ -40,17 +41,23 @@
                             <div class="col-4 " style="text-align: right">Department:</div>
                             <div class="col-7"><select class="form-select" id="department" name="department">
                                 <option>Select department</option>
+                                <option>Secretary</option>
+                                <option>Treasurer</option>
+                                <option>Sponsorship</option>
                                 <option>Transportation</option>
                                 <option>Refreshment</option>
+                                <option>Sales</option>
                             </select></div>
                         </div>
+                        <input type="hidden" value={{$id}} name='eid' id='eid'> 
                         <div class="mt-4 mb-3">
                             <div class="row">
                             <div class="col" style="text-align: right;">
                             <button type="submit" class="btn btn-primary" name="submit">Comfirm</button></div>
                             <div class="col" >
-                            <button type="button" class="btn btn-danger" style="width: 88px" name="cancel">Cancel</button></div></div>
-                        </div>  
+                            <a href="/MyEvents/manage_team"><button type="button" class="btn btn-danger" style="width: 88px" name="cancel">Cancel</button></div></div></a>
+                        </div> 
+                        
                     </div>
                 </div>
                 <div class="text-center"></div>

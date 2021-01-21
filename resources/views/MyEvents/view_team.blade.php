@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="eventheader">
-            <h3 class="mt-4 mb-2">Festival Night
+            <h3 class="mt-4 mb-2">{{$eventName}}
             <span class="verticalline"></span>
             Event member</h3>
         </div>
@@ -17,37 +17,33 @@
                 <table class="table mt-4" style="text-align: center">
                     <thead>
                         <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Phone</th>
-                        <th scope="col">Role</th>
-                        <th scope="col">Department</th>
-                        <th scope="col" colspan="2">Action</th>
+                            <th scope="col">No</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Phone</th>
+                            <th scope="col">Role</th>
+                            <th scope="col">Department</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($memberList as $indexKey=>$row)
                         <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>Otto</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td><button type="button" class="btn btn-primary mybutton">Edit</button></td>
-                        <td> <button type="button" class="btn btn-danger">Delete</button></td>   
+                            <th scope="row">{{ $indexKey+1 }}</th>
+                            <td>{{$row->name}}</td>
+                            <td>{{$row->email}}</td>
+                            <td>{{$row->phone}}</td>
+                            <td>{{$row->Role}}</td>
+                            <td>{{$row->Department}}</td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
-            </div>
-            <div class="text-right">
-                <button class="btn btn-success mybutton">Add</button>
             </div>  
         </div>
         <!-- Table end -->
         <br>
         <div class="text-center mt-2">
-            <button class="btn btn-primary mybutton">Back</button>
+            <a href="/home"><button class="btn btn-primary mybutton">Back</button></a>
         </div>
     </div>
 @endsection

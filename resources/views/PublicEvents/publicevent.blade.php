@@ -28,7 +28,7 @@
                 <br>
                 <p>Cultural Night</p>
                 <p>14/14/2020</p>
-                <button type="submit" class="btn btn-primary mt-3">View</button>
+            <a href="/PublicEvents/publiceventdetail"><button type="submit" class="btn btn-primary mt-3">View</button></a>
 
             </div>
             <div class="col-sm-4" style="margin-bottom:10%;">
@@ -37,7 +37,7 @@
                 <br>
                 <p>Cultural Night</p>
                 <p>14/14/2020</p>
-                <button type="submit" class="btn btn-primary mt-3">View</button>
+            <a href="/PublicEvents/publiceventdetail"><button type="submit" class="btn btn-primary mt-3">View</button></a>
             </div>
             <div class="col-sm-4" style="margin-bottom:10%;">
                 <img src="" style="width:300px; height:300px">
@@ -45,7 +45,7 @@
                 <br>
                 <p>Cultural Night</p>
                 <p>14/14/2020</p>
-                <button type="submit" class="btn btn-primary mt-3">View</button>
+            <a href="/PublicEvents/publiceventdetail"><button type="submit" class="btn btn-primary mt-3">View</button></a>
             </div>
             <div class="col-sm-4" style="margin-bottom:10%;">
                 <img src="" style="width:300px; height:300px">
@@ -53,7 +53,7 @@
                 <br>
                 <p>Cultural Night</p>
                 <p>14/14/2020</p>
-                <button type="submit" class="btn btn-primary mt-3">View</button>
+            <a href="/PublicEvents/publiceventdetail"><button type="submit" class="btn btn-primary mt-3">View</button></a>
             </div>
             <div class="col-sm-4" style="margin-bottom:10%;">
                 <img src="" style="width:300px; height:300px">
@@ -61,7 +61,7 @@
                 <br>
                 <p>Cultural Night</p>
                 <p>14/14/2020</p>
-                <button type="submit" class="btn btn-primary mt-3">View</button>
+            <a href="/PublicEvents/publiceventdetail"><button type="submit" class="btn btn-primary mt-3">View</button></a>
             </div>
             <div class="col-sm-4" style="margin-bottom:10%;">
                 <img src="" style="width:300px; height:300px">
@@ -69,7 +69,7 @@
                 <br>
                 <p>Cultural Night</p>
                 <p>14/14/2020</p>
-                <button type="submit" class="btn btn-primary mt-3">View</button>
+            <a href="/PublicEvents/publiceventdetail"><button type="submit" class="btn btn-primary mt-3">View</button></a>
             </div>
             </div>
         </div> 

@@ -1,77 +1,33 @@
-!doctype html>
+<!doctype html>
 <html lang="en">
 
-<head>
-    <title>Edit event</title>
-</head>
-@extends("layouts.navigation_bar")
+@extends("layouts.eventsidebar",  ["id"=>$id->Event_id])
 @section("content")
 
 <!-- Main Content -->
-<main>
-    <div class="container-fluid">
+<div class="col-md-9">
+    <div class="container">
         <div class="row">
-            <!-- side bar start -->
-            <div class="col-sm-3">
-                <div class="card" style="width: 14rem;">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><a href="#">Event</a></li>
-                        <li class="list-group-item">
-                            <div id="accordion">
-                                <h5 class="mb-0">
-                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
-                                        aria-expanded="true" aria-controls="collapseOne">
-                                        Guests
-                                    </button>
-                                </h5>
-                                <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
-                                    data-parent="#accordion">
-                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
-                                        aria-expanded="true" aria-controls="collapseOne">
-                                        <a href="#">All Guests
-                                    </button>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="list-group-item">
-                            <div id="accordion">
-                                <h5 class="mb-0">
-                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseTwo"
-                                        aria-expanded="true" aria-controls="collapseTwo">
-                                        To-do List
-                                    </button>
-                                </h5>
-                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-                                    data-parent="#accordion">
-                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseTwo"
-                                        aria-expanded="true" aria-controls="collapseTwo">
-                                        <a href="#">Department Name</a>
-                                    </button>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="list-group-item"><a href="#">Budget</a></li>
-                        <li class="list-group-item"><a href="#">Invitation</a></li>
-                        <li class="list-group-item"><a href="#">Publish</a></li>
-                    </ul>
-                </div>
-            </div>
-            <!-- side bar end -->
             <!-- col start -->
             
             <div class="col-sm-9" >
-                
+                <div style="text-align:center;">
+                    <button type="button" class="btn btn-primary"><a href="/view-invitation-card/{{$id->Event_id}}" style="color:white;">View Invitation card</a></button>
+                    </div>
                 <br><br>
-                
-                <div class="container" style= "padding-right:10%; ">
-                <h1 style="font-size: 16px">Program Name | Department</h1>
+                <form action="/save-invitation-record/{{$id->Event_id}}" method="post" enctype="multipart/form-data">
+                    {{ csrf_field() }}
+                <div class="container" style= "height:100%; ">
+                <h1 style="font-size: 30px">{{$id->Event_name}}</h1>
                 <br><br>
-                <div class="container" style="border:1px solid black;margin-bottom:10%;" >
+                <div class="container" style="border:1px solid black;margin-bottom:10%;height:80%;background-color:rgb(214, 210, 210);" >
                     <br><br>
                     <h2 style="text-decoration:underline; text-align:center;">Uploaded Image</h2>
                     <br>
-                    <div class="container" style="border:1px solid black; width:95%;height:300px;padding:0%;">
-                        <p><img id="output" style="width: 100%;height:100%" /></p>
+                    <div class="container" style="border:1px solid black; width:95%;height:300px;padding:0%;background-color:white;">
+                      
+                        <img id="output" style="width:100%;height:300px;" />
+                      
                     </div>
                     <br>
                     <div style="text-align: center;">
@@ -79,38 +35,30 @@
                         <p><label for="file" class="btn btn-primary">Upload Image</label></p>
                     </div>
                     <br><br>
-                    <textarea id='summary-ckeditor' class="form-control" placeholder='Body'
-                          name="editor" > </textarea>
+                    <textarea name="text" id='summary-ckeditor' class="form-control" 
+                           > </textarea>
                     <br>
                     <br>
                     <div class="col" style="text-align:center;">
-                        <button type="submit" class="btn btn-primary">Next</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     <br>
                     <br>
                     </div>
                     <br>
                     <br>
+                    
                 </div>
+                </form>
                 
-            </div>
-
-            <div>
                 
             </div>
         </div>
     </div>
-           
+</div>           
         
         <!-- col end -->
-            
-        
-    
-</main>
-
 @endsection
-
-</html>
 
 
 <script>
