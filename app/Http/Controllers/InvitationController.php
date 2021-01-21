@@ -7,7 +7,7 @@ use App\Models\Invitation;
 use App\Models\Guest;
 use App\Models\Event;
 use App\Models\User;
-use App\Models\Send_invitation;
+use App\Models\send_invitation;
 use Illuminate\Support\Facades\DB;
 
 
@@ -86,7 +86,7 @@ class InvitationController extends Controller
         $selection1=$request->input('guestList');
 
         
-         $invitation=new Send_invitation();
+         $invitation=new send_invitation();
          $invitation->Event_id=$id;
          $invitation->invitation_id=$iid;
          $invitation->Guest_id=$selection;
