@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 // use Illuminate\Http\Request;
-use App\Models\budget;
+use App\Models\Budget;
 // use App\Models\user;
-use App\Models\member;
-use App\Models\event;
+use App\Models\Member;
+use App\Models\Event;
 use Illuminate\Support\Facades\DB;
 use Auth;
 use Request;
