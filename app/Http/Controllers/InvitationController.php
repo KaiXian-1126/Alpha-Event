@@ -86,7 +86,7 @@ class InvitationController extends Controller
         $selection1=$request->input('guestList');
 
         
-         $invitation=new send_invitation();
+         $invitation=new Send_invitation();
          $invitation->Event_id=$id;
          $invitation->invitation_id=$iid;
          $invitation->Guest_id=$selection;
