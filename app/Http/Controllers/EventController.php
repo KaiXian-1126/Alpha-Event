@@ -167,7 +167,7 @@ class EventController extends Controller
       
     }
     public function accessToCreateEventPage(){
-        return view('MyEvents/create_event');
+        return view('Myevents/create_event');
     }
     /**
      * Remove the specified resource from storage.
