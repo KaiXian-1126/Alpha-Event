@@ -10,7 +10,7 @@ class UserController extends Controller
     //Get user information
     public function getUserInfo(){
         $user = Auth::user();
-        $playerInfo = Http::post('http://api.tenenet.net/getPlayer?token=333eb0526f782a6de74735d9f97cb50c&alias='.$user->name);
+        $playerInfo = Http::post('http://api.tenenet.net/getPlayer?token=79ee4fb9f158e60ba55674ecb8ed249a&alias='.$user->email);
         $badgeScore =  $playerInfo['message']['score'][1]['value'];
         $rewardScore =  $playerInfo['message']['score'][2]['value'];
         return view("gamification/gamification_profile", ["user" => $user, "rewardPoint" => $rewardScore, "badgePoint" => $badgeScore]);
@@ -25,6 +25,7 @@ class UserController extends Controller
         $user->email = request("email");
         $user->phone = request("phone");
         $user->save();
+        Http::post('api.tenenet.net/updatePlayer?token=79ee4fb9f158e60ba55674ecb8ed249a&alias='.request("email").'&fname='.request("name").'lname=');
         return redirect("gamification/gamification_profile");
     }
 }

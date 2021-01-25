@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Models\Challenge;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -64,14 +65,29 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        Http::post('http://api.tenenet.net/createPlayer?token=333eb0526f782a6de74735d9f97cb50c&alias='.$data['name'].'&id=&fname='.$data['email'].'&lname=');
-        Http::post('api.tenenet.net/insertPlayerActivity?token=333eb0526f782a6de74735d9f97cb50c&alias='.$data['name'].'&id=alpha_badges_point&operator=add&value=0');
-
+        Http::post('http://api.tenenet.net/createPlayer?token=79ee4fb9f158e60ba55674ecb8ed249a&alias='.$data['email'].'&id=&fname='.$data['name'].'&lname=');
+        Http::post('api.tenenet.net/insertPlayerActivity?token=79ee4fb9f158e60ba55674ecb8ed249a&alias='.$data['email'].'&id=alpha_badge_point&operator=add&value=0');
+        Challenge::create([
+            "daily_login"=> false,
+            "open_leaderboard" => false,
+            "week_start_date" => date("Y-m-d H:i:s"),
+            "week_end_date" => date("Y-m-d H:i:s", strtotime('+7 days')),
+            "create_event_count"=> 0,
+            "invitation_count"=> 0,
+            'invitation_achieved'=> false,
+            'create_event_achieved' => false,
+            "user_email" => $data['email'],
+        ]);
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'phone' => $data['phone'],
             'image' => "avatar1_small.jpg",
+            'active_until' => date("Y-m-d H:i:s", strtotime('+30 days')),
+            'login_days' => 0,
+            'invitation_count' => 0,
+            'create_event_count' => 0, 
+            'finish_event_count' => 0,
             'password' => Hash::make($data['password']),
         ]);
     }

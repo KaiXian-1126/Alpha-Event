@@ -20,7 +20,7 @@
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Name</th>
-                            <th scope="col">Points</th>
+                            <th scope="col">Badge Points</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -50,34 +50,6 @@
         </div>
     </main>
   </body>
-   <!-- <script>
-    $(document).ready(function(){
-        // get dashboard
-        var topPlayerList = Array();
-        $.ajax({url: "http://127.0.0.1:8000/gamification/mockdatadashboard",
-            type: "get",
-            data: { get_param: 'value' }, 
-            dataType: 'json',
-            success: function (data) {
-                $.each(data.message.data, function(index, element) {
-                  $('#alias'+(index+1)).text(data.message.data[index].alias);
-                  //get score
-                  $.ajax({
-                      url: "http://127.0.0.1:8000/gamification/mockdatascore1",
-                      type: "get",
-                      data: { get_param: 'value' },
-                      dataType: "json",
-                      success: function(data){
-                          $('#score'+(index+1)).text(data.message.score[1].value);
-                          
-                      }
-                  });
-                });
-            }
-            });
-        //get score
-        });
-    </script> -->
 </html>
 @endsection
 

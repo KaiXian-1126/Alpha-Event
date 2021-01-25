@@ -23,17 +23,17 @@
                 <div class="row mb-3 mx-0 pd-0">
                     <div class="input-group mb-3">
                         <div class="input-group-prepend col-md-3 mx-0 px-0"> 
-                            <span class="input-group-text" id="basic-addon1" style="width:100%">Name</span>
+                            <span class="input-group-text" id="basic-addon2" style="width:100%">Email</span>
                         </div>
-                        <input name="name" value="{{$user->name}}" type="text" style="width:100%" class="col-md-9 form-control" aria-label="Name" aria-describedby="basic-addon1">
+                        <input name="email" value="{{$user->email}}" type="text" style="width:100%" class="col-md-9 form-control" aria-label="Email" aria-describedby="basic-addon2" readonly>
                     </div>
                 </div>
                 <div class="row mb-3 mx-0 pd-0">
                     <div class="input-group mb-3">
                         <div class="input-group-prepend col-md-3 mx-0 px-0"> 
-                            <span class="input-group-text" id="basic-addon2" style="width:100%">Email</span>
+                            <span class="input-group-text" id="basic-addon1" style="width:100%">Name</span>
                         </div>
-                        <input name="email" value="{{$user->email}}" type="text" style="width:100%" class="col-md-9 form-control" aria-label="Email" aria-describedby="basic-addon2">
+                        <input name="name" value="{{$user->name}}" type="text" style="width:100%" class="col-md-9 form-control" aria-label="Name" aria-describedby="basic-addon1">
                     </div>
                 </div>
                 <div class="row mb-3 mx-0 pd-0">

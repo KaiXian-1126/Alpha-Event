@@ -76,17 +76,11 @@ Route::post('/events/todo_list/update_todo/{id1}/{id2}/{id3}', "App\Http\Control
 
 //events/budget route
 Route::get('/events/budget/budget_list/{id1}','App\Http\Controllers\BudgetController@index')->middleware('auth');
-
 Route::get('/events/budget/view_budget/{id}/{id2}/{id3}', 'App\Http\Controllers\BudgetController@show')->middleware('auth');
-
 Route::get('/events/budget/edit_budget/{id}/{id1}','App\Http\Controllers\BudgetController@update')->middleware('auth');
-
 Route::get('/events/budget/add_budget/{id}/{id1}', 'App\Http\Controllers\BudgetController@create')->middleware('auth');
-
 Route::post('/create_budget/{id1}/{id2}/{id3}', 'App\Http\Controllers\BudgetController@store')->middleware('auth');
-
 Route::get('/update_budget/{id}/{id1}', 'App\Http\Controllers\BudgetController@store_update')->middleware('auth');
-
 Route::get('/delete_budget/{id}/{id1}', 'App\Http\Controllers\BudgetController@destroy')->middleware('auth');
 
 // MyEvents/route
@@ -107,17 +101,12 @@ Route::get('/gamification/top_up', function(){
     return view('gamification/top_up');
 })->middleware('auth');
 Route::get('/gamification/reward', "App\Http\Controllers\GamificationController@rewardInfo");
-Route::get('/gamification/achievement', function(){
-    return view('gamification/achievement');
-})->middleware('auth');
-Route::get('/gamification/challenge', function(){
-    return view('gamification/challenge');
-})->middleware('auth');
+Route::get('/gamification/achievement', "App\Http\Controllers\GamificationController@achievementInfo")->middleware('auth');
+Route::get('/gamification/challenge', "App\Http\Controllers\GamificationController@challengeInfo")->middleware('auth');
 /////////////////////////////////////////////////////////////
 
 Route::get('/home', "App\Http\Controllers\EventController@getAllEvents")->middleware('auth');
 Route::get('/home/delete_event/{id}', "App\Http\Controllers\EventController@destroy")->middleware('auth');
-
 
 // MyEvents/member/route
 Route::get('/MyEvents/manage_team/{id}','App\Http\Controllers\MemberController@manageteam')->middleware('auth');

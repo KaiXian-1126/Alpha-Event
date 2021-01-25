@@ -21,20 +21,12 @@
                     <div class="jumbotron jumbotron-fluid">
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-6 d-flex justify-content-center">
+                                <div class="col-md-12 d-flex justify-content-center">
                                     <div class="card text-black mb-3 text-center" style="width: 100%">
                                         <div class="card-header" style="background-color:#bbffff"><b>Total Achievement Scores</b></div>
                                         <div class="card-body" style="background-color:#ffd7dd;">
-                                            <h5 class="card-title">0</h5>
+                                            <h5 class="card-title">{{$score}} / 100</h5>
                                             
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 d-flex justify-content-center">
-                                    <div class="card text-black mb-3 text-center" style="width: 100%">
-                                        <div class="card-header" style="background-color:#bbffff"><b>Monthly Achievement Scores</b></div>
-                                        <div class="card-body" style="background-color:#ffd7dd;">
-                                            <h5 class="card-title">0</h5>
                                         </div>
                                     </div>
                                 </div>
@@ -59,25 +51,25 @@
                     <tr class="table-info">
                         <th scope="col">1</th>
                         <td>Orginize and finish 100 events</td>
-                        <td>0 / 100</td>
+                        <td>{{$finish_event}} / 100</td>
                         <td></td>
                     </tr>
                     <tr class="table-danger">
                         <th scope="col">2</th>
-                        <td>Login 100 days continuously</td>
-                        <td>6 / 100</td>
+                        <td>Login 100 days</td>
+                        <td>{{$user->login_days}} / 100</td>
                         <td></td>
                     </tr>
                     <tr class="table-info">
                         <th scope="col">3</th>
-                        <td>Attend 100 events</td>
-                        <td>6 / 100</td>
+                        <td>Create 100 events</td>
+                        <td>{{$user->create_event_count}} / 100</td>
                         <td></td>
                     </tr>
                     <tr class="table-danger">
                         <th scope="col">4</th>
-                        <td>Sent the invitation to 1000 users</td>
-                        <td>8 / 1000</td>
+                        <td>Sent the invitation</td>
+                        <td>{{$user->invitation_count}} / 1000</td>
                         <td></td>
                     </tr>
                 </tbody>

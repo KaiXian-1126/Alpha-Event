@@ -22,6 +22,11 @@ class User extends Authenticatable
         'phone',
         'password',
         'image',
+        'active_until',
+        'login_days',
+        'invitation_count',
+        'create_event_count', 
+        'finish_event_count',
     ];
 
     /**

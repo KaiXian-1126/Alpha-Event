@@ -8,7 +8,7 @@
     
     <div class="container">
         <div class="row mt-3 mb-3">
-            <h1>Daily Challenge</h1>
+            <h1>Challenge</h1>
         </div>
         <div class="accordion mt-5 mb-5" id="accordionExample1">
             <div class="card">
@@ -31,6 +31,7 @@
                                         <th scope="col">Task</th>
                                         <th scope="col">Points</th>
                                         <th scope="col">Status</th>
+                                        <th scope="col">Progress</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -38,11 +39,31 @@
                                             <td>Daily Login</td>
                                             <td>50 Points</td>
                                             <td>Completed</td>
+                                            <td>
+                                                @if ($challenge->daily_login)
+                                                    <p>1 / 1 </p>
+                                                @else
+                                                    <p>0 / 1 </p>
+                                                @endif
+                                            </td>
                                         </tr>
                                         <tr class="table-danger">
                                             <td>Open Leaderboard</td>
                                             <td>5 Points</td>
-                                            <td>In Progress</td>
+                                            <td>
+                                                @if ($challenge->open_leaderboard)
+                                                    Completed
+                                                @else
+                                                    In Progress
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if ($challenge->open_leaderboard)
+                                                    <p>1 / 1 </p>
+                                                @else
+                                                    <p>0 / 1 </p>
+                                                @endif
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -68,6 +89,7 @@
                 <div class="card-body">
                 <div class="jumbotron jumbotron-fluid">
                         <div class="container">
+                            <p class="text-end"><b>Weekly challenge end on: {{$challenge->week_end_date}}</b></p>
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead>
@@ -75,28 +97,45 @@
                                         <th scope="col">Task</th>
                                         <th scope="col">Points</th>
                                         <th scope="col">Status</th>
+                                        <th scope="col">Progress</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr class="table-info">
                                             <td>Invite 30 guests to join event</td>
                                             <td>50 Points</td>
-                                            <td>In Progress</td>
+                                            <td>
+                                                @if ($challenge->invitation_count >= 30)
+                                                    Completed
+                                                @else
+                                                    In Progress
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if ($challenge->invitation_count >= 30)
+                                                   30 / 30
+                                                @else
+                                                    {{$challenge->invitation_count}} / 30
+                                                @endif
+                                            </td>
                                         </tr>
                                         <tr class="table-danger">
-                                            <td>Attend 3 events</td>
-                                            <td>50 Points</td>
-                                            <td>In Progress</td>
-                                        </tr>
-                                        <tr class="table-info">
                                             <td>Create 3 events</td>
                                             <td>50 Points</td>
-                                            <td>In Progress</td>
-                                        </tr>
-                                        <tr class="table-danger">
-                                            <td>Complete 3 orginzed events</td>
-                                            <td>50 Points</td>
-                                            <td>In Progress</td>
+                                            <td>
+                                                @if ($challenge->create_event_count >= 3)
+                                                    Completed
+                                                @else
+                                                    In Progress
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if ($challenge->create_event_count >= 3)
+                                                   3 / 3
+                                                @else
+                                                    {{$challenge->create_event_count}} / 3
+                                                @endif
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>

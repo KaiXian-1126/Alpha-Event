@@ -58,7 +58,7 @@
                         <h3>Active Until</h3>
                     </div>
                     <div class="row d-flex justify-content-center mt-2 mb-2">
-                        <p>32 days</p>
+                        <p>{{$user->active_until}}</p>
                     </div>
                     <div class="row d-flex justify-content-center mt-2 mb-2">
                         <button type="button" class="btn btn-primary">

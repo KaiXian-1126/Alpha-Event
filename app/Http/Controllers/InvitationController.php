@@ -7,9 +7,11 @@ use App\Models\Invitation;
 use App\Models\Guest;
 use App\Models\Event;
 use App\Models\User;
+use App\Models\Challenge;
+use Illuminate\Support\Facades\Http;
 use App\Models\send_invitation;
 use Illuminate\Support\Facades\DB;
-
+use Auth;
 
 class InvitationController extends Controller
 {
@@ -86,14 +88,26 @@ class InvitationController extends Controller
         $selection1=$request->input('guestList');
 
         
-         $invitation=new send_invitation();
-         $invitation->Event_id=$id;
-         $invitation->invitation_id=$iid;
-         $invitation->Guest_id=$selection;
-         $invitation->Guest_list=$selection1;
+        $invitation=new send_invitation();
+        $invitation->Event_id=$id;
+        $invitation->invitation_id=$iid;
+        $invitation->Guest_id=$selection;
+        $invitation->Guest_list=$selection1;
 
-         $invitation->save();
+        $invitation->save();
         
+        $user = Auth::user();
+        $user->invitation_count++;
+        $user->save();
+
+        $challenge = Challenge::where('user_email', $user->email)->first();
+        $challenge->invitation_count++;
+        if($challenge->invitation_count >= 30 && !$challenge->invitation_achieved){
+            Http::post('api.tenenet.net/insertPlayerActivity?token=79ee4fb9f158e60ba55674ecb8ed249a&alias='.$user->email.'&id=alpha_badge_point&operator=add&value=50');
+            Http::post('api.tenenet.net/insertPlayerActivity?token=79ee4fb9f158e60ba55674ecb8ed249a&alias='.$user->email.'&id=alpha_reward&operator=add&value=50');  
+            $challenge->invitation_achieved = true;
+        }
+        $challenge->save();
         return redirect("events/invitation/edit_invitation/{$id}")->with('id',$id);
     }
 

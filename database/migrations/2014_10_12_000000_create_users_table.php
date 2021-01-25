@@ -21,7 +21,12 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('image');
-            $table->integer('active_days')->nullable();
+            $table->date('active_until');
+            $table->date('last_login')->nullable();
+            $table->integer('login_days');
+            $table->integer('invitation_count');
+            $table->integer('create_event_count');
+            $table->integer('finish_event_count');
             $table->rememberToken();
             $table->timestamps();
         });

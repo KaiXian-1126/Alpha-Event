@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 use App\Models\Event;
 use App\Models\Member;
 use App\Models\User;
+use App\Models\Challenge;
 use Illuminate\Support\Facades\DB;
-
+use Auth;
+use Illuminate\Support\Facades\Http;
 class EventController extends Controller
 {
     public function getAllEvents(){
@@ -26,6 +28,29 @@ class EventController extends Controller
                         ->where("Event_EndDate", "<", $nowDate)
                         ->orWhere([["events.Event_EndDate", $nowDate],["events.Event_EndTime", "<", $nowTime]])
                         ->get();
+        $user = Auth::user();
+        if($nowDate != $user->last_login){
+            $user->last_login = $nowDate;
+            $user->login_days++;
+            $user->save();
+            Http::post('api.tenenet.net/insertPlayerActivity?token=79ee4fb9f158e60ba55674ecb8ed249a&alias='.$user->email.'&id=alpha_badge_point&operator=add&value=50');
+            Http::post('api.tenenet.net/insertPlayerActivity?token=79ee4fb9f158e60ba55674ecb8ed249a&alias='.$user->email.'&id=alpha_reward&operator=add&value=50');   
+            $challenge = Challenge::where('user_email', $user->email)->first();
+            $challenge->daily_login = true;
+            $challenge->open_leaderboard = false;
+            if($challenge->week_end_date < $nowDate){
+                $challenge->week_start_date = $nowDate;
+                $challenge->week_end_date = date("Y-m-d", strtotime('+7 days'));
+                $challenge->create_event_count = 0;
+                $challenge->finish_event_count = 0;
+                $challenge->invitation_count = 0;
+                $challenge->invitation_achieved = false;
+                $challenge->create_event_achieved = false;
+                $challenge->finish_event_achieved = false;
+            }
+            $challenge->save();
+        }
+        
         return view('/home', ["upcomingEvents"=>$upcomingEvents, "pastEvents"=>$pastEvents]);
     }
     /**
@@ -55,18 +80,29 @@ class EventController extends Controller
         $event->Announcement = "";
         $event->Description = "";
         $event->save();
-
         //get newly added event id
         $id = Event::orderBy('Event_id', 'desc')->value('Event_id');
         // add user to member while create event
         $uid = User::where('id',auth()->user()->id)->value('id');
-         $addmember = new Member();
-         $addmember->Event_id = $id;
-         $addmember->Member_id = $uid;
-         $addmember->Role = 'Top Management';
-         $addmember->Department = "Host";
-         $addmember->save();
-
+        $addmember = new Member();
+        $addmember->Event_id = $id;
+        $addmember->Member_id = $uid;
+        $addmember->Role = 'Top Management';
+        $addmember->Department = "Host";
+        $addmember->save();
+        
+        $user = Auth::user();
+        $user->create_event_count++;
+        $user->save();
+        
+        $challenge = Challenge::where('user_email', $user->email)->first();
+        $challenge->create_event_count++;
+        if($challenge->create_event_count >= 3 && !$challenge->create_event_achieved){
+            $challenge->create_event_achieved = true;
+            Http::post('api.tenenet.net/insertPlayerActivity?token=79ee4fb9f158e60ba55674ecb8ed249a&alias='.$user->email.'&id=alpha_badge_point&operator=add&value=50');
+            Http::post('api.tenenet.net/insertPlayerActivity?token=79ee4fb9f158e60ba55674ecb8ed249a&alias='.$user->email.'&id=alpha_reward&operator=add&value=50'); 
+        }
+        $challenge->save();
         return redirect("/home");
     }
 
