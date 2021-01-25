@@ -1,16 +1,11 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <title>Todo List</title>
-    </head>
-    @extends("layouts.eventsidebar", ["id"=>$id])
-    @section("content")
-    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4"> 
+@extends("layouts.eventsidebar", ["id"=>$id])
+@section("content")
+    <div class="col-md-9"> 
                 <!-- col start -->
             <div class="row text-center">
                 <div class="col-md">
-                    <h1 class="mb-4 mt-3" style="font-size: 16px">Program Name | Budget</h1>
-                    <p>Budget List</p>
+                    <h1 class="mb-4 mt-3" style="font-size: 16px">To-do</h1>
+                    <p>To-do List</p>
                     <div class="table-responsive">
                         <table class="table">
                             <thead>

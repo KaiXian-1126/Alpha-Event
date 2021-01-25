@@ -166,7 +166,9 @@ class EventController extends Controller
         return redirect("events/event_details/edit_detail/$id");
       
     }
-
+    public function accessToCreateEventPage(){
+        return view('MyEvents/create_event');
+    }
     /**
      * Remove the specified resource from storage.
      *

@@ -31,10 +31,17 @@
                         <h2>Current Medal</h2>
                     </div>
                     <div class="row d-flex justify-content-center">
+                        @if($badgePoint >= 3000)
+                            <img id="badge-img" class="card-img-top" style="width: 100px; height: 200px;" src="{{ URL::asset('assets/img/gold.png') }}" alt="Card image cap">
+                        @elseif ($badgePoint >= 2000)
+                            <img id="badge-img" class="card-img-top" style="width: 100px; height: 200px;" src="{{ URL::asset('assets/img/silver.png') }}" alt="Card image cap">
+                        @else
+                        <img id="badge-img" class="card-img-top" style="width: 100px; height: 200px;" src="{{ URL::asset('assets/img/bronze.png') }}" alt="Card image cap">
+                        @endif
                         <div id="badge-img"></div>
                     </div>
                     <div class="row d-flex justify-content-center">
-                        <p id="badge-point">Point: </p>
+                        <p id="badge-point">Point: {{$badgePoint}}</p>
                     </div>
                     </div>
                 </div>
@@ -61,10 +68,10 @@
                 </div>
                 <div class="col-md-6 mt-5 mb-5">
                     <div class="row d-flex justify-content-center mt-2 mb-2">
-                        <h3>Available points</h3>
+                        <h3>Available reward points</h3>
                     </div>
                     <div class="row d-flex justify-content-center mt-2 mb-2">
-                        <p id="reward-point"></p>
+                        <p id="reward-point">{{$rewardPoint}}</p>
                     </div>
                     <div class="row d-flex justify-content-center mt-2 mb-2">
                         <button type="button" class="btn btn-primary">
@@ -77,36 +84,5 @@
         <!-- Container end -->
     </main>
   </body>
-  <script>
-    $(document).ready(function(){
-        // get player
-        var topPlayerList = Array();
-        var userName = $('#user-name').text();
-        var userEmail = $('#user-email').text();
-        var userPhone = $('#user-phone').text();
-        $.ajax({url: "http://api.tenenet.net/createPlayer?token=333eb0526f782a6de74735d9f97cb50c&alias="+userName+"&id=3&fname="+userEmail+"&lname=",
-            type: "get",
-        });
-        $.ajax({url: "http://127.0.0.1:8000/gamification/mockdatascore1",
-            type: "get",
-            data: { get_param: 'value' }, 
-            dataType: 'json',
-            success: function(data){
-                //badge point
-                    $('#badge-point').text("Points:" + data.message.score[1].value);
-                //reward point
-                    $('#reward-point').text(data.message.score[2].value);
-                if(parseInt(data.message.score[1].value) >= 3000){
-                    $('#badge-img').html('<img id="badge-img" class="card-img-top" style="width: 100px; height: 200px;" src="{{ URL::asset('assets/img/gold.png') }}" alt="Card image cap">');
-                }
-                else if(parseInt(data.message.score[1].value) >= 2000){
-                    $('#badge-img').html('<img id="badge-img" class="card-img-top" style="width: 100px; height: 200px;" src="{{ URL::asset('assets/img/silver.png') }}" alt="Card image cap">');
-                }else{
-                    $('#badge-img').html('<img id="badge-img" class="card-img-top" style="width: 100px; height: 200px;" src="{{ URL::asset('assets/img/bronze.png') }}" alt="Card image cap">');
-                }
-                }
-            });
-        });
-    </script>
 </html>
 @endsection

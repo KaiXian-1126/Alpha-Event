@@ -86,7 +86,7 @@ class GuestController extends Controller
         $guestListName = request('guest-list-name');
         $eventid = request('event-id');
         $guestidList = request('id');
-        $guestList = Guest::where([["Guest_list", $guestListName],["Event_id", $eventid]])->get();
+        $guestList = Guest::where([["Guest_list", request('original-guest-list-name')],["Event_id", $eventid]])->get();
         $validate = true;
         if($guestidList == null){
             foreach($guestList as $guest){

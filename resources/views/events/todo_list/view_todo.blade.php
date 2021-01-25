@@ -1,11 +1,6 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <title>To do List</title>
-</head>
-    @extends("layouts.eventsidebar", ["id"=>$id])
+@extends("layouts.eventsidebar", ["id"=>$id])
     @section("content")
-    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4"> 
+    <div class="col-md-9"> 
                 <!-- col start -->
             <div class="row " >
                 <form action="/events/todo_list/update_todo/{{$id}}/{{$pid}}/{{$tid}}" method="POST">

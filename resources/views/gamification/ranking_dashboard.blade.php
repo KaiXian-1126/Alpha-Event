@@ -27,12 +27,12 @@
                    
                     <?php 
                      $counter = 1;
-                    for($i = 1 ; $i <= 10 ; $i++){
+                    for($i = 0 ; $i < sizeof($nameList) ; $i++){
                     ?>
                         <tr>
-                            <th scope="row"><?php echo $counter; ?></th>
-                            <td><div id="alias<?php echo $counter; ?>"></div></td>
-                            <td id="score<?php echo $counter++; ?>"></td>
+                            <th scope="row"><?php echo $counter++; ?></th>
+                            <td><div id="alias"><?php echo $nameList[$i]; ?></div></td>
+                            <td id="score"><?php echo $scoreList[$i]; ?></td>
                         </tr>
                    <?php
                         }
@@ -50,7 +50,7 @@
         </div>
     </main>
   </body>
-    <script>
+   <!-- <script>
     $(document).ready(function(){
         // get dashboard
         var topPlayerList = Array();
@@ -77,7 +77,7 @@
             });
         //get score
         });
-    </script>
+    </script> -->
 </html>
 @endsection
 

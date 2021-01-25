@@ -16,8 +16,8 @@ class CreateSendInvitationsTable extends Migration
         Schema::create('send_invitations', function (Blueprint $table) {
             $table->id();
             $table->integer('invitation_id');
-            $table->integer('Guest_id');
-            $table->string('Guest_list');
+            $table->integer('Guest_id')->nullable();
+            $table->string('Guest_list')->nullable();
             $table->integer('Event_id');
             $table->timestamps();
         });

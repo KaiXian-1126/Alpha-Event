@@ -1,11 +1,8 @@
-<head>
-    <title>Edit event</title>
-</head>
 @extends("layouts.eventsidebar" , ["id"=>$data['id']->Event_id])
 @section("content")
 
 <!-- Main Content -->
-<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4"> 
+<div class="col-md-9"> 
     <div class="container">
         <div class="row">
             <!-- col start -->

@@ -10,7 +10,7 @@
         </div>
         <div class="jumbotron" style="background-color: light-gray;">
             <div class="row d-flex justify-content-end mr-5 mb-3">
-                <p>Available point : 3000</p>
+                <p>Available point : {{$rewardPoint}}</p>
             </div>
             <div class="card border-info mb-3" style="width: 100%;">
                 <div class="card-header">Invitation Card 1</div>
@@ -20,8 +20,8 @@
                             <img style="width: 50px; height: 100px;" src="{{ URL::asset('assets/img/invitation_card/invitation-card-1.jpg') }}" alt="Invitation card">
                         </div>
                         <div class="col-md-8">
-                            <p class="card-text">Required reward points: 3000points</p>
-                            <p class="card-text">This is invitation card 1</p>
+                            <p class="card-text">Required reward points: 1000 points</p>
+                            <p class="card-text">1 invitation card design per event.</p>
                         </div>
                         <div class="col-md-2 d-flex justify-content-center align-items-center">
                             <p class="card-text"><button type="button" class="btn btn-outline-success">Exchange</button></p>
@@ -37,8 +37,8 @@
                             <img style="width: 50px; height: 100px;" src="{{ URL::asset('assets/img/invitation_card/invitation-card-1.jpg') }}" alt="Invitation card">
                         </div>
                         <div class="col-md-8">
-                            <p class="card-text">Required reward points: 1500points</p>
-                            <p class="card-text">This is invitation card 2</p>
+                            <p class="card-text">Required reward points: 1500 points</p>
+                            <p class="card-text">2 invitation card design per event.</p>
                         </div>
                         <div class="col-md-2 d-flex justify-content-center align-items-center">
                             <p class="card-text"><button type="button" class="btn btn-outline-success">Exchange</button></p>
@@ -54,8 +54,8 @@
                             <img style="width: 50px; height: 100px;" src="{{ URL::asset('assets/img/invitation_card/invitation-card-1.jpg') }}" alt="Invitation card">
                         </div>
                         <div class="col-md-8">
-                            <p class="card-text">Required reward points: 1000points</p>
-                            <p class="card-text">This is invitation card 3</p>
+                            <p class="card-text">Required reward points: 3000 points</p>
+                            <p class="card-text">3 invitation card per event.</p>
                         </div>
                         <div class="col-md-2 d-flex justify-content-center align-items-center">
                             <p class="card-text"><button type="button" class="btn btn-outline-success">Exchange</button></p>

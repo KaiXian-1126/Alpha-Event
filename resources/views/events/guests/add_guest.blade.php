@@ -1,16 +1,14 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <title>Gamification Profile</title>
-    @extends("layouts.navigation_bar")
-    @section("content")
+@extends("layouts.navigation_bar")
+@section("content")
             </div>
         </div>
     <main>
         <div class="container">
             <div class="jumbotron">
                 <div class="row d-flex justify-content-center">
-                    <h1>Fill the information to add guest</h1>
+                    <div class="col text-center">
+                        <h1>Fill the information to add guest</h1>
+                    </div>
                 </div>
                 @if(session('message'))    
                     <div class="alert alert-danger alert-dismissible fade-in text-center mt-3">
