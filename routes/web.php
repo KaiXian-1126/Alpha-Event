@@ -38,6 +38,10 @@ Route::post('/send-invitation/{id}/{id1}', 'App\Http\Controllers\InvitationContr
 
 Route::get('/events/invitation/send_invitation/{id}', 'App\Http\Controllers\InvitationController@edit');
 
+Route::get('invitation/view_invitation', 'App\Http\Controllers\InvitationController@view_invitation');
+
+Route::get('invitation/view_invitation_description/{id}', 'App\Http\Controllers\InvitationController@view_invitation_description');
+
 
 Route::get('/PublicEvents/publiceventdetail', function(){
     return view('PublicEvents/publiceventdetail');
