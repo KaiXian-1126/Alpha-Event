@@ -69,4 +69,28 @@ class GamificationController extends Controller
         $challenge = Challenge::where("user_email", $user->email)->first();
         return view('gamification/challenge', ['challenge' => $challenge]);
     }
+    public function exchangeReward($id){
+        $user = Auth::user();
+        $playerInfo = Http::post('http://api.tenenet.net/getPlayer?token=79ee4fb9f158e60ba55674ecb8ed249a&alias='.$user->email);
+        $rewardScore =  $playerInfo['message']['score'][2]['value'];
+        if($id == 1){
+            if($rewardScore < 1000){
+                return redirect('gamification/reward')->with("message", "Reward point is not enough.");
+            }
+            Http::post('api.tenenet.net/insertPlayerActivity?token=79ee4fb9f158e60ba55674ecb8ed249a&alias='.$user->email.'&id=alpha_reward&operator=remove&value=1000'); 
+        }else if($id == 2){
+            if($rewardScore < 1500){
+                return redirect('gamification/reward')->with("message", "Reward point is not enough.");
+            }
+            Http::post('api.tenenet.net/insertPlayerActivity?token=79ee4fb9f158e60ba55674ecb8ed249a&alias='.$user->email.'&id=alpha_reward&operator=remove&value=1500');
+        }else{
+            if($rewardScore < 3000){
+                return redirect('gamification/reward')->with("message", "Reward point is not enough.");
+            }
+            Http::post('api.tenenet.net/insertPlayerActivity?token=79ee4fb9f158e60ba55674ecb8ed249a&alias='.$user->email.'&id=alpha_reward&operator=remove&value=3000');
+        }
+        $user->invitation_card_amount++;
+        $user->save();
+        return view('gamification/reward', ["user" => $user, "rewardPoint" => $rewardScore]);
+    }
 }

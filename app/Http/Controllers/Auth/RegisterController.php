@@ -88,6 +88,7 @@ class RegisterController extends Controller
             'invitation_count' => 0,
             'create_event_count' => 0, 
             'finish_event_count' => 0,
+            'invitation_card_amount' => 1,
             'password' => Hash::make($data['password']),
         ]);
     }

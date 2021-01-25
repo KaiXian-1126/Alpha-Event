@@ -27,6 +27,7 @@ class User extends Authenticatable
         'invitation_count',
         'create_event_count', 
         'finish_event_count',
+        'invitation_card_amount'
     ];
 
     /**

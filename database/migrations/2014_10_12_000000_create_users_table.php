@@ -27,6 +27,7 @@ class CreateUsersTable extends Migration
             $table->integer('invitation_count');
             $table->integer('create_event_count');
             $table->integer('finish_event_count');
+            $table->integer('invitation_card_amount');
             $table->rememberToken();
             $table->timestamps();
         });

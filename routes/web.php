@@ -103,6 +103,8 @@ Route::get('/gamification/top_up', function(){
 Route::get('/gamification/reward', "App\Http\Controllers\GamificationController@rewardInfo");
 Route::get('/gamification/achievement', "App\Http\Controllers\GamificationController@achievementInfo")->middleware('auth');
 Route::get('/gamification/challenge', "App\Http\Controllers\GamificationController@challengeInfo")->middleware('auth');
+Route::get('/gamification/exchange-reward/{id}', "App\Http\Controllers\GamificationController@exchangeReward")->middleware('auth');
+
 /////////////////////////////////////////////////////////////
 
 Route::get('/home', "App\Http\Controllers\EventController@getAllEvents")->middleware('auth');

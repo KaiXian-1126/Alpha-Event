@@ -23,7 +23,6 @@ class CreateEventsTable extends Migration
             $table->string('Location');
             $table->longText('Announcement');
             $table->longText('Description');
-            
         });
     }
 

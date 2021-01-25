@@ -10,8 +10,14 @@
         </div>
         <div class="jumbotron" style="background-color: light-gray;">
             <div class="row d-flex justify-content-end mr-5 mb-3">
-                <p>Available point : {{$rewardPoint}}</p>
+                <p>Available reward point : {{$rewardPoint}}</p>
             </div>
+            @if(session('message'))    
+                    <div class="alert alert-danger alert-dismissible fade-in text-center mt-3">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <p class="mb-0">{{ session('message')}}</p>
+                    </div>
+            @endif
             <div class="card border-info mb-3" style="width: 100%;">
                 <div class="card-header">Invitation Card 1</div>
                 <div class="card-body text-dark">
@@ -21,10 +27,16 @@
                         </div>
                         <div class="col-md-8">
                             <p class="card-text">Required reward points: 1000 points</p>
-                            <p class="card-text">1 invitation card design per event.</p>
+                            <p class="card-text">2 invitation card design per event.</p>
                         </div>
                         <div class="col-md-2 d-flex justify-content-center align-items-center">
-                            <p class="card-text"><button type="button" class="btn btn-outline-success">Exchange</button></p>
+                            <p class="card-text">
+                                @if($user->invitation_card_amount == 1) 
+                                    <button type="button" class="btn btn btn-success"><a class="my-btn-link disabled" href="/gamification/exchange-reward/1">Exchange</a></button>
+                                @else
+                                    <button type="button" class="btn btn btn-success" disabled>Exchange</button>
+                                @endif
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -38,10 +50,16 @@
                         </div>
                         <div class="col-md-8">
                             <p class="card-text">Required reward points: 1500 points</p>
-                            <p class="card-text">2 invitation card design per event.</p>
+                            <p class="card-text" >3 invitation card design per event.</p>
                         </div>
                         <div class="col-md-2 d-flex justify-content-center align-items-center">
-                            <p class="card-text"><button type="button" class="btn btn-outline-success">Exchange</button></p>
+                            <p class="card-text">
+                                @if($user->invitation_card_amount == 2) 
+                                <button type="button" class="btn btn btn-success"><a class="my-btn-link disabled" href="/gamification/exchange-reward/2">Exchange</a></button>
+                                @else
+                                <button type="button" class="btn btn btn-success" disabled>Exchange</button>
+                                @endif
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -55,10 +73,16 @@
                         </div>
                         <div class="col-md-8">
                             <p class="card-text">Required reward points: 3000 points</p>
-                            <p class="card-text">3 invitation card per event.</p>
+                            <p class="card-text">4 invitation card design per event.</p>
                         </div>
                         <div class="col-md-2 d-flex justify-content-center align-items-center">
-                            <p class="card-text"><button type="button" class="btn btn-outline-success">Exchange</button></p>
+                            <p class="card-text">
+                                @if($user->invitation_card_amount == 3) 
+                                    <button type="button" class="btn btn btn-success"><a class="my-btn-link disabled" href="/gamification/exchange-reward/3">Exchange</a></button>
+                                @else
+                                    <button type="button" class="btn btn btn-success" disabled>Exchange</button>
+                                @endif
+                            </p>
                         </div>
                     </div>
                 </div>

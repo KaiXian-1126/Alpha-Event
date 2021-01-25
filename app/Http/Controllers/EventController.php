@@ -15,7 +15,6 @@ class EventController extends Controller
     public function getAllEvents(){
         $nowDate = date("Y-m-d");
         $nowTime = date("H:i:s");
-   
         $upcomingEvents = Member::join('events', 'events.Event_id', '=', 'members.Event_id')
                         ->select('members.*', 'events.*')
                         ->where('members.Member_id',auth()->user()->id)
