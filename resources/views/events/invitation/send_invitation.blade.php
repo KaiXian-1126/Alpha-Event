@@ -43,7 +43,7 @@
                 <br>
                 <br>
 
-                <select name="guest" id="guest" style="width:200px;font-size:30px; display:none;">
+                <select name="guest" id="guest" style="width:200px;font-size:30px; display:none;" onchange="oncheck()">
                     <option disabled selected>--- SELECT ---</option>
                     @foreach($data['guest_id'] as $key =>$guest)
                         @foreach($data['user'] as $key1 =>$name)
@@ -59,7 +59,7 @@
                 
 
                 
-                <select name="guestList" id="guestList" style="width:200px;font-size:30px;">
+                <select name="guestList" id="guestList" style="width:200px;font-size:30px;" onchange="oncheck()">
                     <option disabled selected>--- SELECT ---</option>
                     @foreach($data['guest_id'] as $key =>$value)
                     <option value="{{$value->Guest_list}}">{{$value->Guest_list}}</option>
@@ -69,12 +69,14 @@
 
                 <div class="row">
                 
+               
                 <div class="col">
-                <button type="button" class="btn btn-primary"><a href="/events/invitation/edit_invitation/{{$data['event']->Event_id}}" style="color:white;">Back</a></button>
+                <button type="button" class="btn btn-primary"><a href="/events/invitation/edit_invitation/{{$data['event']->Event_id}}" style="color:white;"
+                >Back</a></button>
                 </div>
 
                 <div class="col">
-                <button type="submit" class="btn btn-primary">Send</button>
+                <button type="submit" id="send" class="btn btn-primary" disabled >Send</button>
                 </div>
 
                 </div>
@@ -117,6 +119,17 @@
             document.getElementById('guest').style.display = 'inline-block';
             document.getElementById('guestList').style.display = 'none';
             document.getElementById('guestList').value = null;
+        }
+    }
+
+    function oncheck(){
+        if(document.getElementById('guest').value==""&&document.getElementById('guestList').value==""){
+
+            document.getElementById('send').disabled=true;
+        }
+
+        else{
+            document.getElementById('send').disabled=false;
         }
     }
     

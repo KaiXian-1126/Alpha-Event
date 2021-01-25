@@ -12,6 +12,7 @@
             
             <div class="col-sm-9" >
                 <div style="text-align:center;">
+                    <br><br>
                     <button type="button" class="btn btn-primary"><a href="/view-invitation-card/{{$id->Event_id}}" style="color:white;">View Invitation card</a></button>
                     </div>
                 <br><br>
@@ -31,12 +32,12 @@
                     </div>
                     <br>
                     <div style="text-align: center;">
-                        <p><input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;"></p>
+                        <p><input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;" required></p>
                         <p><label for="file" class="btn btn-primary">Upload Image</label></p>
                     </div>
                     <br><br>
-                    <textarea name="text" id='summary-ckeditor' class="form-control" 
-                           > </textarea>
+                    <textarea name="text" id='summary-ckeditor' class="form-control" required> </textarea>
+                     
                     <br>
                     <br>
                     <div class="col" style="text-align:center;">

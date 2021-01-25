@@ -34,6 +34,10 @@ Route::get('/go-to-card-send/{id}', 'App\Http\Controllers\InvitationController@s
 Route::post('/send-invitation/{id}/{id1}', 'App\Http\Controllers\InvitationController@send');
 Route::get('/events/invitation/send_invitation/{id}', 'App\Http\Controllers\InvitationController@edit');
 
+Route::get('invitation/view_invitation', 'App\Http\Controllers\InvitationController@view_invitation');
+
+Route::get('invitation/view_invitation_description/{id}', 'App\Http\Controllers\InvitationController@view_invitation_description');
+
 
 Route::get('/PublicEvents/publiceventdetail', function(){
     return view('PublicEvents/publiceventdetail');

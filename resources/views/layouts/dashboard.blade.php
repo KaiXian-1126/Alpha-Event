@@ -51,6 +51,10 @@
                         </li>
                         <div class="dropdown-divider"></div>
                         <li>                            
+                            <a href="/invitation/view_invitation" >Invitation</a>                  
+                        </li>
+                        <div class="dropdown-divider"></div>
+                        <li>                            
                             <a href="/gamification/challenge">Challenge</a>                  
                         </li>
                         <li>                            
