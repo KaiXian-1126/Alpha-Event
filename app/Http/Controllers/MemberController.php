@@ -43,11 +43,11 @@ class MemberController extends Controller
          $this->validate($request, [
              'email'=>'required',                 
              'role' => 'required',
-             'department' => 'required'
          ]);
  
          $id = request('eid');
          $email = request('email');
+         $role = request('role');
 
          $userid = DB::table('users')->where('email',$email)->value('id');
 
@@ -55,8 +55,13 @@ class MemberController extends Controller
          $addmember->Event_id = $id;
          $addmember->Member_id = $userid;
          $addmember->Role = request('role');
-         $addmember->Department = request('department');
-         $addmember->save();
+         if($role == "Top Management"){
+            $addmember->Department = request('department');
+        }
+        else{
+        $addmember->Department = request('department2');
+        }
+            $addmember->save();
 
        return redirect("/MyEvents/manage_team/$id");
     }
