@@ -1,14 +1,13 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Add New Guest List</title>
     <?php  $id=$data['event']->Event_id; ?>
     
     @extends("layouts.eventsidebar")
     @section("content")
                 <!-- col start -->
                 <div class="col ">
-                    <h1 class="mb-4 mt-3" style="font-size: 16px">Program Name | Budget</h1>
+                    <h1 class="mb-4 mt-3" style="font-size: 16px">{{$data['event']->Event_name}} | Budget</h1>
                     <p>Budget List</p>
                     <div class="table-responsive">
                         <table class="table">

@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Add New Guest List</title>
     <?php $id=$data['user']->Event_id; ?>
     @extends("layouts.eventsidebar")
     @section("content")

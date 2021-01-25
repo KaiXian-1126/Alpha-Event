@@ -2,7 +2,6 @@
 <html lang="en">
   <head>
     <?php $id=$member['eventid']; ?>
-    <title>Add New Guest List</title>
     @extends("layouts.eventsidebar")
     @section("content")
                 <!-- col start -->
