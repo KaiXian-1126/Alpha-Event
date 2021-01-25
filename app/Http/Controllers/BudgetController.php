@@ -26,7 +26,7 @@ class BudgetController extends Controller
 
         $user = Auth::user();
 
-        $data['userid']=member::where('Member_id',$user->id)->first();
+        $data['userid']=member::where([['Member_id',$user->id],['Event_id',$id]])->first();
 
 
         return view('events/budget/budget_list')->with(compact('data',$data));
@@ -40,7 +40,7 @@ class BudgetController extends Controller
     public function create($eid,$id)
     {
         
-        $data['userid']=member::where('Department',$id)->first();
+        $data['userid']=member::where([['Department',$id],['Event_id',$eid]])->first();
 
         $data['eventid']=$eid;
 
@@ -105,7 +105,7 @@ class BudgetController extends Controller
         
         $data['user'] =member::where('Event_id',$eid)->first();
         
-        $data['userid']=member::where('Member_id',$uid)->first();
+        $data['userid']=member::where([['Member_id',$uid],['Event_id',$eid]])->first();
 
         
         return view('events/budget/view_budget')->with(compact('data',$data));

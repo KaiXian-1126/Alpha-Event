@@ -15,7 +15,7 @@
                                 <div class="input-group-prepend col-md-3 mx-0 px-0">
                                     <span class="input-group-text" id="basic-addon1" style="width:100%">Item</span>
                                 </div>
-                                <input type="text" name="item" class="col-md-7 form-control" placeholder="Item" aria-label="Item" aria-describedby="basic-addon1" value="{{$data['data']->Budget_name}}">
+                                <input type="text" name="item" class="col-md-7 form-control" placeholder="Item" aria-label="Item" aria-describedby="basic-addon1" value="{{$data['data']->Budget_name}}" required>
                             </div>
                         </div>
                         <div class="row mb-3 mx-0 pd-0">
@@ -23,7 +23,7 @@
                                 <div class="input-group-prepend col-md-3 mx-0 px-0"> 
                                     <span class="input-group-text" id="basic-addon2" style="width:100%">Description</span>
                                 </div>
-                                <input type="text" name="description" class="col-md-7 form-control" placeholder="Description" aria-label="Description" aria-describedby="basic-addon2" value="{{$data['data']->Description}}">
+                                <input type="text" name="description" class="col-md-7 form-control" placeholder="Description" aria-label="Description" aria-describedby="basic-addon2" value="{{$data['data']->Description}}" required>
                             </div>
                         </div>
                         <div class="row mb-3 mx-0 pd-0">
@@ -31,7 +31,7 @@
                                 <div class="input-group-prepend col-md-3 mx-0 px-0">
                                     <span class="input-group-text" id="basic-addon3" style="width:100%">Cost</span>
                                 </div>
-                                <input type="text"  name="cost" class="col-md-7 form-control" placeholder="Cost" aria-label="Cost" aria-describedby="basic-addon3" value="{{$data['data']->Cost}}">
+                                <input type="text"  name="cost" class="col-md-7 form-control" placeholder="Cost" aria-label="Cost" aria-describedby="basic-addon3" value="{{$data['data']->Cost}}" required>
                             </div>
                         </div>
                         <div class="d-flex justify-content-end">
