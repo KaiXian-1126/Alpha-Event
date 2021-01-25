@@ -4,8 +4,8 @@
                 <!-- col start -->
             <div class="row text-center">
                 <div class="col-md">
-                    <h1 class="mb-4 mt-3" style="font-size: 16px">To-do</h1>
-                    <p>To-do List</p>
+                    <h1 class="mb-4 mt-3" style="font-size: 16px">{{$eventname}} | Todo List</h1>
+                    <p>All Todo List </p>
                     <div class="table-responsive">
                         <table class="table">
                             <thead>

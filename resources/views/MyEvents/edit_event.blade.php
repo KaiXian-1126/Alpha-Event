@@ -34,25 +34,30 @@
                         <br>
                         <div class="row">
                             <div class="col-4 " style="text-align: right">Role:</div>
-                            <div class="col-7"><select class="form-select" id="role" name="role" required>
+                            <div class="col-7"><select class="form-select" id="role" name="role" required >        
                                 <option>{{$editmember->Role}}</option>
-                                <option>Top Management</option>
-                                <option>Executive</option>
+                                @if($editmember->Role == "Executive")
+                                <option value="Top Management">Top Management</option>
+                                @else
+                                <option value="Executive">Executive</option>
+                                @endif
                             </select></div>
                         </div>
                         <br>
                         
                         <div class="row">
                             <div class="col-4 " style="text-align: right">Department:</div>
-                            <div class="col-7"><select class="form-select" id="department" name="department" required>
-                                <option>{{$editmember->Department}}</option>
-                                <option>Secretary</option>
-                                <option>Treasurer</option>
-                                <option>Sponsorship</option>
-                                <option>Transportation</option>
-                                <option>Refreshment</option>
-                                <option>Sales</option>
-                            </select></div>
+                            <div class="col-7">
+                                <select class="form-select" id="department" name="department" >
+                                    <option>{{$editmember->Department}}</option>
+                                    <option>Secretary</option>
+                                    <option>Treasurer</option>
+                                    <option>Sponsorship</option>
+                                    <option >Transportation</option>
+                                    <option >Refreshment</option>
+                                    <option >Sales</option>
+                                </select>            
+                            </div>
                         </div>
                         <input type="hidden" value={{$editmember->memberid}} name='mid' id='eid'> 
                         <input type="hidden" value={{$eventid}} name='eid' id='eid'> 
@@ -71,7 +76,6 @@
         <!-- Add member form end--> 
 
         <script>
-
         </script>
     </div>
 @endsection
