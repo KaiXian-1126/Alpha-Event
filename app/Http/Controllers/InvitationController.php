@@ -12,8 +12,6 @@ use Illuminate\Support\Facades\Http;
 use App\Models\send_invitation;
 use Auth;
 use Illuminate\Support\Facades\DB;
-use Auth;
-
 class InvitationController extends Controller
 {
     /**
@@ -23,8 +21,16 @@ class InvitationController extends Controller
      */
     public function index($id)
     {
-        $data=event::where('Event_id',$id)->first();
-        return view('events/invitation/edit_invitation')->with('id',$data);
+        $invitation_card=Invitation::where('Event_id',$id)->get();
+        $user = Auth::user();
+        $validation = false;
+        if(sizeof($invitation_card) >= $user->invitation_card_amount ){
+            $validation = true;
+                //->with("message", "Please go to <a href=''><b>Reward Page</b></a> to add enable more cards design.");
+        }
+        $event=event::where('Event_id',$id)->first();
+        //->with(compact('$data',$data))
+        return view('events/invitation/edit_invitation', ['validation' => $validation, 'event'=>$event]);
     }
 
     /**

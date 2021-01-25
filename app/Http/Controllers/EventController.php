@@ -76,8 +76,8 @@ class EventController extends Controller
         $event->Event_StartTime = request("start_time");
         $event->Event_EndTime = request("end_time");
         $event->Location = request("location");
-        $event->Announcement = "";
-        $event->Description = "";
+        $event->Announcement = "Edit your announcement here.";
+        $event->Description = "Edit your description here.";
         $event->save();
         //get newly added event id
         $id = Event::orderBy('Event_id', 'desc')->value('Event_id');

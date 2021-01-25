@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 
-@extends("layouts.eventsidebar",  ["id"=>$id->Event_id])
+@extends("layouts.eventsidebar",  ["id"=>$event->Event_id])
 @section("content")
 
 <!-- Main Content -->
@@ -9,18 +9,24 @@
     <div class="container">
         <div class="row">
             <!-- col start -->
-            
             <div class="col-sm-9" >
                 <div style="text-align:center;">
                     <br><br>
-                    <button type="button" class="btn btn-primary"><a href="/view-invitation-card/{{$id->Event_id}}" style="color:white;">View Invitation card</a></button>
+                    <button type="button" class="btn btn-primary"><a href="/view-invitation-card/{{$event->Event_id}}" style="color:white;">View Invitation card</a></button>
                     </div>
                 <br><br>
-                <form action="/save-invitation-record/{{$id->Event_id}}" method="post" enctype="multipart/form-data">
+                <form action="/save-invitation-record/{{$event->Event_id}}" method="post" enctype="multipart/form-data">
                     {{ csrf_field() }}
                 <div class="container" style= "height:100%; ">
-                <h1 style="font-size: 30px">{{$id->Event_name}}</h1>
-                <br><br>
+                <div class="row text-center">
+                    <h1 style="font-size: 30px">{{$event->Event_name}}</h1>
+                </div>
+                @if($validation)    
+                    <div class="alert alert-danger alert-dismissible fade-in text-center mt-3">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <p class="mb-0">Please go to <a href='/gamification/reward'><b>Reward Page</b></a> to add enable more cards design.</p>
+                    </div>
+                @else
                 <div class="container" style="border:1px solid black;margin-bottom:10%;height:80%;background-color:rgb(214, 210, 210);" >
                     <br><br>
                     <h2 style="text-decoration:underline; text-align:center;">Uploaded Image</h2>
@@ -50,6 +56,7 @@
                     <br>
                     
                 </div>
+                @endif
                 </form>
                 
                 

@@ -21,14 +21,14 @@
                         <div class="row" >
                             <div class="col-4 " style="text-align: right;">Start Date</div>
                             <div class="col-7" >
-                                <div class="form-group "><input class="form-control" type="date" id="start_date" name="start_date"></div>
+                                <div class="form-group "><input class="form-control" type="date" id="start_date" name="start_date" required></div>
                             </div>
                         </div>
                         
                         <div class="row" >
                             <div class="col-4 " style="text-align: right;">End Date</div>
                             <div class="col-7" >
-                                <div class="form-group "><input class="form-control" type="date" id="end_date" name="end_date"></div>
+                                <div class="form-group "><input class="form-control" type="date" id="end_date" name="end_date" required></div>
                             </div>
                         </div>
                         <div class="row" >
@@ -46,7 +46,7 @@
                         
                         <div class="row" >
                             <div class="col-4 " style="text-align: right">Location</div>
-                            <div class="col-7"><input type="text" class="form-control" id="location" placeholder="Enter location" name="location" ></div>
+                            <div class="col-7"><input type="text" class="form-control" id="location" placeholder="Enter location" name="location" required></div>
                         </div>
                         <br>
                         <!--
@@ -66,7 +66,7 @@
                         <div class="mt-4 mb-3">
                             <div class="row">
                             <div class="col" style="text-align: right;">
-                            <button type="submit" class="btn btn-primary" name="submit">Comfirm</button></div>
+                            <button type="submit" class="btn btn-primary" name="submit">Confirm</button></div>
                             <div class="col" >
                             <a href="../home"><button type="button" class="btn btn-danger" style="width: 88px" name="cancel">Cancel</button></a></div></div>
                         </div>  
