@@ -8,6 +8,7 @@ use App\Models\Guest;
 use App\Models\Event;
 use App\Models\User;
 use App\Models\send_invitation;
+use Auth;
 use Illuminate\Support\Facades\DB;
 
 
@@ -105,6 +106,30 @@ class InvitationController extends Controller
         
 
         return view("events/invitation/invitation_list")->with('data',$data);
+    }
+
+    public function view_invitation()
+    {
+        
+        
+        $user=Auth::user();
+
+        
+
+        $data['guest']=guest::where('Guest_id',$user->id)->get();
+        $data['invitation']=send_invitation::all();
+        $data['event']=event::all();
+
+       
+
+        return view("events/invitation/view_invitation")->with('data',$data);
+    }
+
+    public function view_invitation_description($id)
+    {
+        $data['id']=invitation::where('Invitation_id',$id)->first();
+        
+        return view("events/invitation/view_invitation_description")->with(compact('data',$data));;
     }
 
     /**
