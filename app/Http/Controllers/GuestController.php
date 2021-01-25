@@ -34,6 +34,7 @@ class GuestController extends Controller
     public function readAllGuest($eventid){
         $guests = DB::table('guests')
             ->join('users', 'users.id', '=', 'guests.Guest_id')
+            ->where("Event_id", $eventid)
             ->get();
         $eventName = Event::where('Event_id',$eventid)->value('Event_name');
         return view("/events/guests/all_guest_list", ["guests" => $guests, "id" => $eventid, "eventname" => $eventName]);
