@@ -1,4 +1,4 @@
-@extends('layouts.eventpage')
+@extends('layouts.dashboard')
 
 @section('content')
     <div class="container">
@@ -20,8 +20,8 @@
         </div>
             <form action="/MyEvents/update-member" method="post">
                 @csrf
-                <div class="addmemberform">
-                    <div style="border:1px solid black; border-radius: 10px;">
+                <div class="jumbotron">
+                    
                         <div class="row mt-4" >
                             <div class="col-4 " style="text-align: right">Name:</div>
                             <div class="col-7"><input type="text" class="form-control" id="name" placeholder="Enter email" name="name" value="{{$editmember->name}}" readonly></div>
@@ -34,21 +34,23 @@
                         <br>
                         <div class="row">
                             <div class="col-4 " style="text-align: right">Role:</div>
-                            <div class="col-7"><select class="form-select" id="role" name="role" required >        
-                                <option>{{$editmember->Role}}</option>
-                                @if($editmember->Role == "Executive")
-                                <option value="Top Management">Top Management</option>
-                                @else
-                                <option value="Executive">Executive</option>
-                                @endif
-                            </select></div>
+                            <div class="col-7">
+                                <select class="custom-select" id="role" name="role" required>       
+                                    <option>{{$editmember->Role}}</option>
+                                    @if($editmember->Role == "Executive")
+                                    <option value="Top Management">Top Management</option>
+                                    @else
+                                    <option value="Executive">Executive</option>
+                                    @endif
+                                </select>
+                            </div>
                         </div>
                         <br>
                         
                         <div class="row">
                             <div class="col-4 " style="text-align: right">Department:</div>
                             <div class="col-7">
-                                <select class="form-select" id="department" name="department" >
+                                <select class="custom-select" id="department" name="department">
                                     <option>{{$editmember->Department}}</option>
                                     <option>Secretary</option>
                                     <option>Treasurer</option>
@@ -68,8 +70,6 @@
                             <div class="col" >
                             <a href="/MyEvents/manage_team/{{$eventid}}"><button type="button" class="btn btn-danger" style="width: 88px" name="cancel">Cancel</button></div></div></a>
                         </div> 
-                        
-                    </div>
                 </div>
                 <div class="text-center"></div>
             </form>

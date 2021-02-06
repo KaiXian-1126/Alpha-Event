@@ -1,24 +1,16 @@
-<!-- This is the layout for page that has login and register -->
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
+<!-- Required meta tags -->
+<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+   
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-  <!-- -external css -->
-  <link href="css/style_sw.css" rel="stylesheet">
-  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  
-    <title>Alpha Event</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    
+    <!-- public css -->
+    <link rel="stylesheet" href="{{ URL::asset('css/style_main.css') }}" />
   </head>
   <body>
       <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
@@ -46,25 +38,25 @@
                         {{ Auth::user()->name }} <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-wide" role="menu">
-                        <li>                            
-                            <a href="/gamification/gamification_profile" ><p class="text-dark">My Profile</p></p></a>                  
+                        <li class="dropdown-item">                            
+                            <a href="/gamification/gamification_profile" ><p class="text-dark">My Profile</p></a>                  
                         </li>
                         <div class="dropdown-divider" style="border-color: #a4a4a4"></div>
-                        <li>                            
+                        <li class="dropdown-item">                            
                             <a href="/invitation/view_invitation" ><p class="text-dark">Invitation</p></a>                  
                         </li>
                         <div class="dropdown-divider" style="border-color: #a4a4a4"></div>
-                        <li>                            
+                        <li class="dropdown-item">                            
                             <a href="/gamification/challenge"><p class="text-dark">Challenge</p></a>                  
                         </li>
-                        <li>                            
+                        <li class="dropdown-item">                            
                             <a href="/gamification/achievement" ><p class="text-dark">Achievement</p></a>                  
                         </li>
-                        <li>                   
+                        <li class="dropdown-item">                   
                             <a href="/gamification/ranking_dashboard" ><p class="text-dark">Ranking</p></a>                  
                         </li>
                         <div class="dropdown-divider" style="border-color: #a4a4a4"></div>
-                        <li>
+                        <li class="dropdown-item">
                             <a href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
@@ -81,7 +73,7 @@
             @endif
         </div>
       </nav>
-      <div class="mt-5 mb-5"></div>
+      <div class="mt-3 mb-3" style="height: 50px"></div>
       <!-- put yield here-->
       @yield('content')
   </body>

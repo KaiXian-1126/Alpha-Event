@@ -1,4 +1,4 @@
-@extends('layouts.eventpage')
+@extends('layouts.dashboard')
 
 @section('content')
     <div class="container">
@@ -11,8 +11,8 @@
         </div>
             <form action="/MyEvents/create-event" method="post">
             @csrf
-                <div class="addmemberform">
-                    <div style="border:1px solid black; border-radius: 10px;">
+                <div class="jumbotron">
+                    <div>
                         <div class="row mt-4" >
                             <div class="col-4 required-field" style="text-align: right">Event Name</div>
                             <div class="col-7"><input type="text" class="form-control" id="name" placeholder="Enter name" name="name" required></div>
@@ -49,20 +49,6 @@
                             <div class="col-7"><input type="text" class="form-control" id="location" placeholder="Enter location" name="location" required></div>
                         </div>
                         <br>
-                        <!--
-                        <div class="row">
-                            <div class="col-4 " style="text-align: right">Tentative</div>
-                            <div class="col-7 form-group">
-                                
-                                <div class="custom-file mb-3">
-                                    <input type="file" class="custom-file-input" id="customFile" name="filename">
-                                    <label class="custom-file-label" for="customFile">Choose file</label>
-                                  </div>
-                              </div></div>
-                        </div>
-                        -->
-
-                        
                         <div class="mt-4 mb-3">
                             <div class="row">
                             <div class="col" style="text-align: right;">

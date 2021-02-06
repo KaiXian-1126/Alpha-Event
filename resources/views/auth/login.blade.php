@@ -1,10 +1,10 @@
-@extends('layouts.dashboard')
+@extends('layouts.landing')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center " style="margin: auto;">
         <div class="col-md-8 mt-5">
-            <div class="card" >
+            <div class="card">
                 <div class="card-header">Login</div>
 
                 <div class="card-body">
@@ -56,9 +56,9 @@
                                     Login
                                 </button>
 
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                <!--  <a class="btn btn-link" href="{{ route('password.request') }}">
                                     Forgot Your Password?
-                                </a>
+                                </a> -->
                             </div>
                         </div>
                     </form>

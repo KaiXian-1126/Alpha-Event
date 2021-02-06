@@ -1,11 +1,11 @@
 <!doctype html>
 <html lang="en">
   <head>
+      <!-- 
     <script>
         
         // Set the date we're counting down to
         var countDownDate = new Date("Jan 31, 2021 15:37:25");
-        var countDownDate = 
         // Update the count down every 1 second
         var x = setInterval(function() {
         
@@ -32,132 +32,63 @@
           }
         }, 1000);
         </script>
-
-         <style>
-            h1{
-                text-align: center;
-            }
-            h2{
-                text-decoration:underline;
-                text-align:center;
-                margin-bottom:100%;
-            }
-
-        </style>
+    -->
     </head>
 
     @extends("layouts.eventsidebar" , ["id"=>$id])
     @section("content")
     <!-- Main Content -->
     <div class="col-md-9"> 
-        
-            <div class="row " >
             <div class="row" >
-                <!-- side bar start -->
-                <div class="col-md-2">
-                    
+                <div class="col-md">
+                    <!-- Event title -->
+                    <div class="jumbotron jumbotron-fluid" style="opacity: 0.9">
+                        <div class="container text-center">
+                            <h1 class="display-4"><b>{{$event->Event_name}}</b></h1>
+                            <p id="demo" style="text-align: center;font-size: 30px;"></p>
+                        </div>
+                    </div>
                 </div>
-                <!-- side bar end -->
-                <!-- col start -->
-                <br><br>
-                <div class="col-md-8" style="margin-top:5%;margin-bottom:8%;">
-                    <div class="container" style="margin-bottom:5%; border:1px solid black;">
-                        <h1>{{$event->Event_name}}</h1>
-                        <p id="demo" style="text-align: center;font-size: 30px;"></p>
+            </div>
+            <div class="row ">
+                <div class="col-md">
+                    <!-- event details -->
+                    <div class="card text-white bg-info mb-3" style="width: 100%; min-height: 500px;">
+                        <div class="card-header" ><b>Event Details</b></div>
+                        <div class="card-body">
+                            <h5 class="card-title" style="font-size: 16px">Event name</h5>
+                            <p class="card-text">{{$event->Event_name}}</p>
+                            <h5 class="card-title" style="font-size: 16px">Date</h5>
+                            <p class="card-text">@if($event->Event_startDate==$event->Event_EndDate)
+                                                    {{$event->Event_startDate}}
+                                                @else
+                                                    {{$event->Event_startDate}} - {{$event->Event_EndDate}}
+                                                @endif
+                                                </p>
+                            <h5 class="card-title" style="font-size: 16px">Time</h5>
+                            <p class="card-text">{{$event->Event_StartTime}} - {{$event->Event_EndTime}}</p>
+                            <h5 class="card-title" style="font-size: 16px">Venue</h5>
+                            <p class="card-text">{{$event->Location}}</p>
+                            <div style="text-align: center;">
+                                <a href="/events/event_details/edit_event/{{$event->Event_id}}"><button type="button" class="btn btn-primary mt-3" style="width:30%;">Edit</button></a>
+                            </div>
                         </div>
-                        
-                        <div class="row ">
-                                
-                            <div class="col-sm-5" style="margin-bottom:5%;">
-                              <div class="container" style="border:1px solid black; margin-bottom:5%;">
-                                <h2>Event Detail</h2>
-                                <br>
-                                <br>
-                                <div class="row">
-                                   <div class="col-5">
-                                       <p>Event name</p>
-                                   </div>
-                        
-                                   <div class="col-1">
-                                    <p>:</p>
-                                   </div>
-                        
-                                   <div class="col-5">
-                                    <p>{{$event->Event_name}}</p>
-                                   </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-5">
-                                        <p>Date</p>
-                                    </div>
-                         
-                                    <div class="col-1">
-                                     <p>:</p>
-                                    </div>
-                         
-                                    <div class="col-5">
-                                        @if($event->Event_startDate==$event->Event_EndDate)
-                                            <p>{{$event->Event_startDate}}</p>
-                                        @else
-                                            <p>{{$event->Event_startDate}} - {{$event->Event_EndDate}}</p>
-                                        @endif
-                                    </div>
-                                 </div>
-                                <div class="row">
-                                    <div class="col-5">
-                                        <p>Time</p>
-                                    </div>
-                         
-                                    <div class="col-1">
-                                     <p>:</p>
-                                    </div>
-                         
-                                    <div class="col-5">
-                                     <p>{{$event->Event_StartTime}} - {{$event->Event_EndTime}}</p>
-                                    </div>
-                                 </div>
-                        
-                                 <div class="row">
-                                    <div class="col-5">
-                                        <p>Venue</p>
-                                    </div>
-                         
-                                    <div class="col-1">
-                                     <p>:</p>
-                                    </div>
-                         
-                                    <div class="col-5">
-                                     <p>{{$event->Location}}</p>
-                                    </div>
-                                 </div>
-
-                                 <br>
-                                    <div style="text-align: center;">
-                                    <a href="/events/event_details/edit_event/{{$event->Event_id}}"><button type="button" class="btn btn-primary mt-3" style="width:30%;">Edit</button></a>
-                                    </div>
-                                <br>
-                        
-                                 </div>
-                            </div>
-
-                            <div class="col-sm-1">
-                            </div>
-                          
-                            <div class="col-sm-6" style="margin-bottom:30%;">
-                                <div class="container" style="border:1px solid black;margin-bottom:10%;">
-                                    <h2>Anouncement</h2>
-                                    <br>
-                                    <p style="width:100%; height:100%; margin-bottom:5%;" readonly>{!!$event->Announcement!!}</p>
-
-                                    <br>
-                                    <div style="text-align: center;">
-                                        <a href="/events/event_details/edit_anouncement/{{$event->Event_id}}"><button type="button" class="btn btn-primary mt-3" style="width:30%;">Edit</button></a>
-                                    </div>
-                                    <br>
-                                </div>
-                            </div>
+                    </div>  
+                </div>
+                <div class="col-sm">
+                    <div class="card text-white bg-secondary mb-3" style="width: 100%; min-height: 500px;">
+                        <div class="card-header"><b>Anouncement</b></div>
+                        <div class="card-body">
                             
+                            <p class="card-text" readonly>{!!$event->Announcement!!}</p>
+                            <div style="text-align: center;">
+                                <a href="/events/event_details/edit_anouncement/{{$event->Event_id}}"><button type="button" class="btn btn-primary mt-3" style="width:30%;">Edit</button></a>
+                            </div>
                         </div>
+                    </div>
+                </div>
+                
+            </div>
                 </div>
             </main>
             

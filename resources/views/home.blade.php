@@ -1,9 +1,8 @@
 @extends('layouts.dashboard')
 
 @section('content')
-<div style="height: 50px;"></div>
-<div class="container text-center">
-    <div class="row">
+<div class="container">
+    <div class="row d-flex justify-content-center">
     <h1>My Events</h1>
 </div>
 <br>

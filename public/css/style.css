@@ -1,3 +1,12 @@
+body{
+    background-image: url("../assets/img/design/background_1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+ul.my-nav{
+    background-image: url('../assets/img/design/background_4.jpg');
+}
 a.my-btn-link{
     color: white;
 }
@@ -21,4 +30,10 @@ a.my-btn-link:hover{
 }
 .my-gamification-btn:focus{
     outline: none;
+}
+li.dropdown-item{
+    padding-bottom: 0;
+}
+li.dropdown-item:hover{
+    background: none;
 }

@@ -125,8 +125,7 @@ class EventController extends Controller
     public function show($id)
     {
         $event = Event::where('Event_id',$id)->first();
-        $selection = Member::where('Event_id',$id)
-                        ->orwhere('Member_id',auth()->user()->id)->value('Department');
+        $selection = Member::where([['Event_id',$id],['Member_id',auth()->user()->id]])->value('Department');
 
         if($selection == 'Host')
             return view("events/event_details/edit_detail", ["id"=>$id,"event"=>$event]);
