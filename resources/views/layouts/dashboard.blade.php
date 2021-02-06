@@ -20,8 +20,8 @@
   
     <title>Alpha Event</title>
   </head>
-  <body style="background-color: #d2d2f3">
-      <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <body>
+      <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="{{url('/home')}}">{{ config('app.name', 'Alpha Event') }}</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -42,33 +42,33 @@
             <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
                 <div class="dropdown">
                     <!-- user profile -->
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                    <a style="color: white;" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                         {{ Auth::user()->name }} <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-wide" role="menu">
                         <li>                            
-                            <a href="/gamification/gamification_profile" >My Profile</a>                  
+                            <a href="/gamification/gamification_profile" ><p class="text-dark">My Profile</p></p></a>                  
                         </li>
-                        <div class="dropdown-divider"></div>
+                        <div class="dropdown-divider" style="border-color: #a4a4a4"></div>
                         <li>                            
-                            <a href="/invitation/view_invitation" >Invitation</a>                  
+                            <a href="/invitation/view_invitation" ><p class="text-dark">Invitation</p></a>                  
                         </li>
-                        <div class="dropdown-divider"></div>
+                        <div class="dropdown-divider" style="border-color: #a4a4a4"></div>
                         <li>                            
-                            <a href="/gamification/challenge">Challenge</a>                  
+                            <a href="/gamification/challenge"><p class="text-dark">Challenge</p></a>                  
                         </li>
                         <li>                            
-                            <a href="/gamification/achievement" >Achievement</a>                  
+                            <a href="/gamification/achievement" ><p class="text-dark">Achievement</p></a>                  
                         </li>
                         <li>                   
-                            <a href="/gamification/ranking_dashboard" >Ranking</a>                  
+                            <a href="/gamification/ranking_dashboard" ><p class="text-dark">Ranking</p></a>                  
                         </li>
-                        <div class="dropdown-divider"></div>
+                        <div class="dropdown-divider" style="border-color: #a4a4a4"></div>
                         <li>
                             <a href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
-                                Logout
+                                <p class="text-dark">Logout</p>
                             </a>
 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

@@ -1,22 +1,22 @@
 @extends('layouts.dashboard')
 
 @section('content')
+<div style="height: 50px;"></div>
 <div class="container text-center">
     <div class="row">
-    <h1>MY EVENTS</h1>
+    <h1>My Events</h1>
 </div>
 <br>
 <div class="row align-self-center">
     <div class="col-md-4 "></div>
-    <div class="col-md-4 "><input class="form-control" id="myInput" type="text" placeholder="Search.."></div>
+    <div class="col-md-4 "><input class="form-control" id="myInput" type="text" placeholder="Search..."></div>
     
 </div>
 <br>
 <div>
-    <div class="row">
-        <div class="col-sm-10"></div>
-        <div class="col-sm-1">
-             <a href='/MyEvents/create_event'><button type="submit" class="btn btn-primary">Create</button></a>
+    <div class="row d-flex justify-content-end">
+        <div class="col-md-3">
+             <a href='/MyEvents/create_event'><button type="submit" class="btn btn-primary">Create New Event</button></a>
         </div>
     </div>
 </div>
@@ -29,10 +29,10 @@
 
 <div class="row">
 <div class="table-responsive" style="margin-bottom: 10%;">
-    <table class="table">
+    <table class="table table-dark table-hover">
         <thead>
             <tr>
-            <th scope="col">Bil</th>
+            <th scope="col">#</th>
             <th scope="col">Event Name</th>
             <th scope="col">Event Start Date</th>
             <th scope="col">Event End Date</th>
@@ -83,10 +83,10 @@
 <br>
 <div class="row">
     <div class="table-responsive" style="margin-bottom: 5%;">
-        <table class="table">
+        <table class="table table-dark table-hover">
             <thead>
                 <tr>
-                <th scope="col">Bil</th>
+                <th scope="col">#</th>
                 <th scope="col">Event Name</th>
                 <th scope="col">Event Start Date</th>
                 <th scope="col">Event End Date</th>
