@@ -3,7 +3,7 @@
   <head>
 
     <?php $id=$data['data']->Event_id; ?>
-    @extends("layouts.eventsidebar")
+    @extends("layouts.event")
     @section("content")
                 <!-- col start -->
                 <div class="col">

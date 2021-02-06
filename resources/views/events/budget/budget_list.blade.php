@@ -3,14 +3,22 @@
   <head>
     <?php  $id=$data['event']->Event_id; ?>
     
-    @extends("layouts.eventsidebar")
+    @extends("layouts.event")
     @section("content")
                 <!-- col start -->
                 <div class="col ">
                     <h1 class="mb-4 mt-3" style="font-size: 16px">{{$data['event']->Event_name}} | Budget</h1>
                     <p>Budget List</p>
+                    @if (count($data['budget']) == 0)
+                        <div class="alert alert-dismissible fade show my-alert" role="alert">
+                            No budget proposed by department yet. Proposing a budget by pressing green button. 
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    @else
                     <div class="table-responsive">
-                        <table class="table">
+                        <table class="table table-hover table-dark">
                             <thead>
                                 <tr>
                                 <th scope="col">No</th>
@@ -76,14 +84,16 @@
                             </tbody>
                         </table>
                     </div>
+                    <div class="d-flex justify-content-center">
+                        <p>Total Amount: RM {{$totalAmount}}</p>
+                    </div>
+                    @endif
                     <div class="d-flex justify-content-end">
                         <button type="button" class="btn btn-success rounded-circle">
                             <a href="/events/budget/add_budget/{{$data['event']->Event_id}}/{{$data['userid']->Department}}" class="my-btn-link">+</a>
                         </button>
                     </div>
-                    <div class="d-flex justify-content-center">
-                        <p>Total Amount: RM {{$totalAmount}}</p>
-                    </div>
+                    
                 </div>
                 <!-- col end -->
             </div>

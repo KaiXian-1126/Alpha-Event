@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <?php $id=$member['eventid']; ?>
-    @extends("layouts.eventsidebar")
+    @extends("layouts.event")
     @section("content")
                 <!-- col start -->
                 <div class="col">

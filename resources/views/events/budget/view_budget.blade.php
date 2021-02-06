@@ -2,12 +2,10 @@
 <html lang="en">
   <head>
     <?php $id=$data['user']->Event_id; ?>
-    @extends("layouts.eventsidebar")
+    @extends("layouts.event")
     @section("content")
                 <!-- col start -->
                 <div class="col ">
-                    
-                    
                     @if(empty($data['department'][0]))
                     <div class="container" style="margin-top:20%;text-align:center;">
                     <h3>Please create at least one budget and try again</h1>
@@ -16,9 +14,9 @@
                     </div>
                     @else
                     <br><br>
-                    <p>Budget List - {{$data['department'][0]->Department}} </p>
+                    <p><b>Budget List - {{$data['department'][0]->Department}} </b></p>
                     <div class="table-responsive">
-                        <table class="table" style="text-align: center;">
+                        <table class="table table-hover table-dark" style="text-align: center;">
                             <thead>
                                 <tr>
                                 <th scope="col">No</th>

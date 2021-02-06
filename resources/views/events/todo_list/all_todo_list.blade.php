@@ -1,13 +1,21 @@
-@extends("layouts.eventsidebar", ["id"=>$id])
+@extends("layouts.event", ["id"=>$id])
 @section("content")
     <div class="col-md-9"> 
                 <!-- col start -->
-            <div class="row text-center">
+            <div class="row">
                 <div class="col-md">
                     <h1 class="mb-4 mt-3" style="font-size: 16px">{{$eventname}} | Todo List</h1>
                     <p>All Todo List </p>
+                    @if (count($list) == 0)
+                    <div class="alert alert-dismissible fade show my-alert" role="alert">
+                        No task proposed by department yet.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    @else
                     <div class="table-responsive">
-                        <table class="table">
+                        <table class="table table-hover table-dark">
                             <thead>
                                 <tr>
                                 <th scope="col">No</th>
@@ -71,6 +79,7 @@
                             </tbody>
                         <table>
                     </div>
+                    @endif
                 </div>
             </div>
                 <!-- col end -->

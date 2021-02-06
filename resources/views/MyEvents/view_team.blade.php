@@ -1,4 +1,4 @@
-@extends('layouts.eventpage')
+@extends('layouts.dashboard')
 
 @section('content')
     <div class="container">
@@ -14,7 +14,7 @@
                 <h5>Event Member List</h5>
             </div>           
             <div class="table-responsive">
-                <table class="table mt-4" style="text-align: center">
+                <table class="table table-hover table-dark mt-4" style="text-align: center">
                     <thead>
                         <tr>
                             <th scope="col">No</th>
