@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <title>Top Up</title>
-    @extends("layouts.navigation_bar")
+    @extends("layouts.gamification")
     @section("content")
     <!-- First Container -->
     <div class="container">

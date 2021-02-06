@@ -2,11 +2,13 @@
 <html lang="en">
   <head>
     <title>Reward</title>
-    @extends("layouts.navigation_bar")
+    @extends("layouts.gamification")
     @section("content")
     <div class="container">
         <div class="row mt-3 mb-3">
-            <h1 style="font-size:20px;">Reward</h1>
+            <div class="col">
+                <h1 style="font-size:20px;">Reward</h1>
+            </div>
         </div>
         <div class="jumbotron" style="background-color: light-gray;">
             <div class="row d-flex justify-content-end mr-5 mb-3">

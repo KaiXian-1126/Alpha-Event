@@ -3,12 +3,14 @@
   <head>
     <title>Leaderboard</title>
 
-    @extends("layouts.navigation_bar")
+    @extends("layouts.gamification")
     @section("content")
     <!-- First Container -->
     <div class="container">
         <div class="row mt-2 mb-2">
-            <h1>Leaderboard</h1>
+            <div class="col">
+                <h1>Leaderboard</h1>
+            </div>
         </div>
         <div class="jumbotron">
             <div class="row mt-2 mb-5 d-flex justify-content-center">

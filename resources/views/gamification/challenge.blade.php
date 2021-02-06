@@ -2,21 +2,23 @@
 <html lang="en">
   <head>
     <title>Challenge</title>
-    @extends("layouts.navigation_bar")
+    @extends("layouts.gamification")
     @section("content")
     <main>
     
     <div class="container">
         <div class="row mt-3 mb-3">
-            <h1>Challenge</h1>
+            <div class="col">
+                <h1>Challenge</h1>
+            </div>
         </div>
         <div class="accordion mt-5 mb-5" id="accordionExample1">
             <div class="card">
                 <div class="card-header" id="headingOne" style="background-color:#ffffbb">
                 <h5 class="mb-0">
-                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <a class="btn btn-link collapsed" role="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                         <h2 style="font-size: 20px">Daily Challenge</h2>
-                    </button>
+                    </a>
                 </h5>
                 </div>
 
@@ -80,9 +82,9 @@
             <div class="card">
                 <div class="card-header" id="headingTwo" style="background-color:#bbffff">
                 <h5 class="mb-0">
-                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                    <a class="btn btn-link collapsed" role="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                         <h2 style="font-size: 20px">Weekly Challenge</h2>
-                    </button>
+                    </a>
                 </h5>
                 </div>
                 <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionExample2">

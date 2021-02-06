@@ -2,17 +2,22 @@
 <html lang="en">
   <head>
     <title>Achievement</title>
-    @extends("layouts.navigation_bar")
+    @extends("layouts.gamification")
     @section("content")
     
     <div class="container">
+        <div class="row mt-3 mb-3">
+            <div class="col">
+                <h1>Achievement</h1>
+            </div>
+        </div>
         <div class="accordion mt-5 mb-5" id="accordionExample1">
             <div class="card">
-                <div class="card-header" id="headingOne" style="background-color:#ffffbb">
+                <div class="card-header" id="headingOne">
                 <h5 class="mb-0">
-                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <a class="btn btn-link" role="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                         <h2 style="font-size: 20px">Achievement</h2>
-                    </button>
+                    </a>
                 </h5>
                 </div>
 

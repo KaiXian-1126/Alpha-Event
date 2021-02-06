@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <title>Gamification Profile</title>
-    @extends("layouts.navigation_bar")
+    @extends("layouts.gamification")
     @section("content")
             </div>
         </div>
