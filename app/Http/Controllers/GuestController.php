@@ -40,7 +40,7 @@ class GuestController extends Controller
         return view("/events/guests/all_guest_list", ["guests" => $guests, "id" => $eventid, "eventname" => $eventName]);
     }
     public function readGuestList($eventid){
-        $guestList = Guest::where([["Event_id", $eventid], ["Guest_list", "!=", "-"]])->distinct()->get();
+        $guestList = Guest::where([["Event_id", $eventid], ["Guest_list", "!=", "-"]])->distinct()->get(['Guest_list']);
         $event = Event::where("Event_id", $eventid)->get()->first();
         return view("/events/guests/guest_list", ["guestList" => $guestList, "event" => $event]);
     }
