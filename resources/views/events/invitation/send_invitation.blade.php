@@ -61,7 +61,7 @@
                 
                 <select name="guestList" id="guestList" style="width:200px;font-size:30px;" onchange="oncheck()">
                     <option disabled selected>--- SELECT ---</option>
-                    @foreach($data['guest_id'] as $key =>$value)
+                    @foreach($data['guestList'] as $key =>$value)
                     <option value="{{$value->Guest_list}}">{{$value->Guest_list}}</option>
                     @endforeach
                 </select>
