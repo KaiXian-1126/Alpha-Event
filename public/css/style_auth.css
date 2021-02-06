@@ -1,0 +1,36 @@
+body{
+    background-image: url("../assets/img/design/background_6.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+a.my-btn-link{
+    color: white;
+}
+a.my-btn-link:hover{
+    text-decoration: none;
+}
+.my-sidebar-toggle{
+    color: grey;
+}
+.my-sidebar-toggle:link, .my-sidebar-toggle:visited, .my-sidebar-toggle:hover, .my-sidebar-toggle:active, .my-sidebar-toggle:focus{
+    text-decoration: none;
+    color: grey;
+}
+.my-gamification-btn{
+    background-color: transparent;
+    border: 0px;
+    color:blue;
+}
+.my-gamification-btn:hover{
+    text-decoration: underline;
+}
+.my-gamification-btn:focus{
+    outline: none;
+}
+li.dropdown-item{
+    padding-bottom: 0;
+}
+li.dropdown-item:hover{
+    background: none;
+}

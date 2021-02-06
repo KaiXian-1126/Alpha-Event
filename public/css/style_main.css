@@ -1,0 +1,96 @@
+body{
+    background-image: url("../assets/img/design/background_2.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+ul{
+    background-image: url('../assets/img/design/background_4.jpg');
+    
+}
+.jumbotron{
+    background-color: rgba(255, 255, 255, 0.5);
+}
+li.dropdown-item{
+    padding-bottom: 0;
+}
+li.dropdown-item:hover{
+    background: none;
+}
+.my-alert{
+    background-color: rgba(0, 110, 255, 0.493);
+}
+.profile-ava img{
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border: 2px solid #688a7e;
+    display: inline-block;
+}
+
+.dropdown-menu.dropdown-menu-wide {
+    padding-left: 20px;
+  }
+
+.sidebar{
+    height: 100%;
+    position: fixed;
+}
+
+span.verticalline{
+    border-left: 2px solid black;
+    padding-right: 0.3em;
+}
+
+.eventheader{
+    margin-top: 3rem;
+}
+
+@media only screen and (max-width: 735px) {  
+   h5, h3 {font-size:1rem;} /*1rem = 16px*/
+   .eventheader {margin-top: 1.5rem ;}
+}
+
+.mybutton{
+    width: 70px;
+}
+
+.addmemberform{
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+}
+
+.mainpageheader{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+.eventimage{
+    overflow: hidden;
+    
+    vertical-align: middle;
+    align-items: center;
+    padding: 10px 0;
+}
+.registeredborder{
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: white;
+}
+.registeredbutton{
+    width: 100%;
+    padding: 5px 0;
+    background-color: #76D2B0;
+    margin-bottom: 20px;
+}
+.welcomeScreen{
+    font-size: 1.5rem;
+    font-family: 'Times New Roman', Times, serif;
+}
+.welcomeScreenButton{
+    height: 3.0rem;
+     font-size:1.5rem;
+     margin:0 2rem;
+}
+
+.welcomeScreenText{
+    font-size: 2.5rem;
+} 

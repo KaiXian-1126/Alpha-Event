@@ -1,0 +1,51 @@
+body{
+    background-image: linear-gradient(to bottom, #ADD8E6, #ffffff);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+ul.my-nav{
+    background-image: url('../assets/img/design/background_4.jpg');
+}
+div.card{
+    background-color: rgba(255, 255, 255, 0.5);
+}
+div.card-header{
+    background-color: rgba(93, 221, 193, 0.8)
+}
+h2{
+    color: black;
+}
+.jumbotron{
+    background-color: rgba(255, 255, 255, 0.5);
+}
+a.my-btn-link{
+    color: white;
+}
+a.my-btn-link:hover{
+    text-decoration: none;
+}
+.my-sidebar-toggle{
+    color: grey;
+}
+.my-sidebar-toggle:link, .my-sidebar-toggle:visited, .my-sidebar-toggle:hover, .my-sidebar-toggle:active, .my-sidebar-toggle:focus{
+    text-decoration: none;
+    color: grey;
+}
+.my-gamification-btn{
+    background-color: transparent;
+    border: 0px;
+    color:blue;
+}
+.my-gamification-btn:hover{
+    text-decoration: underline;
+}
+.my-gamification-btn:focus{
+    outline: none;
+}
+li.dropdown-item{
+    padding-bottom: 0;
+}
+li.dropdown-item:hover{
+    background: none;
+}
