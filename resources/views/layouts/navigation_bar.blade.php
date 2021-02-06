@@ -10,9 +10,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     
     <!-- public css -->
-    <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}" />
+    <link rel="stylesheet" href="{{ URL::asset('css/style_general.css') }}" />
   </head>
-  <body style="background-color: #d2d2f3">
+  <body>
   <nav class="navbar navbar-expand-md bg-dark navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="{{url('/home')}}">{{ config('app.name', 'Alpha Event') }}</a>

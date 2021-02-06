@@ -1,4 +1,4 @@
-@extends("layouts.eventsidebar", ["id"=>$id])
+@extends("layouts.event", ["id"=>$id])
 @section("content")
     <div class="col-md-9">
                 <!-- col start -->
@@ -9,13 +9,21 @@
                         <form class="form-inline d-flex mb-4">
                             <div class="col-md-4 "><input class="form-control" id="myInput" type="text" placeholder="Search.."></div>
                         </form>
-                        <div class="row">
+                        <div class="row mb-3">
                             <div class="col d-flex justify-content-end">
                                 <button type="button" class="btn btn-info"><a class="my-btn-link" href="/events/guests/add_guest/{{$id}}">Add Guest</a></button>
                             </div>
                         </div>
+                    @if (count($guests) == 0)
+                    <div class="alert alert-dismissible fade show my-alert" role="alert">
+                        No guest found.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    @else
                     <div class="table-responsive">
-                        <table class="table">
+                        <table class="table table-hover table-dark">
                             <thead>
                                 <tr>
                                 <th scope="col">No</th>
@@ -44,6 +52,7 @@
                             </tbody>
                         </table>
                     </div>
+                    @endif
                 </div>
             </div>
         </div>

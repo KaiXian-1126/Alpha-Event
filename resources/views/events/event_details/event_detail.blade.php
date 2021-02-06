@@ -47,7 +47,7 @@
         </style>
     </head>
 
-    @extends("layouts.eventsidebar", ["id"=>$id])
+    @extends("layouts.event", ["id"=>$id])
     @section("content")
     <!-- Main Content -->
     <div class="col-md-9"> 

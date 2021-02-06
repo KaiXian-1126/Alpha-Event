@@ -1,4 +1,4 @@
-@extends("layouts.eventsidebar", ["id" => $event->Event_id])
+@extends("layouts.event", ["id" => $event->Event_id])
     @section("content")
     <div class="col-md-9">
         <div class="row">        
@@ -15,9 +15,16 @@
                         </div>
                     </div>
                 
-            
+            @if (count($guestList) == 0)
+            <div class="alert alert-dismissible fade show my-alert" role="alert">
+                No guest list found.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            @else
                 <div class="table-responsive">
-                    <table class="table">
+                    <table class="table table-hover table-dark">
                         <thead>
                             <tr>
                             <th scope="col">No</th>
@@ -47,6 +54,7 @@
                         </tbody>
                     </table>
                 </div>
+            @endif
             </div>
         </div>
     </div>

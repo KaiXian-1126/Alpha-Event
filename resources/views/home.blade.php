@@ -41,37 +41,46 @@
             <th scope="col" >Delete</th>
             </tr>
         </thead>
-        <tbody id="myTable">
-            @php
-                $counter = 1;
-            @endphp
-            @foreach($upcomingEvents as $e)   
-            <tr>
-             
-                <th scope="row">@php echo $counter++ @endphp</th>
-                <td>{{$e->Event_name}}</td></a>
-                <td>{{$e->Event_startDate}}</td>
-                <td>{{$e->Event_EndDate}}</td>
-                <td>{{$e->Location}}</td>
+        @if(count($upcomingEvents)==0)
+            <div class="alert alert-dismissible fade show my-alert" role="alert">
+                No upcoming event found.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @else
+            <tbody id="myTable">
+                @php
+                    $counter = 1;
+                @endphp
+                @foreach($upcomingEvents as $e)   
+                <tr>
                 
-                @if($e->Department=='Host')
-                    <td  scope="row"><a href="/MyEvents/manage_team/{{$e->Event_id}}"><button type="submit" class="btn btn-primary">Manage Team</button></a></td>    
-                @else
-                    <td  scope="row"><a href="/MyEvents/view_team/{{$e->Event_id}}"><button type="submit" class="btn btn-primary">View Team</button></a></td>
-                @endif
+                    <th scope="row">@php echo $counter++ @endphp</th>
+                    <td>{{$e->Event_name}}</td></a>
+                    <td>{{$e->Event_startDate}}</td>
+                    <td>{{$e->Event_EndDate}}</td>
+                    <td>{{$e->Location}}</td>
+                    
+                    @if($e->Department=='Host')
+                        <td  scope="row"><a href="/MyEvents/manage_team/{{$e->Event_id}}"><button type="submit" class="btn btn-primary">Manage Team</button></a></td>    
+                    @else
+                        <td  scope="row"><a href="/MyEvents/view_team/{{$e->Event_id}}"><button type="submit" class="btn btn-primary">View Team</button></a></td>
+                    @endif
+                    
+                    @if ($e->Department=='Host')
+                        <td><a href="/events/event_details/edit_detail/{{$e->Event_id}}"><button type="button" class="btn btn-success">View</button></a></td>
+                    @else
+                        <td><a href="/events/event_details/event_detail/{{$e->Event_id}}"><button type="button" class="btn btn-success">View</button></a></td>
+                    @endif   
+                    
+                    <td><a href="/home/delete_event/{{$e->Event_id}}"><button type="button" class="btn btn-danger">Delete</button></a></td> 
                 
-                @if ($e->Department=='Host')
-                    <td><a href="/events/event_details/edit_detail/{{$e->Event_id}}"><button type="button" class="btn btn-success">View</button></a></td>
-                @else
-                    <td><a href="/events/event_details/event_detail/{{$e->Event_id}}"><button type="button" class="btn btn-success">View</button></a></td>
-                @endif   
-                
-                <td><a href="/home/delete_event/{{$e->Event_id}}"><button type="button" class="btn btn-danger">Delete</button></a></td> 
+                </tr>
             
-            </tr>
-        
-        @endforeach
-        </tbody>
+            @endforeach
+            </tbody>
+        @endif
     </table>
 </div>
 </div>
@@ -95,6 +104,14 @@
                 <th scope="col" >Delete</th>
                 </tr>
             </thead>
+        @if(count($pastEvents) == 0)
+            <div class="alert alert-dismissible fade show my-alert" role="alert">
+                No past event found.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @else
             <tbody id="myTable">
             @php
                 $counter = 1;
@@ -116,6 +133,7 @@
         
             @endforeach
             </tbody>
+        @endif
         </table>
     </div>
     </div>

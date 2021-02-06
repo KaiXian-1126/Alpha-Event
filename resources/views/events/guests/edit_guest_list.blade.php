@@ -1,4 +1,4 @@
-@extends("layouts.eventsidebar", ["id"=>$eventid])
+@extends("layouts.event", ["id"=>$eventid])
     @section("content")
     <div class="col-md-9"> 
         <div class="row" >
@@ -21,7 +21,7 @@
                         <input name="guest-list-name" type="text" class="form-control" value="{{$guests[0]->Guest_list}}" aria-label="Listname" aria-describedby="basic-addon1" required>
                     </div>
                     <div class="table-responsive">
-                        <table class="table">
+                        <table class="table table-hover table-dark">
                             <thead>
                                 <tr>
                                 <th scope="col">No</th>

@@ -1,4 +1,4 @@
-@extends("layouts.eventsidebar", ["id"=>$id])
+@extends("layouts.event", ["id"=>$id])
 @section("content")
     <div class="col-md-9">
         <div class="row" >
@@ -19,8 +19,16 @@
                         </div>
                         <input name="guest-list-name" type="text" class="form-control" placeholder="Guest List Name" aria-label="Listname" aria-describedby="basic-addon1" required>
                     </div>
+                    @if (count($guests) == 0)
+                    <div class="alert alert-dismissible fade show my-alert" role="alert">
+                        No guest found. Please add guest before create a guest list.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    @else
                     <div class="table-responsive">
-                        <table class="table">
+                        <table class="table table-hover table-dark">
                             <thead>
                                 <tr>
                                 <th scope="col">No</th>
@@ -50,6 +58,7 @@
                             </tbody>
                         </table>
                     </div>
+                    @endif
                     <div class="d-flex justify-content-end">
                         <button type="submit" class="btn btn-primary mr-2">Create List</button>
                         <button type="button" class="btn btn-danger">
