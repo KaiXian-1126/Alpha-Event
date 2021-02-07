@@ -1,4 +1,4 @@
-@extends("layouts.eventsidebar", ["id"=>$id])
+@extends("layouts.event", ["id"=>$id])
     @section("content")
     <div class="col-md-9"> 
                 <!-- col start -->
@@ -66,6 +66,5 @@
             </div>
       
                 <!-- col end -->
-    </main> 
+        </div>
    @endsection  
-</html>

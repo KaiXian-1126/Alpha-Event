@@ -1,13 +1,8 @@
-<!doctype html>
-<html lang="en">
-    <head>
-    </head>
-
     @extends("layouts.event" , ["id"=>$id])
     @section("content")
     <!-- Main Content -->
     <div class="col-md-9"> 
-            <div class="row" >
+        <div class="row" >
                 <div class="col-md">
                     <!-- Event title -->
                     <div class="jumbotron jumbotron-fluid" style="opacity: 0.9">
@@ -55,11 +50,9 @@
                         </div>
                     </div>
                 </div>
-                
             </div>
-                </div>
-            </main>
-            
-            
-            @endsection
-        </html>
+        </div>
+    </div>
+
+@endsection
+ 

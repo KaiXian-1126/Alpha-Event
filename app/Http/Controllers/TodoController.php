@@ -108,10 +108,8 @@ class TodoController extends Controller
     public function show($id)
     {
         $data=Todo::where('Event_id', $id)->get();
-        $role = "Executive";
         $eventname = Event::where('Event_id',$id)->value('Event_name');
         $list = Member::where('Event_id','=',$id)
-                        ->where('Role','=',$role)
                         ->get();
         
         return view('events/todo_list/all_todo_list',compact('list','id','data','eventname'));

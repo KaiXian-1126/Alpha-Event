@@ -13,6 +13,9 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+        <script src="https://kit.fontawesome.com/d9785b943a.js"></script>
+        <link rel="stylesheet" href="{{ URL::asset('css/sidebar.css') }}">
+
         <!-- -external css -->
         <link rel="stylesheet" href="{{ URL::asset('css/style_event.css') }}" />
         
@@ -80,15 +83,31 @@
                 @endif
             </div>
         </nav>
-        <div class="mt-5 mb-5"></div>
+        <div class="mt-5 mb-5" ></div>
         <!-- End of header -->
         <!-- Start of sidebar -->
         <main>
             <div class="container-fluid">
-                <div class="row">
+                <div class="row mt-3">
                     <div class="col-md-3">
-                        <div class="card" style="width: 100%;">
-                            <ul class="list-group list-group-flush" >
+                        <nav class="sidebar d-none d-xl-block mt-2">
+                            <ul>
+                                <li><a href="/events/event_details/event_detail/{{$id}}">Event</a></li>
+                                <li><a href="#" class="feat-btn">Guest
+                                    <span class="fas fa-caret-down first"></span>
+                                    </a>
+                                    <ul class="feat-show">
+                                        <li><a href="/events/guests/all_guest_list/{{$id}}">All Guest List</a></li>
+                                        <li><a href="/events/guests/guest_list/{{$id}}">Guest List</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="/events/todo_list/all_todo_list/{{$id}}">To-do List</a></li>
+                                <li><a href="/events/budget/budget_list/{{$id}}">Budget</a></li>
+                                <li><a href="/events/invitation/edit_invitation/{{$id}}">Create Invitation</a></li>
+                            </ul>
+                        </nav>
+                        <nav id="collapsibleNavbar" class="mt-5 mb-4">
+                            <ul class="list-group list-group-flush d-block d-sm-none"  >
                                 <li class="list-group-item list-group-item-action"><a href="/events/event_details/event_detail/{{$id}}">Event</a></li>
                                 <li class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#collapseOne" 
                                     aria-expanded="true" aria-controls="collapseOne">  <a href="#">Guests</a>
@@ -103,14 +122,12 @@
                                                 <a href="/events/guests/guest_list/{{$id}}">Guest List</a>
                                             </li>
                                         </div>
-                                        </div>
-                                    
-                                    
+                                        </div>                       
                                 <li class="list-group-item list-group-item-action"><a href="/events/todo_list/all_todo_list/{{$id}}"> To-do List<a>
                                 <li class="list-group-item list-group-item-action"><a href="/events/budget/budget_list/{{$id}}">Budget</a></li>
                                 <li class="list-group-item list-group-item-action"><a href="/events/invitation/edit_invitation/{{$id}}">Create invitation card</a></li>  
                             </ul>
-                        </div>
+                        </nav>
                     </div>
                     
                     @yield('content')
@@ -121,6 +138,14 @@
             <script src="//cdn.ckeditor.com/4.15.1/basic/ckeditor.js"></script>
             <script>
             CKEDITOR.replace( 'summary-ckeditor' );
+            $('.feat-btn').click(function(){
+               $('nav ul .feat-show').toggleClass("show");
+               $('nav ul .first').toggleClass("rotate");
+           });
+           $('nav ul li').click(function(){
+               $('nav ul li ul li').removeClass("active");
+               $(this).addClass("active").siblings().removeClass("active");
+           });
             </script>
     </body>
 </html>

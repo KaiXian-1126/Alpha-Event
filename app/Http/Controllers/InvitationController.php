@@ -81,6 +81,7 @@ class InvitationController extends Controller
         $data['guest_id']=guest::where('Event_id',$eid)->get();
         $data['event']=event::where('Event_id',$eid)->first();
         $data['user']=user::all();
+        $data['guestList'] = guest::where([["Event_id", $eid], ["Guest_list", "!=", "-"]])->distinct()->get(['Guest_list']);
 
         
         
