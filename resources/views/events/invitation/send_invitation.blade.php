@@ -1,4 +1,4 @@
-@extends("layouts.eventsidebar" , ["id"=>$data['id']->Event_id])
+@extends("layouts.event" , ["id"=>$data['id']->Event_id])
 @section("content")
 
 <!-- Main Content -->
@@ -10,16 +10,20 @@
             <div class="col-sm-8" >
                 <div class="container" style= "padding-right:10%; ">
                     <br><br>
-                <h1 style="font-size: 30px">{{$data['event']->Event_name}}</h1>
+                    <h1 style="text-align:center;">{{$data['event']->Event_name}}</h1>
                 <br><br>
-                <div class="container" style="border:1px solid black;margin-bottom:10%;" >
+                <div class="container" style="background-color:rgba(142, 192, 248, 0.9);margin-bottom:10%;border-radius:2%;" >
                     <br><br>
-                    <div class="container" style="border:1px solid black; width:95%;height:200px;padding:0%;">
+                    <div class="container" style="width:95%;height:200px;padding:0%;">
                         <p><img src="{{asset('image')}}/{{$data['id']->Image}}" style="width: 100%;height:100%" /></p>
                     </div>
                     <br>
                     <br>
-                    <p>{!!$data['id']->Text!!}</p>
+                    <div class="container-fluid" style="background-color:rgba(204, 242, 248, 0.4);">
+                        <br>
+                        <p>{!!$data['id']->Text!!}</p>
+                        <br>
+                    </div>
                     <br>
                     </div>
                     <br>
@@ -29,7 +33,7 @@
             </div>
             
             <div class="col-sm-3" style="margin-bottom:10%;">
-                <div class="container" style="margin-top:30%;border:1px solid black;padding-top:10%;padding-bottom:10%;text-align:center;">
+                <div class="container" style="margin-top:30%;padding-top:10%;padding-bottom:10%;text-align:center;background-color:rgba(107, 207, 223, 0.9);">
                 <h1 style="font-size: 16px;text-decoration:underline;">Send invitation</h1>
                 <br><br>
                 <p>Send to</p>

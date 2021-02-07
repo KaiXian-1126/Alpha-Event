@@ -1,14 +1,14 @@
-@extends("layouts.eventsidebar",  ["id"=>$data['event']->Event_id])
+@extends("layouts.event",  ["id"=>$data['event']->Event_id])
 @section("content")
 
 <!-- Main Content -->
     
 <div class="col-md-9"> 
-    <div class="container" style="text-align:center;">
+    <div class="container" style="text-align:center;margin-bottom:10%;">
         <div class="row">
             <!-- col start -->
             
-            <div class="col-sm-9" >
+            <div class="col-sm-12" >
                 @if(empty($data['iid'][0]))
                 <div class="container" style="text-align: center;margin-top:30%">
                     <h1>You haven't create the card yet</h1>
@@ -20,15 +20,17 @@
 
                 @else
                 <div class="table-responsive mt-3">
-                    <h2>{{$data['event']->Event_name}}</h2>
                     <br><br>
-               
-                    <button type="button" class="btn btn-primary"><a href="/events/invitation/edit_invitation/{{$data['iid'][0]->Event_id}}" style="color:white;">Back</a></button>
+                    <h1>{{$data['event']->Event_name}}</h1>
                     <br><br>
-                <table class="table">
-                    <tr style="background-color: rgb(188, 233, 188);">
+                    <div style="text-align: right;">
+                    <button type="button" class="btn btn-primary" ><a href="/events/invitation/edit_invitation/{{$data['iid'][0]->Event_id}}" style="color:white;">Back</a></button>
+                    <br><br>
+                    </div>
+                <table class="table" style="text-align: center;">
+                    <tr style="background-color:rgb(160, 227, 236,0.7);">
                     
-                        <th><h3 style="text-decoration:underline;color:rgb(1, 63, 1)">Card List</h3></th>
+                        <th><h3 style="text-decoration:underline;color:rgba(43, 45, 155, 0.8)">Card List</h3></th>
                 
                     </tr>
                         @foreach($data['iid'] as $key =>$id)
