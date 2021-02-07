@@ -50,6 +50,8 @@
         <div>
       </div>
     </div>
-  </div>           
-    @endsection
-</html>
+  </div> 
+      </div>
+    </div>
+  </div>
+  @endsection

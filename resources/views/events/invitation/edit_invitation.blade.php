@@ -44,7 +44,10 @@
                         <p><label for="file" class="btn btn-primary">Upload Image</label></p>
                     </div>
                     <br><br>
-                    <textarea name="text" id='summary-ckeditor' class="form-control"required> </textarea>
+                    <div style="width:80%; display:block; margin:auto;">
+                        <textarea name="text" id='summary-ckeditor' class="form-control"required> </textarea>
+                    </div>
+                    
                      
                     <br>
                     <br>
@@ -66,11 +69,6 @@
         </div>
     </div>
 </div>           
-        
-        <!-- col end -->
-@endsection
-
-
 <script>
     var loadFile = function(event) {
 	var image = document.getElementById('output');
@@ -82,4 +80,8 @@
 <script src="//cdn.ckeditor.com/4.15.1/basic/ckeditor.js"></script>
                 <script>
                 CKEDITOR.replace( 'summary-ckeditor' );
-                </script>
+                </script>   
+        <!-- col end -->
+@endsection
+
+

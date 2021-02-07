@@ -1,23 +1,21 @@
 @extends("layouts.event", ["id"=>$id])
 @section("content")
     <div class="col-md-9"> 
-                <!-- col start -->
-            <div class="row">
-                <div class="col-md">
-                    <h1 class="mb-4 mt-3" style="font-size: 16px">{{$eventname}} | Todo List</h1>
-                    <p>All Todo List </p>
-                    @if (count($list) == 0)
-                    <div class="alert alert-dismissible fade show my-alert" role="alert">
-                        No task proposed by department yet.
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    @else
-                    <div class="table-responsive">
-                        <table class="table table-hover table-dark">
-                            <thead>
-                                <tr>
+         <!-- col start -->
+        <h1 class="mb-4 mt-3" style="font-size: 16px">{{$eventname}} | Todo List</h1>
+            <p>All Todo List </p>
+                @if (count($list) == 0)
+                <div class="alert alert-dismissible fade show my-alert" role="alert">
+                    No task proposed by department yet.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                @else
+                <div class="table-responsive">
+                    <table class="table table-hover table-dark">
+                        <thead>
+                            <tr>
                                 <th scope="col">No</th>
                                 <th scope="col">Department</th>
                                 <th scope="col">Members</th>
@@ -25,10 +23,10 @@
                                 <th scope="col">In Progress</th>
                                 <th scope="col">Completed</th>
                                 <th scope="col"><div class="text-center">Action</div></th>
-                                </tr>
-                            </thead>
+                            </tr>
+                        </thead>
 
-                            <?php
+                        <?php
                             $department=array();
                             foreach ($list as $item)
                             if (in_array($item->Department, $department)==false) {
@@ -64,8 +62,8 @@
                                 @endforeach
                         <?php } ?>
 
-                            <tbody> 
-                        <?php  for($count=0;$count<count($department);$count++)  { ?>                             
+                        <tbody> 
+                            <?php  for($count=0;$count<count($department);$count++)  { ?>                             
                                 <tr>
                                     <td>{{$count+1}}</td>
                                     <td>{{$department[$count]}}</td>
@@ -75,15 +73,11 @@
                                     <td>{{$completed[$count]}}</td>
                                     <td><a href="/events/todo_list/todo_list/{{$id}}/{{$department[$count]}}"><button class="btn btn-success">View</button></a></td>
                                 </tr>
-                        <?php } ?>
-                            </tbody>
-                        <table>
-                    </div>
-                    @endif
+                            <?php } ?>
+                        </tbody>
+                    </table>
                 </div>
-            </div>
-                <!-- col end -->
-
-    </main>
+                @endif
+    </div>
     @endsection  
-</html>
+
