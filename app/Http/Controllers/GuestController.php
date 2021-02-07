@@ -65,8 +65,8 @@ class GuestController extends Controller
                 $guest = Guest::where([["Event_id", $eventid], ["Guest_id", $guestid]])->first();
                 $guest->Guest_list = $guestListName;
                 $guest->save();
-                return redirect("events/guests/add_guest_list/$eventid");
             }
+            return redirect("events/guests/add_guest_list/$eventid");
         }
     }
     public function deleteGuestList($eventid, $guestlistname){
@@ -88,7 +88,6 @@ class GuestController extends Controller
         $eventid = request('event-id');
         $guestidList = request('id');
         $guestList = Guest::where([["Guest_list", request('original-guest-list-name')],["Event_id", $eventid]])->get();
-        $validate = true;
         if($guestidList == null){
             foreach($guestList as $guest){
                 $guest->Guest_list = "-";
@@ -97,20 +96,18 @@ class GuestController extends Controller
             return redirect("events/guests/guest_list/$eventid");
         }else{
             $count = 0;
-            foreach($guestidList as $guestid){
-                foreach($guestList as $e){
-                    if($guestid == $e->Guest_id){
+            foreach($guestList as $e){
+                for($i = 0 ; $i < count($guestidList) ; $i++){
+                    if($guestidList[$i] == $e->Guest_id){
                         $e->Guest_list = $guestListName;
                         $e->save();
-                        $validate = false;
+                        break;
                     }
-                    $count++;
-                    if(($count == sizeof($guestList)) && $validate ){
+                    if($i+1 == count($guestidList) ){
                         $e->Guest_list = "-";
                         $e->save();
                     }
                 }
-                $validate = true;
             }
             return redirect("events/guests/guest_list/$eventid");
         }
