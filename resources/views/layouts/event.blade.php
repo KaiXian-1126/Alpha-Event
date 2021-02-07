@@ -106,28 +106,28 @@
                                 <li><a href="/events/invitation/edit_invitation/{{$id}}">Create Invitation</a></li>
                             </ul>
                         </nav>
-                        <nav id="collapsibleNavbar" class="mt-5 mb-4">
-                        <ul class="list-group list-group-flush d-block d-sm-none"  >
-                            <li class="list-group-item list-group-item-action"><a href="/events/event_details/event_detail/{{$id}}">Event</a></li>
-                            <li class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#collapseOne" 
-                                aria-expanded="true" aria-controls="collapseOne">  <a href="#">Guests</a>
-                            </li>
-                                    <!-- Here List of Guests -->
-                                    <div class="givestyle" style="padding-left: 30px;">
-                                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne">
-                                        <li class="list-group-item list-group-item-action border-0" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                            <a href="/events/guests/all_guest_list/{{$id}}">All Guests</a>
-                                        </li>
-                                        <li class="list-group-item list-group-item-action border-0" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                            <a href="/events/guests/guest_list/{{$id}}">Guest List</a>
-                                        </li>
-                                    </div>
-                                    </div>                       
-                            <li class="list-group-item list-group-item-action"><a href="/events/todo_list/all_todo_list/{{$id}}"> To-do List<a>
-                            <li class="list-group-item list-group-item-action"><a href="/events/budget/budget_list/{{$id}}">Budget</a></li>
-                            <li class="list-group-item list-group-item-action"><a href="/events/invitation/edit_invitation/{{$id}}">Create invitation card</a></li>  
-                        </ul>
-                    </nav>
+                        <nav id="collapsibleNavbar" class="mt-5 mb-4" style="display: none;">
+                            <ul class="list-group list-group-flush d-block d-sm-none"  >
+                                <li class="list-group-item list-group-item-action"><a href="/events/event_details/event_detail/{{$id}}">Event</a></li>
+                                <li class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#collapseOne" 
+                                    aria-expanded="true" aria-controls="collapseOne">  <a href="#">Guests</a>
+                                </li>
+                                        <!-- Here List of Guests -->
+                                        <div class="givestyle" style="padding-left: 30px;">
+                                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne">
+                                            <li class="list-group-item list-group-item-action border-0" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                <a href="/events/guests/all_guest_list/{{$id}}">All Guests</a>
+                                            </li>
+                                            <li class="list-group-item list-group-item-action border-0" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                <a href="/events/guests/guest_list/{{$id}}">Guest List</a>
+                                            </li>
+                                        </div>
+                                        </div>                       
+                                <li class="list-group-item list-group-item-action"><a href="/events/todo_list/all_todo_list/{{$id}}"> To-do List<a>
+                                <li class="list-group-item list-group-item-action"><a href="/events/budget/budget_list/{{$id}}">Budget</a></li>
+                                <li class="list-group-item list-group-item-action"><a href="/events/invitation/edit_invitation/{{$id}}">Create invitation card</a></li>  
+                            </ul>
+                        </nav>
                     </div>
                     
                     @yield('content')
@@ -145,7 +145,7 @@
            $('nav ul li').click(function(){
                $('nav ul li ul li').removeClass("active");
                $(this).addClass("active").siblings().removeClass("active");
-           }); 
+           });
             </script>
     </body>
 </html>
