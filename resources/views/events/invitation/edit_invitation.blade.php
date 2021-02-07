@@ -44,8 +44,9 @@
                         <p><label for="file" class="btn btn-primary">Upload Image</label></p>
                     </div>
                     <br><br>
-                    <textarea name="text" id='summary-ckeditor' class="form-control"required> </textarea>
-                     
+                    <div style="width:80%;display:block;margin:auto; ">
+                    <textarea name="text" id='summary-ckeditor' class="form-control" required> </textarea>
+                    </div>
                     <br>
                     <br>
                     <div class="col" style="text-align:center;">
