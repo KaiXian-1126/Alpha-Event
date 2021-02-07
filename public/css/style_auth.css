@@ -1,5 +1,5 @@
 body{
-    background-image: url("../assets/img/design/background_6.jpg");
+    background-image: linear-gradient(to bottom, #2bafe4, #ffffff);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
