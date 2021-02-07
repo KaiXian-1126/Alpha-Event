@@ -44,11 +44,17 @@
                         <p><label for="file" class="btn btn-primary">Upload Image</label></p>
                     </div>
                     <br><br>
+<<<<<<< HEAD
                     <div style="width:80%; display:block; margin:auto;">
                         <textarea name="text" id='summary-ckeditor' class="form-control"required> </textarea>
                     </div>
                     
                      
+=======
+                    <div style="width:80%;display:block;margin:auto; ">
+                    <textarea name="text" id='summary-ckeditor' class="form-control" required> </textarea>
+                    </div>
+>>>>>>> 766b02f25e0986aea9884a3c9adf1eb0fb0fed6f
                     <br>
                     <br>
                     <div class="col" style="text-align:center;">
