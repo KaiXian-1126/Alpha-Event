@@ -37,7 +37,7 @@
                             @endphp
                             @foreach($guests as $guest)
                                 <tr>
-                                <th scope="row">@php echo $counter @endphp</th>
+                                <th scope="row">@php echo $counter++ @endphp</th>
                                 <td>{{$guest->name}}</td>
                                 <td>{{$guest->email}}</td>
                                 <td>{{$guest->phone}}</td>
