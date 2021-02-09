@@ -125,7 +125,7 @@
                 <td>{{$e->Event_startDate}}</td>
                 <td>{{$e->Event_EndDate}}</td>
                 <td>{{$e->Location}}</td>
-                <td  scope="row"><a href="/MyEvents/view_team/{{$e->Event_id}}"><button type="submit" class="btn btn-primary">Manage Team</button></a></td>
+                <td  scope="row"><a href="/MyEvents/view_team/{{$e->Event_id}}"><button type="submit" class="btn btn-primary">View Team</button></a></td>
                 <td><a href="/events/event_details/event_detail/{{$e->Event_id}}"><button type="button" class="btn btn-success">View</button> </a></td>   
                 <td> <a href="/home/delete_event/{{$e->Event_id}}"><button type="button" class="btn btn-danger">Delete</button></a>
             
